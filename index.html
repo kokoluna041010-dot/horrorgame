@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HORROR GAME — Official Website</title>
+
+<style>
+:root{
+  --bg:#090b0d;
+  --panel:#121619;
+  --line:#333a3e;
+  --text:#f4f4f4;
+  --muted:#a8afb2;
+  --red:#a8202b
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+
+body{
+  margin:0;
+  background:radial-gradient(ellipse at top,#202427 0,#090b0d 58%);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  letter-spacing:.02em
+}
+
+header{
+  min-height:88vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:48px 20px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--line)
+}
+
+header:before,header:after{
+  content:"";
+  position:absolute;
+  width:360px;
+  height:360px;
+  border:1px solid #ffffff0b;
+  transform:rotate(45deg);
+  pointer-events:none
+}
+
+header:before{left:-240px;top:20px}
+header:after{right:-240px;bottom:0}
+
+.kicker{
+  font-size:.76rem;
+  letter-spacing:.42em;
+  color:#c4c8ca;
+  text-transform:uppercase
+}
+
+h1{
+  font-size:clamp(3.2rem,12vw,8.5rem);
+  line-height:.9;
+  margin:26px 0 18px;
+  letter-spacing:-.07em;
+  text-shadow:0 0 30px #a8202b38
+}
+
+h1 span{color:#b72c37}
+
+.subtitle{
+  color:#c1c5c7;
+  max-width:540px;
+  line-height:1.7
+}
+
+nav{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:30px
+}
+
+nav a{
+  color:#f2f2f2;
+  text-decoration:none;
+  font-size:.75rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  border-bottom:1px solid #555;
+  padding:10px 0
+}
+
+nav a:hover{
+  color:#ff727c;
+  border-color:#ff727c
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:76px 22px
+}
+
+.section-top{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:28px
+}
+
+.eyebrow{
+  color:#e05b65;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  font-size:.7rem
+}
+
+h2{
+  font-size:clamp(2rem,5vw,3.2rem);
+  margin:8px 0 0;
+  letter-spacing:-.05em
+}
+
+h3{margin:0}
+
+.count{
+  color:var(--muted);
+  font-size:.8rem
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
+  gap:14px
+}
+
+.member{
+  background:linear-gradient(145deg,#171c1f,#0e1113);
+  border:1px solid #333a3e;
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s,border-color .2s
+}
+
+.member:hover{
+  transform:translateY(-4px);
+  border-color:#9b3941
+}
+
+.member:after{
+  content:attr(data-num);
+  position:absolute;
+  right:12px;
+  top:5px;
+  font-size:4.8rem;
+  font-weight:800;
+  color:#ffffff08;
+  line-height:1
+}
+
+.member-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:17px;
+  margin-bottom:16px
+}
+
+.member h3{
+  font-size:1.5rem;
+  letter-spacing:.02em
+}
+
+.emoji{font-size:1.8rem}
+
+.tag{
+  font-size:.66rem;
+  color:#f19aa0;
+  letter-spacing:.18em;
+  text-transform:uppercase
+}
+
+dl{
+  margin:0;
+  display:grid;
+  grid-template-columns:82px 1fr;
+  gap:12px 10px;
+  font-size:.9rem;
+  line-height:1.45
+}
+
+dt{color:#aab1b4}
+dd{margin:0;color:#f2f2f2}
+
+.color-dot{
+  display:inline-block;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  margin-right:7px;
+  box-shadow:0 0 10px currentColor
+}
+
+.about{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:#ffffff03
+}
+
+.about-inner{
+  max-width:760px;
+  margin:auto;
+  text-align:center
+}
+
+.about p{
+  color:#b8bec1;
+  line-height:1.9
+}
+
+.warning{
+  font-size:.78rem;
+  color:#9ea5a8
+}
+
+/* STAN GUIDE */
+
+.guide{
+  border-top:1px solid var(--line)
+}
+
+.guide-intro{
+  max-width:720px;
+  color:#b8bec1;
+  line-height:1.9;
+  margin:20px 0 32px
+}
+
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));
+  gap:14px
+}
+
+.guide-card{
+  background:linear-gradient(145deg,#171c1f,#0e1113);
+  border:1px solid var(--line);
+  padding:24px;
+  transition:border-color .2s
+}
+
+.guide-card:hover{border-color:#9b3941}
+
+.guide-number{
+  font-size:.7rem;
+  color:#e05b65;
+  letter-spacing:.2em
+}
+
+.guide-card h3{
+  font-size:1.12rem;
+  margin:13px 0
+}
+
+.guide-card p{
+  color:#b8bec1;
+  font-size:.9rem;
+  line-height:1.8;
+  margin:0
+}
+
+.guide-quote{
+  margin-top:24px;
+  padding:26px 20px;
+  text-align:center;
+  border:1px solid #713039;
+  background:#a8202b0b
+}
+
+.guide-quote h3{
+  font-size:clamp(1.3rem,4vw,2rem);
+  letter-spacing:.06em
+}
+
+.guide-quote p{
+  color:#b8bec1;
+  line-height:1.8;
+  font-size:.9rem
+}
+
+.guide-link{
+  display:inline-block;
+  margin-top:10px;
+  color:#ff8991;
+  text-decoration:none;
+  border-bottom:1px solid #9b3941;
+  padding-bottom:5px;
+  font-size:.78rem;
+  letter-spacing:.15em;
+  text-transform:uppercase
+}
+
+.guide-link:hover{color:white}
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  color:#81898d;
+  font-size:.72rem;
+  letter-spacing:.15em;
+  border-top:1px solid var(--line)
+}
+
+@media(max-width:520px){
+  section{padding:55px 16px}
+  .section-top{
+    align-items:start;
+    flex-direction:column
+  }
+  .member{padding:21px}
+  nav{gap:17px}
+  nav a{font-size:.68rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PÁGINA PRINCIPAL -->
+
+<header id="home">
+  <div class="kicker">Seven members · One nightmare</div>
+
+  <h1>HORROR <span>GAME</span></h1>
+
+  <p class="subtitle">
+    Bienvenido a nuestro juego. Conoce a los siete integrantes
+    detrás del concepto: cada uno con su propio color,
+    símbolo y posición.
+  </p>
+
+  <nav>
+    <a href="#members">Integrantes</a>
+    <a href="#concept">El concepto</a>
+    <a href="#stan-guide">Guía para stanear</a>
+  </nav>
+</header>
+
+
+<!-- INTEGRANTES -->
+
+<section id="members">
+
+  <div class="section-top">
+    <div>
+      <div class="eyebrow">Selección de jugadores / 001–007</div>
+      <h2>LOS INTEGRANTES</h2>
+    </div>
+
+    <div class="count">7 JUGADORES ENCONTRADOS</div>
+  </div>
+
+  <div class="grid">
+
+    <article class="member" data-num="01">
+      <div class="member-head">
+        <div>
+          <div class="tag">La visual</div>
+          <h3>JINA</h3>
+        </div>
+        <span class="emoji">💎</span>
+      </div>
+
+      <dl>
+        <dt>Edad</dt><dd>17</dd>
+        <dt>Color</dt>
+        <dd><span class="color-dot" style="color:#a855f7;background:#a855f7"></span>Morado 💜</dd>
+        <dt>Posiciones</dt><dd>Visual, vocalista, unnie</dd>
+        <dt>Ídolo</dt><dd>Pharita</dd>
+      </dl>
+    </article>
+
+
+    <article class="member" data-num="02">
+      <div class="member-head">
+        <div>
+          <div class="tag">Rapera principal</div>
+          <h3>VANN</h3>
+        </div>
+        <span class="emoji">🐶</span>
+      </div>
+
+      <dl>
+        <dt>Edad</dt><dd>16</dd>
+        <dt>Color</dt>
+        <dd><span class="color-dot" style="color:#168de0;background:#168de0"></span>Azul 💙</dd>
+        <dt>Posiciones</dt><dd>Rapero principal</dd>
+        <dt>Ídolo</dt><dd>Asa</dd>
+      </dl>
+    </article>
+
+
+    <article class="member" data-num="03">
+      <div class="member-head">
+        <div>
+          <div class="tag">La líder</div>
+          <h3>BLUEBELL</h3>
+        </div>
+        <span class="emoji">👻</span>
+      </div>
+
+      <dl>
+        <dt>Edad</dt><dd>16</dd>
+        <dt>Color</dt>
+        <dd><span class="color-dot" style="color:#fff;background:#fff"></span>Blanco 🤍</dd>
+        <dt>Posiciones</dt><dd>Líder, vocalista secundaria, visual principal</dd>
+        <dt>Ídolo</dt><dd>Rora</dd>
+      </dl>
+    </article>
+
+
+    <article class="member" data-num="04">
+      <div class="member-head">
+        <div>
+          <div class="tag">Center</div>
+          <h3>HARU</h3>
+        </div>
+        <span class="emoji">🦇</span>
+      </div>
+
+      <dl>
+        <dt>Edad</dt><dd>16</dd>
+        <dt>Color</dt>
+        <dd><span class="color-dot" style="color:#a75e3d;background:#a75e3d"></span>Marrón 🤎</dd>
+        <dt>Posiciones</dt><dd>Rapero líder, center</dd>
+        <dt>Ídolo</dt><dd>Ruka</dd>
+      </dl>
+    </article>
+
+
+    <article class="member" data-num="05">
+      <div class="member-head">
+        <div>
+          <div class="tag">Vocalista principal</div>
+          <h3>ANYE</h3>
+        </div>
+        <span class="emoji">🍕</span>
+      </div>
+
+      <dl>
+        <dt>Edad</dt><dd>14</dd>
+        <dt>Color</dt>
+        <dd><span class="color-dot" style="color:#ff8b22;background:#ff8b22"></span>Naranja 🧡</dd>
+        <dt>Posiciones</dt><dd>Vocalista principal, rapera secundaria</dd>
+        <dt>Ídolo</dt><dd>Rami</dd>
+      </dl>
+    </article>
+
+
+    <article class="member" data-num="06">
+      <div class="member-head">
+        <div>
+          <div class="tag">Visual líder</div>
+          <h3>CHANNEL</h3>
+        </div>
+        <span class="emoji">🪷</span>
+      </div>
+
+      <dl>
+        <dt>Edad</dt><dd>13</dd>
+        <dt>Color</dt>
+        <dd><span class="color-dot" style="color:#28c94d;background:#28c94d"></span>Verde 💚</dd>
+        <dt>Posiciones</dt><dd>Rapero secundario, visual líder</dd>
+        <dt>Ídolo</dt><dd>Chiquita</dd>
+      </dl>
+    </article>
+
+
+    <article class="member" data-num="07">
+      <div class="member-head">
+        <div>
+          <div class="tag">La maknae</div>
+          <h3>YUNI</h3>
+        </div>
+        <span class="emoji">🪦</span>
+      </div>
+
+      <dl>
+        <dt>Edad</dt><dd>12</dd>
+        <dt>Color</dt>
+        <dd><span class="color-dot" style="color:#ff78b5;background:#ff78b5"></span>Rosa pastel 💗</dd>
+        <dt>Posiciones</dt><dd>Vocalista líder, maknae, all-rounder, colíder</dd>
+        <dt>Ídolo</dt><dd>Ahyeon</dd>
+      </dl>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- CONCEPTO -->
+
+<section class="about" id="concept">
+  <div class="about-inner">
+
+    <div class="eyebrow">Entra si te atreves</div>
+
+    <h2>ESTE ES NUESTRO JUEGO.</h2>
+
+    <p>
+      Siete integrantes. Siete identidades. Un universo inspirado
+      en el horror. Explora los perfiles, recuerda sus símbolos
+      y quédate hasta la pantalla final.
+    </p>
+
+    <p class="warning">
+      Presentación de un grupo fan-made · Los datos de los
+      integrantes se muestran según la información proporcionada
+      por el grupo.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- GUÍA PARA STANEAR -->
+
+<section class="guide" id="stan-guide">
+
+  <div class="section-top">
+    <div>
+      <div class="eyebrow">Nuevo jugador detectado</div>
+      <h2>GUÍA PARA STANEAR</h2>
+    </div>
+
+    <div class="count">TU JUEGO COMIENZA AQUÍ</div>
+  </div>
+
+  <p class="guide-intro">
+    ¿Acabas de descubrir HORROR GAME? ¡Bienvenido!
+    Esta guía te ayudará a conocer nuestra identidad,
+    nuestro estilo musical y a los siete integrantes
+    detrás de esta pesadilla. Tu primera misión comienza ahora.
+  </p>
+
+  <div class="guide-grid">
+
+    <article class="guide-card">
+      <div class="guide-number">01 / PRESENTACIÓN</div>
+      <h3>¿QUIÉNES SOMOS?</h3>
+      <p>
+        HORROR GAME es un grupo fan-made de K-pop inspirado
+        en el horror, el misterio y las estéticas oscuras.
+        Con siete integrantes, identidades únicas y posiciones
+        individuales, buscamos darle nuestro propio toque
+        a la experiencia del K-pop.
+      </p>
+    </article>
+
+
+    <article class="guide-card">
+      <div class="guide-number">02 / IDENTIDAD</div>
+      <h3>UN CONCEPTO DE HORROR</h3>
+      <p>
+        Imagina atmósferas inquietantes, misterios sin resolver,
+        visuales oscuros y una identidad inspirada en un videojuego.
+        El horror es el corazón de nuestro concepto y nos permite
+        explorar diferentes facetas en cada nueva era.
+      </p>
+    </article>
+
+
+    <article class="guide-card">
+      <div class="guide-number">03 / VOCES</div>
+      <h3>EL PODER DE LAS VOCALES</h3>
+      <p>
+        Las vocales son una parte importante de nuestra identidad
+        musical. Contamos con posiciones vocales principales y
+        secundarias que aportan melodía, emoción y personalidad
+        a nuestras interpretaciones.
+      </p>
+    </article>
+
+
+    <article class="guide-card">
+      <div class="guide-number">04 / RAP LINE</div>
+      <h3>ACTITUD Y FLOW</h3>
+      <p>
+        Nuestra línea de rap aporta ritmo, confianza y una energía
+        más intensa al grupo. VANN ocupa la posición de rapero
+        principal, mientras HARU y otros integrantes complementan
+        el estilo con su propia personalidad.
+      </p>
+    </article>
+
+
+    <article class="guide-card">
+      <div class="guide-number">05 / INTEGRANTES</div>
+      <h3>CONOCE A LOS SIETE</h3>
+      <p>
+        JINA, VANN, BLUEBELL, HARU, ANYE, CHANNEL y YUNI.
+        Cada integrante tiene su propio color, símbolo y posición.
+        Explora sus perfiles para conocerlos mejor y descubrir
+        cuál podría convertirse en tu bias.
+      </p>
+
+      <a class="guide-link" href="#members">
+        Conocer integrantes ↗
+      </a>
+    </article>
+
+
+    <article class="guide-card">
+      <div class="guide-number">06 / ÚNETE</div>
+      <h3>¿POR QUÉ STANEAR HORROR GAME?</h3>
+      <p>
+        Por la combinación de vocales y rap, las personalidades
+        de nuestros siete integrantes y una identidad inspirada
+        en el horror. Nuestro concepto puede evolucionar con cada
+        nueva era, así que siempre habrá algo nuevo por descubrir.
+      </p>
+    </article>
+
+  </div>
+
+
+  <div class="guide-quote">
+
+    <div class="eyebrow">Instrucción final</div>
+
+    <h3>PULSA START PARA UNIRTE AL JUEGO.</h3>
+
+    <p>
+      Aprende los nombres. Recuerda los símbolos. Elige a tu bias.
+      <br>
+      Y no lo olvides: aquí cada jugador tiene un lugar.
+    </p>
+
+    <a class="guide-link" href="#home">
+      Volver al inicio ↑
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+  HORROR GAME © · JUEGO INICIADO
+</footer>
+
+</body>
+</html>
