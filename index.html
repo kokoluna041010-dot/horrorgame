@@ -1,1689 +1,852 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090b0d">
-<meta name="description" content="HORROR GAME — Seven members, one nightmare.">
-<title>HORROR GAME — Official Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080609">
+<title>HORROR GAME — Entra en la oscuridad</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 :root{
-  --bg:#090b0d;
-  --panel:#121619;
-  --panel2:#191d20;
-  --line:#333a3e;
-  --text:#f4f4f4;
-  --muted:#a8afb2;
-  --red:#a8202b;
-  --pink:#ff8991;
-  --green:#9ce3af;
+  --bg:#080609;
+  --panel:#120d15;
+  --white:#f4eef5;
+  --muted:#a49aa9;
+  --red:#9f1835;
+  --line:rgba(255,255,255,.10);
+  --shadow:0 24px 70px rgba(0,0,0,.55);
 }
-
 *{box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:20px
-}
-
+html{scroll-behavior:smooth;scroll-padding-top:85px}
 body{
-  margin:0;
+  margin:0;color:var(--white);
   background:
-    radial-gradient(ellipse at top,#202427 0,#090b0d 58%);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-  letter-spacing:.02em;
+    radial-gradient(ellipse at 12% 5%,rgba(95,22,57,.19),transparent 32%),
+    radial-gradient(ellipse at 90% 40%,rgba(69,34,80,.13),transparent 35%),
+    linear-gradient(150deg,#080609,#0c080e 50%,#070609);
+  font-family:Inter,Arial,sans-serif;overflow-x:hidden;
 }
-
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.12;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
 button{font:inherit}
-
-button:focus-visible,
-a:focus-visible,
-summary:focus-visible{
-  outline:2px solid var(--pink);
-  outline-offset:4px
+::selection{background:#9f1835;color:white}
+.topline{height:3px;background:linear-gradient(90deg,transparent,#6c102c,#e13a58,#6c102c,transparent)}
+nav{
+  position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;
+  align-items:center;gap:20px;padding:17px 6%;background:rgba(8,6,9,.88);
+  backdrop-filter:blur(20px);border-bottom:1px solid var(--line)
 }
+.logo{font-family:"Cormorant Garamond",serif;font-weight:700;letter-spacing:4px;font-size:22px;white-space:nowrap}
+.logo span{color:#d44261}
+.navlinks{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:18px}
+.navlinks a{font:10px "DM Mono",monospace;text-transform:uppercase;letter-spacing:1.2px;color:#bcb2c0;transition:.25s}
+.navlinks a:hover{color:#fff;text-shadow:0 0 14px #d44261}
 
-header{
-  min-height:88vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:48px 20px;
-  position:relative;
-  overflow:hidden;
+.hero{
+  min-height:660px;padding:105px 7% 100px;display:flex;align-items:center;
+  justify-content:center;text-align:center;position:relative;overflow:hidden;
   border-bottom:1px solid var(--line)
 }
+.hero:before{
+  content:"";position:absolute;width:480px;height:480px;top:10%;left:50%;
+  transform:translateX(-50%);background:radial-gradient(circle,rgba(112,17,51,.22),transparent 68%)
+}
+.hero:after{
+  content:"";position:absolute;width:70%;height:1px;bottom:0;
+  background:linear-gradient(90deg,transparent,#86223f,transparent)
+}
+.hero-inner{position:relative;z-index:1;max-width:900px}
+.eyebrow{font:10px "DM Mono",monospace;letter-spacing:4px;text-transform:uppercase;color:#c35a76}
+.hero h1{
+  margin:24px 0 5px;font-family:"Cormorant Garamond",serif;
+  font-size:clamp(65px,13vw,142px);line-height:.85;letter-spacing:-3px;font-weight:600;
+  text-shadow:0 5px 0 #230d19,0 12px 30px rgba(0,0,0,.8),0 0 65px rgba(151,27,65,.18)
+}
+.hero h1 span{
+  display:block;color:#b9aab9;font-size:.43em;
+  letter-spacing:clamp(7px,2vw,18px);margin-top:25px
+}
+.hero p{max-width:550px;margin:30px auto;color:#b6aab9;line-height:1.9;font-size:13px}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{
+  cursor:pointer;display:inline-flex;justify-content:center;align-items:center;
+  padding:14px 22px;border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(145deg,#21121e,#0d0a0f);color:#fff;
+  font:10px "DM Mono",monospace;text-transform:uppercase;letter-spacing:1.3px;
+  transition:.25s;box-shadow:0 8px 20px #000
+}
+.btn:hover{transform:translateY(-3px);border-color:#b53656;box-shadow:0 12px 30px #000,0 0 20px rgba(166,28,65,.2)}
+.btn.primary{background:linear-gradient(135deg,#871a38,#3b1022);border-color:#a92d4c}
+.hero-foot{margin-top:65px;font:9px "DM Mono",monospace;color:#766b7b;letter-spacing:2px}
 
-header:before,
-header:after{
-  content:"";
-  position:absolute;
-  width:360px;
-  height:360px;
-  border:1px solid #ffffff0b;
-  transform:rotate(45deg);
+section{padding:90px 7%;position:relative}
+.section-head{max-width:760px;margin:0 auto 42px;text-align:center}
+.kicker{font:10px "DM Mono",monospace;letter-spacing:3px;color:#c05270;text-transform:uppercase}
+.section-head h2{font:500 clamp(36px,6vw,60px)/1.05 "Cormorant Garamond",serif;margin:15px 0}
+.section-head p{color:var(--muted);line-height:1.9;font-size:12px;max-width:600px;margin:0 auto}
+.rule{width:45px;height:1px;background:#ad3554;margin:22px auto;box-shadow:0 0 14px #a52245}
+
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;max-width:1150px;margin:auto}
+.panel{
+  position:relative;background:linear-gradient(145deg,rgba(30,20,32,.93),rgba(12,9,14,.98));
+  border:1px solid var(--line);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.04);
+  padding:30px;overflow:hidden
+}
+.panel:before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,rgba(203,69,105,.7),transparent)}
+.panel h3{font:500 30px "Cormorant Garamond",serif;margin:0 0 14px}
+.panel p,.panel li{color:#b7acbb;font-size:12px;line-height:1.9}
+.mini-label{font:9px "DM Mono",monospace;color:#c65a77;letter-spacing:2px;text-transform:uppercase}
+.statline{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:11px}
+.statline span:last-child{color:#bda7bb;text-align:right}
+
+.members-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px;perspective:1400px}
+.member-card{
+  --accent:#9b3154;--accent-rgb:155,49,84;
+  position:relative;min-width:0;padding:1px;
+  background:linear-gradient(145deg,rgba(var(--accent-rgb),.8),rgba(255,255,255,.09) 25%,#17101a 60%,rgba(var(--accent-rgb),.55));
+  box-shadow:0 22px 48px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.08);
+  transform-style:preserve-3d;transition:transform .35s,box-shadow .35s
+}
+.member-card:hover{transform:translateY(-8px) rotateX(1deg);box-shadow:0 32px 60px rgba(0,0,0,.7),0 0 25px rgba(var(--accent-rgb),.12)}
+.member-card:before{content:"";position:absolute;inset:1px;background:linear-gradient(135deg,rgba(255,255,255,.055),transparent 34%,rgba(var(--accent-rgb),.055));pointer-events:none}
+.member-inner{
+  position:relative;height:100%;padding:23px 22px 22px;overflow:hidden;
+  background:radial-gradient(ellipse at 80% 0%,rgba(var(--accent-rgb),.16),transparent 48%),linear-gradient(150deg,#171019,#0b090d 72%)
+}
+.member-inner:after{
+  content:"";position:absolute;right:-30px;top:48px;width:120px;height:120px;
+  border:1px solid rgba(var(--accent-rgb),.17);transform:rotate(45deg);
+  box-shadow:0 0 0 12px rgba(var(--accent-rgb),.025),0 0 0 25px rgba(var(--accent-rgb),.02);
   pointer-events:none
 }
-
-header:before{left:-240px;top:20px}
-header:after{right:-240px;bottom:0}
-
-.kicker{
-  color:#c4c8ca;
-  font-size:.72rem;
-  letter-spacing:.35em;
-  text-transform:uppercase
-}
-
-h1{
-  font-size:clamp(3.2rem,12vw,8.5rem);
-  line-height:.9;
-  margin:26px 0 18px;
-  letter-spacing:-.07em;
-  text-shadow:0 0 30px #a8202b55
-}
-
-h1 span{color:#b72c37}
-
-.subtitle{
-  color:#c1c5c7;
-  max-width:550px;
-  line-height:1.9
-}
-
-nav{
-  display:flex;
-  gap:19px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:28px;
-  position:relative;
-  z-index:1
-}
-
-nav a{
-  color:#f2f2f2;
-  text-decoration:none;
-  font-size:.7rem;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  border-bottom:1px solid #555;
-  padding:10px 0
-}
-
-nav a:hover{
-  color:var(--pink);
-  border-color:var(--pink)
-}
-
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:70px 22px
-}
-
-.section-top{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom:28px
-}
-
-.eyebrow{
-  color:#e05b65;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  font-size:.69rem;
-  line-height:1.8
-}
-
-h2{
-  font-size:clamp(2rem,5vw,3.2rem);
-  margin:8px 0 0;
-  letter-spacing:-.05em
-}
-
-h3{margin:0}
-
-.count{
-  color:var(--muted);
-  font-size:.77rem;
-  line-height:1.6
-}
-
-.intro{
-  color:#b8bec1;
-  max-width:740px;
-  line-height:1.9;
-  margin:18px 0 30px
-}
-
-/* HERO DETAILS */
-
-.hero-status{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  margin-top:12px
-}
-
-.status-chip{
-  border:1px solid #454b4e;
-  background:#090b0d99;
-  color:#c9ced0;
-  padding:9px 12px;
-  font-size:.68rem;
-  letter-spacing:.12em
-}
-
-.status-dot{
-  display:inline-block;
-  width:7px;
-  height:7px;
-  background:#8bd6a0;
-  border-radius:50%;
-  margin-right:7px;
-  box-shadow:0 0 9px #8bd6a0
-}
-
-/* MEMBER CARDS */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));
-  gap:14px
-}
-
-.member{
-  background:linear-gradient(145deg,#171c1f,#0e1113);
-  border:1px solid var(--line);
-  padding:24px;
-  position:relative;
-  overflow:hidden;
-  transition:transform .2s,border-color .2s
-}
-
-.member:hover{
-  transform:translateY(-4px);
-  border-color:#9b3941
-}
-
-.member:after{
-  content:attr(data-num);
-  position:absolute;
-  right:12px;
-  top:5px;
-  font-size:4.8rem;
-  font-weight:800;
-  color:#ffffff08;
-  pointer-events:none
-}
-
-.member-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:17px;
-  margin-bottom:16px
-}
-
-.member h3{
-  font-size:1.5rem;
-  letter-spacing:.02em
-}
-
-.emoji{font-size:1.8rem}
-
-.tag{
-  font-size:.65rem;
-  color:#f19aa0;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  margin-bottom:5px
-}
-
-dl{
-  margin:0;
-  display:grid;
-  grid-template-columns:82px 1fr;
-  gap:12px 10px;
-  font-size:.86rem;
-  line-height:1.6
-}
-
-dt{color:#aab1b4}
-dd{margin:0;color:#f2f2f2}
-
-.color-dot{
-  display:inline-block;
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  margin-right:7px;
-  box-shadow:0 0 10px currentColor
-}
-
-/* CONCEPT */
-
-.about{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  background:#ffffff03
-}
-
-.about-inner{
-  max-width:760px;
-  margin:auto;
-  text-align:center
-}
-
-.about p{
-  color:#b8bec1;
-  line-height:1.9
-}
-
-.warning{
-  font-size:.77rem;
-  color:#9ea5a8
-}
-
-/* DEBUT */
-
-.debut{
-  border:1px solid #653039;
-  background:linear-gradient(145deg,#1c1316,#100e10);
-  padding:clamp(25px,5vw,48px);
-  position:relative;
-  overflow:hidden
-}
-
-.debut:after{
-  content:"MOON";
-  position:absolute;
-  right:-5px;
-  bottom:-28px;
-  font-size:clamp(4rem,14vw,10rem);
-  font-weight:900;
-  letter-spacing:-.09em;
-  color:#ffffff05;
-  pointer-events:none
-}
-
-.debut-content{position:relative;z-index:1}
-
-.debut h2{
-  font-size:clamp(3rem,10vw,6rem);
-  color:#f5dfe1
-}
-
-.debut-text{
-  max-width:650px;
-  color:#c7bfc1;
-  line-height:1.9
-}
-
-.debut-details{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:24px
-}
-
-.detail-chip{
-  border:1px solid #63333a;
-  padding:12px 15px;
-  background:#090b0d80;
-  font-size:.83rem;
-  line-height:1.7
-}
-
-.detail-chip strong{
-  display:block;
-  color:#ffb1b7;
-  margin-bottom:3px
-}
-
-/* INFO CARDS */
-
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));
-  gap:14px
-}
-
-.info-card{
-  padding:23px;
-  border:1px solid var(--line);
-  background:linear-gradient(145deg,#171c1f,#0e1113);
-  transition:border-color .2s
-}
-
-.info-card:hover{border-color:#9b3941}
-
-.info-icon{
-  font-size:1.5rem;
-  margin-bottom:15px
-}
-
-.info-card p{
-  margin:0;
-  color:#b8bec1;
-  font-size:.9rem;
-  line-height:1.8
-}
-
-.big-value{
-  font-size:clamp(1.4rem,5vw,2.2rem);
-  font-weight:800;
-  letter-spacing:-.04em;
-  margin:8px 0 12px
-}
-
-.small-label{
-  font-size:.68rem;
-  color:#e05b65;
-  text-transform:uppercase;
-  letter-spacing:.2em
-}
-
-/* STAN GUIDE */
-
-.guide-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));
-  gap:14px
-}
-
-.guide-card{
-  background:linear-gradient(145deg,#171c1f,#0e1113);
-  border:1px solid var(--line);
-  padding:24px;
-  transition:border-color .2s
-}
-
-.guide-card:hover{border-color:#9b3941}
-
-.guide-number{
-  font-size:.68rem;
-  color:#e05b65;
-  letter-spacing:.2em
-}
-
-.guide-card h3{
-  font-size:1.1rem;
-  margin:13px 0
-}
-
-.guide-card p{
-  color:#b8bec1;
-  font-size:.89rem;
-  line-height:1.8;
-  margin:0
-}
-
-.guide-quote{
-  margin-top:24px;
-  padding:26px 20px;
-  text-align:center;
-  border:1px solid #713039;
-  background:#a8202b0b
-}
-
-.guide-quote h3{
-  font-size:clamp(1.3rem,4vw,2rem);
-  letter-spacing:.04em
-}
-
-.guide-quote p{
-  color:#b8bec1;
-  line-height:1.8;
-  font-size:.9rem
-}
-
-.guide-link{
-  display:inline-block;
-  margin-top:14px;
-  color:#ff8991;
-  text-decoration:none;
-  border-bottom:1px solid #9b3941;
-  padding-bottom:5px;
-  font-size:.75rem;
-  letter-spacing:.12em;
-  text-transform:uppercase
-}
-
-.guide-link:hover{color:white}
-
-/* ARCHIVE */
-
-.facts-list{
-  display:grid;
-  border-top:1px solid var(--line)
-}
-
-.fact-row{
-  display:grid;
-  grid-template-columns:minmax(120px,180px) 1fr;
-  gap:20px;
-  padding:18px 4px;
-  border-bottom:1px solid var(--line);
-  line-height:1.7
-}
-
-.fact-name{
-  color:#e05b65;
-  font-size:.75rem;
-  text-transform:uppercase;
-  letter-spacing:.1em
-}
-
-.fact-value{
-  color:#e3e5e6;
-  font-size:.9rem
-}
-
-/* SECRET MESSAGE */
-
-.secret-box{
-  border:1px solid #454b4e;
-  background:linear-gradient(145deg,#171c1f,#0e1113);
-  padding:clamp(22px,4vw,32px);
-  margin-top:22px
-}
-
-.secret-box p{
-  color:#b8bec1;
-  line-height:1.8;
-  font-size:.9rem
-}
-
-.secret-message{
-  display:none;
-  border-left:2px solid #a8202b;
-  padding:15px 18px;
-  margin-top:18px;
-  background:#a8202b0c;
-  line-height:1.9;
-  color:#f2dfe1
-}
-
-.secret-message.visible{display:block}
-
-/* RANDOM TRANSMISSION */
-
-.transmission{
-  text-align:center;
-  padding:clamp(24px,5vw,40px);
-  border:1px solid #3e3033;
-  background:#100e10
-}
-
-.transmission-text{
-  min-height:62px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  max-width:700px;
-  margin:20px auto;
-  color:#e5d9db;
-  font-size:clamp(1rem,3vw,1.3rem);
-  line-height:1.8
-}
-
-/* BUTTONS */
-
-.action-btn{
-  padding:12px 17px;
-  border:1px solid #713039;
-  background:#211417;
-  color:#fff;
-  cursor:pointer;
-  letter-spacing:.04em;
-  font-size:.82rem;
-  transition:background .2s,border-color .2s
-}
-
-.action-btn:hover{background:#3a1c22}
-
-.action-btn.secondary{
-  background:transparent;
-  border-color:#454b4e;
-  color:#c4c9cb
-}
-
-.action-btn.secondary:hover{background:#ffffff08}
-
-.action-btn:disabled{opacity:.55;cursor:default}
-
-/* QUIZ */
-
-.puzzle{
-  border:1px solid #633039;
-  background:linear-gradient(160deg,#181315,#0c0e10);
-  padding:clamp(20px,4vw,36px)
-}
-
-.puzzle-top{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:20px
-}
-
-.puzzle-label{
-  color:#ff8991;
-  font-size:.72rem;
-  letter-spacing:.2em;
-  text-transform:uppercase
-}
-
-.progress-track{
-  height:5px;
-  background:#333;
-  margin:20px 0 28px;
-  overflow:hidden
-}
-
-.progress-fill{
-  width:0;
-  height:100%;
-  background:#c03b47;
-  transition:width .25s
-}
-
-.question-count{
-  color:var(--muted);
-  font-size:.8rem
-}
-
-.question{
-  font-size:clamp(1.15rem,3.5vw,1.65rem);
-  line-height:1.65;
-  margin:12px 0 20px
-}
-
-.hint{
-  padding:13px 15px;
-  border-left:2px solid #a8202b;
-  background:#ffffff05;
-  color:#bfc4c6;
-  font-size:.85rem;
-  line-height:1.8;
-  margin-bottom:20px
-}
-
-.hint strong{color:#ff8991}
-
+.member-top,.member-bottom,.member-meta,.member-tags{position:relative;z-index:1}
+.member-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.member-no{font:9px "DM Mono",monospace;color:#887b8d;letter-spacing:2px}
+.member-symbol{
+  width:42px;height:42px;display:grid;place-items:center;
+  border:1px solid rgba(var(--accent-rgb),.65);
+  background:linear-gradient(145deg,rgba(var(--accent-rgb),.2),rgba(0,0,0,.5));
+  font-size:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 5px 15px #000;
+  transform:translateZ(20px)
+}
+.member-orbit{height:105px;display:flex;align-items:center;justify-content:center;position:relative;margin:12px 0 5px}
+.member-orbit:before{
+  content:"";width:85px;height:85px;border:1px solid rgba(var(--accent-rgb),.34);
+  border-radius:50%;box-shadow:0 0 25px rgba(var(--accent-rgb),.12),inset 0 0 22px rgba(var(--accent-rgb),.08);position:absolute
+}
+.member-orbit:after{content:"";width:105px;height:40px;border:1px solid rgba(var(--accent-rgb),.22);border-radius:50%;transform:rotate(-28deg);position:absolute}
+.member-glyph{font:600 65px/.8 "Cormorant Garamond",serif;color:#e4d8e4;text-shadow:0 3px 0 rgba(var(--accent-rgb),.7),0 0 24px rgba(var(--accent-rgb),.28);transform:translateZ(28px)}
+.member-name{font:600 clamp(29px,3vw,39px)/1 "Cormorant Garamond",serif;letter-spacing:2px;margin:12px 0 8px;overflow-wrap:anywhere}
+.member-sub{font:9px "DM Mono",monospace;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase}
+.member-quote{
+  min-height:53px;margin:18px 0;padding:13px 14px;border-left:2px solid var(--accent);
+  background:linear-gradient(90deg,rgba(var(--accent-rgb),.10),transparent);
+  font:italic 15px/1.5 "Cormorant Garamond",serif;color:#e6dbe8
+}
+.member-desc{color:#b6a9bb;font-size:11px;line-height:1.85;min-height:90px}
+.member-tags{display:flex;flex-wrap:wrap;gap:6px;margin:17px 0}
+.member-tags span{padding:6px 8px;border:1px solid rgba(var(--accent-rgb),.25);background:rgba(var(--accent-rgb),.07);color:#c7bacb;font:8px "DM Mono",monospace;letter-spacing:.4px}
+.member-meta{border-top:1px solid var(--line);margin-top:17px;padding-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.meta-item small{display:block;color:#96899a;font:8px "DM Mono",monospace;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.meta-item strong{font-size:10px;font-weight:500;color:#e1d6e4}
+.member-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:19px;font:8px "DM Mono",monospace;color:#96899a;letter-spacing:1px}
+.member-bottom span:last-child{color:var(--accent)}
+.member-card.jina{--accent:#b58be8;--accent-rgb:181,139,232}
+.member-card.vann{--accent:#62a8ed;--accent-rgb:98,168,237}
+.member-card.bluebell{--accent:#d8d8e6;--accent-rgb:216,216,230}
+.member-card.haru{--accent:#b68b69;--accent-rgb:182,139,105}
+.member-card.anye{--accent:#ec985e;--accent-rgb:236,152,94}
+.member-card.channel{--accent:#82bd92;--accent-rgb:130,189,146}
+.member-card.yuni{--accent:#e9a6c9;--accent-rgb:233,166,201}
+.member-card.haru{
+  background:linear-gradient(145deg,#d1a27a,#35221d 20%,#130d0c 55%,#956d4f);
+  box-shadow:0 26px 65px rgba(0,0,0,.65),0 0 32px rgba(182,139,105,.13)
+}
+.member-card.haru .member-inner{background:radial-gradient(ellipse at 80% 0%,rgba(182,139,105,.23),transparent 52%),linear-gradient(145deg,#20140f,#0d0909 72%)}
+.member-card.haru .member-name{font-size:43px}
+.member-card.haru .member-quote{font-size:17px}
+.vip-stamp{position:absolute;right:18px;top:72px;z-index:3;writing-mode:vertical-rl;font:8px "DM Mono",monospace;letter-spacing:3px;color:#d6b18d;opacity:.8}
+.member-card.haru .member-symbol{border-color:#b68b69;box-shadow:0 0 20px rgba(182,139,105,.15),inset 0 1px 0 rgba(255,255,255,.1)}
+
+.feature-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature{padding:25px 22px;background:linear-gradient(145deg,#19111c,#0b090d);border:1px solid var(--line);box-shadow:0 15px 30px #000}
+.feature .icon{font-size:22px}
+.feature h3{font:500 24px "Cormorant Garamond",serif;margin:16px 0 9px}
+.feature p{color:#b6a9bb;font-size:11px;line-height:1.9;margin:0}
+
+.debut{max-width:1050px;margin:auto;display:grid;grid-template-columns:.85fr 1.15fr;border:1px solid rgba(177,49,80,.35);background:linear-gradient(120deg,#190d16,#0b090d 68%);box-shadow:var(--shadow)}
+.debut-date{padding:42px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 50% 50%,rgba(129,23,54,.2),transparent 70%);border-right:1px solid var(--line);text-align:center}
+.debut-date .day{font:100px/.85 "Cormorant Garamond",serif;text-shadow:0 6px 0 #32121f,0 14px 30px #000}
+.debut-date .month{font:11px "DM Mono",monospace;letter-spacing:4px;color:#cf5876;margin-top:17px}
+.debut-copy{padding:42px}
+.debut-copy h3{font:500 46px "Cormorant Garamond",serif;margin:8px 0}
+.debut-copy p{font-size:12px;line-height:2;color:#b6a9bb}
+.debut-copy .track{display:inline-block;margin-top:10px;padding:8px 11px;border:1px solid #512235;color:#d6bdcf;font:9px "DM Mono",monospace;letter-spacing:1px}
+
+.guide-grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.guide-item{display:flex;gap:18px;padding:22px;background:linear-gradient(135deg,#171019,#0d0a0e);border:1px solid var(--line)}
+.guide-num{font:32px "Cormorant Garamond",serif;color:#bd4969}
+.guide-item h3{margin:0 0 8px;font:500 22px "Cormorant Garamond",serif}
+.guide-item p{margin:0;color:#b6a9bb;font-size:11px;line-height:1.85}
+
+.archive{max-width:850px;margin:auto;border-top:1px solid var(--line)}
+.archive-row{display:grid;grid-template-columns:100px 1fr auto;gap:20px;align-items:center;padding:23px 15px;border-bottom:1px solid var(--line);transition:.25s}
+.archive-row:hover{background:rgba(120,25,55,.08)}
+.archive-date{font:10px "DM Mono",monospace;color:#c05270}
+.archive-row h3{font:500 23px "Cormorant Garamond",serif;margin:0 0 5px}
+.archive-row p{margin:0;color:#b6a9bb;font-size:10px;line-height:1.7}
+.archive-status{font:8px "DM Mono",monospace;letter-spacing:1px;color:#bca6ba}
+
+.secret-box{max-width:760px;margin:auto;text-align:center;padding:40px 25px;border:1px solid rgba(155,49,84,.3);background:radial-gradient(ellipse at 50% 0%,rgba(122,22,55,.16),transparent 70%),#100b12;box-shadow:var(--shadow)}
+.secret-icon{font-size:33px}
+.secret-box h3{font:500 34px "Cormorant Garamond",serif;margin:16px 0 8px}
+.secret-box p{color:#b6a9bb;font-size:11px;line-height:1.9}
+#secretMessage{display:none;max-width:540px;margin:25px auto 0;padding:22px;border:1px solid #5b2338;background:#0a080c;color:#e7c4d2;font:italic 21px/1.7 "Cormorant Garamond",serif}
+#secretMessage.show{display:block;animation:fade .5s ease}
+.transmission{max-width:760px;margin:22px auto 0;padding:25px;text-align:center;background:linear-gradient(145deg,#19111c,#0b090d);border:1px solid var(--line)}
+.transmission .signal{font:9px "DM Mono",monospace;letter-spacing:3px;color:#c05270}
+.transmission p{font:italic 24px "Cormorant Garamond",serif;color:#e1d4e3;transition:opacity .2s}
+
+.quiz-wrap{max-width:780px;margin:auto;padding:32px;border:1px solid var(--line);background:linear-gradient(145deg,#18101a,#0b090d);box-shadow:var(--shadow)}
+.quiz-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.quiz-top span{font:9px "DM Mono",monospace;color:#b94a68;letter-spacing:2px}
+.progress{height:3px;background:#2c202e;margin:20px 0 30px}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#74152f,#e14c6d);transition:width .3s}
+#questionText{font:500 clamp(25px,4vw,36px)/1.2 "Cormorant Garamond",serif;margin:0 0 24px}
 .answers{display:grid;gap:10px}
+.answer{cursor:pointer;text-align:left;padding:15px 16px;color:#d9cedd;background:#100c13;border:1px solid #302432;font-size:11px;line-height:1.6;transition:.2s}
+.answer:hover:not(:disabled){border-color:#a22e4f;background:#21101b}
+.answer.selected{border-color:#d14667;background:#31121f}
+.answer:disabled{cursor:default}
+.quiz-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:25px}
+#quizFeedback{font-size:11px;color:#b6a9bb;line-height:1.7}
+#quizResult{display:none;text-align:center;padding:25px 0}
+#quizResult h3{font:500 44px "Cormorant Garamond",serif;margin:10px 0}
+#quizResult p{font-size:12px;line-height:1.9;color:#b6a9bb}
+.faq{max-width:800px;margin:auto}
+details{border-bottom:1px solid var(--line);padding:20px 4px}
+summary{cursor:pointer;list-style:none;font:500 23px "Cormorant Garamond",serif}
+summary:after{content:"+";float:right;color:#c05270}
+details[open] summary:after{content:"−"}
+details p{font-size:11px;line-height:1.9;color:#b6a9bb;max-width:680px}
+footer{padding:48px 7% 35px;text-align:center;border-top:1px solid var(--line);background:#080609}
+.footer-logo{font:600 34px "Cormorant Garamond",serif;letter-spacing:5px}
+footer p{font-size:10px;color:#a49aa9;line-height:1.9}
+footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;color:#bca9bc}
+.backtop{display:inline-block;margin-top:15px;color:#b64a68;font:9px "DM Mono",monospace;letter-spacing:2px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-.answer-btn{
-  width:100%;
-  padding:15px 16px;
-  background:#111517;
-  border:1px solid #394044;
-  color:#f4f4f4;
-  text-align:left;
-  cursor:pointer;
-  line-height:1.7;
-  transition:background .2s,border-color .2s
+@media(max-width:900px){
+  .members-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .intro-grid{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
 }
-
-.answer-btn:hover:not(:disabled){
-  border-color:#b33a46;
-  background:#241518
+@media(max-width:600px){
+  nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}
+  .navlinks{justify-content:flex-start;gap:12px}
+  .navlinks a{font-size:9px}
+  .hero{min-height:560px;padding:80px 6%}
+  .hero h1{letter-spacing:-1px}
+  section{padding:70px 5%}
+  .members-grid{grid-template-columns:1fr}
+  .member-card.haru .member-name{font-size:39px}
+  .feature-grid,.guide-grid{grid-template-columns:1fr}
+  .debut{grid-template-columns:1fr}
+  .debut-date{border-right:0;border-bottom:1px solid var(--line);padding:35px}
+  .debut-date .day{font-size:80px}
+  .debut-copy{padding:28px}
+  .archive-row{grid-template-columns:68px 1fr;gap:12px;padding:20px 4px}
+  .archive-status{grid-column:2}
+  .quiz-wrap{padding:22px 17px}
+  .quiz-footer{align-items:flex-start;flex-direction:column}
+  .panel{padding:24px}
 }
-
-.answer-btn:disabled{cursor:default}
-
-.answer-btn.correct{
-  border-color:#71b88a;
-  background:#14251a
-}
-
-.answer-btn.incorrect{
-  border-color:#c34a55;
-  background:#2a1518
-}
-
-.feedback{
-  min-height:62px;
-  margin-top:18px;
-  color:#c4c9cb;
-  font-size:.9rem;
-  line-height:1.9
-}
-
-.feedback.good{color:#9ce3af}
-.feedback.bad{color:#ff9ca3}
-
-.puzzle-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:15px
-}
-
-.result{
-  display:none;
-  text-align:center;
-  padding:25px 12px 10px
-}
-
-.result h3{
-  font-size:clamp(1.6rem,5vw,2.5rem);
-  margin:15px 0
-}
-
-.result p{
-  color:#c1c6c8;
-  line-height:1.9
-}
-
-.result-score{
-  font-size:3.3rem;
-  font-weight:800;
-  color:#ff8991
-}
-
-.result-rank{
-  display:inline-block;
-  border:1px solid #713039;
-  padding:9px 13px;
-  margin:8px;
-  color:#ffb4ba;
-  font-size:.8rem;
-  letter-spacing:.1em
-}
-
-.quiz-note{
-  color:#929a9e;
-  font-size:.76rem;
-  line-height:1.8;
-  margin-top:22px
-}
-
-/* FAQ */
-
-.faq-list{display:grid;gap:10px}
-
-.faq-list details{
-  border:1px solid var(--line);
-  background:#111517;
-  padding:17px 19px
-}
-
-.faq-list summary{
-  cursor:pointer;
-  font-weight:bold;
-  line-height:1.7
-}
-
-.faq-list details p{
-  color:#b8bec1;
-  line-height:1.8;
-  font-size:.9rem;
-  margin:14px 0 0
-}
-
-/* FOOTER */
-
-footer{
-  text-align:center;
-  padding:35px 20px 26px;
-  color:#81898d;
-  font-size:.72rem;
-  letter-spacing:.13em;
-  border-top:1px solid var(--line);
-  line-height:2
-}
-
-.footer-credit{
-  display:block;
-  margin-top:18px;
-  padding-top:18px;
-  border-top:1px solid #292e31;
-  color:#f1dfe1;
-  font-size:.82rem;
-  letter-spacing:.16em
-}
-
-@media(max-width:520px){
-  section{padding:52px 16px}
-  .section-top{align-items:start;flex-direction:column}
-  .member{padding:21px}
-  nav{gap:14px}
-  nav a{font-size:.64rem}
-  .fact-row{grid-template-columns:1fr;gap:5px}
-  .debut-details{display:grid}
-  .hero-status{gap:7px}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 }
 </style>
 </head>
 
 <body>
+<div class="topline"></div>
 
-<header id="home">
-  <div class="kicker">Seven members · One nightmare</div>
-  <h1>HORROR <span>GAME</span></h1>
-  <p class="subtitle">
-    Bienvenido a nuestro juego. Siete integrantes, siete identidades
-    y un universo inspirado en el horror. ¿Estás listo para entrar?
-  </p>
-
-  <div class="hero-status">
-    <span class="status-chip"><span class="status-dot"></span>ARCHIVO DISPONIBLE</span>
-    <span class="status-chip">ERA 001 · MOON</span>
-    <span class="status-chip">7 INTEGRANTES</span>
-  </div>
-
-  <nav>
-    <a href="#members">Integrantes</a>
-    <a href="#concept">Concepto</a>
+<nav>
+  <a href="#inicio" class="logo">HORROR <span>GAME</span></a>
+  <div class="navlinks">
+    <a href="#nosotros">Sobre nosotros</a>
+    <a href="#integrantes">Integrantes</a>
     <a href="#debut">Debut</a>
-    <a href="#stan-guide">Stan guide</a>
-    <a href="#puzzle">Quiz</a>
-    <a href="#faq">FAQ</a>
-  </nav>
+    <a href="#guia">Guía para fans</a>
+    <a href="#archivo">Archivo</a>
+    <a href="#quiz">Cuestionario</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="eyebrow">Bienvenido al otro lado · Desde 2026</div>
+    <h1>HORROR<span>GAME</span></h1>
+    <p>
+      Siete voces. Siete sombras. Un universo.
+      Bienvenido a un mundo donde la belleza se encuentra con la oscuridad
+      y cada secreto tiene su propio latido.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#integrantes">Conoce a las integrantes ↗</a>
+      <a class="btn" href="#nosotros">Entra en nuestro mundo</a>
+    </div>
+    <div class="hero-foot">SIN REGLAS EN LA OSCURIDAD · SOLO NUESTRA HISTORIA</div>
+  </div>
 </header>
 
-
-<section id="members">
-  <div class="section-top">
-    <div>
-      <div class="eyebrow">Selección de jugadores / 001–007</div>
-      <h2>LOS INTEGRANTES</h2>
-    </div>
-    <div class="count">7 JUGADORES ENCONTRADOS</div>
+<section id="nosotros">
+  <div class="section-head reveal">
+    <div class="kicker">01 — El comienzo</div>
+    <h2>Bienvenido a nuestra oscuridad.</h2>
+    <div class="rule"></div>
+    <p>HORROR GAME es un proyecto ficticio de K-pop inspirado en la individualidad, las actuaciones, el misterio y la libertad de ser uno mismo.</p>
   </div>
-
-  <p class="intro">
-    Cada integrante tiene un símbolo, un color y una identidad propia.
-    Explora sus perfiles y encuentra a tu próximo bias.
-  </p>
-
-  <div class="grid">
-    <article class="member" data-num="01">
-      <div class="member-head">
-        <div><div class="tag">La visual</div><h3>JINA</h3></div>
-        <span class="emoji">💎</span>
-      </div>
-      <dl>
-        <dt>Edad</dt><dd>17</dd>
-        <dt>Color</dt><dd><span class="color-dot" style="color:#a855f7;background:#a855f7"></span>Morado 💜</dd>
-        <dt>Posiciones</dt><dd>Visual, vocalista, unnie</dd>
-        <dt>Ídolo</dt><dd>Pharita</dd>
-      </dl>
+  <div class="intro-grid">
+    <article class="panel reveal">
+      <div class="mini-label">Nuestra identidad</div>
+      <h3>La oscuridad también puede ser hermosa.</h3>
+      <p>
+        Combinamos una estética oscura con actuaciones llenas de confianza,
+        personalidades únicas y un poco de caos. Cada integrante aporta una
+        energía diferente al sonido y la identidad del grupo.
+      </p>
+      <p>
+        Nuestro universo está hecho de contrastes: elegancia y rebeldía,
+        delicadeza y fuerza, silencio y ruido.
+      </p>
+      <p><em>“The night doesn't hide us. It reveals us.”</em></p>
     </article>
-
-    <article class="member" data-num="02">
-      <div class="member-head">
-        <div><div class="tag">Rapero principal</div><h3>VANN</h3></div>
-        <span class="emoji">🐶</span>
-      </div>
-      <dl>
-        <dt>Edad</dt><dd>16</dd>
-        <dt>Color</dt><dd><span class="color-dot" style="color:#168de0;background:#168de0"></span>Azul 💙</dd>
-        <dt>Posiciones</dt><dd>Rapero principal</dd>
-        <dt>Ídolo</dt><dd>Asa</dd>
-      </dl>
-    </article>
-
-    <article class="member" data-num="03">
-      <div class="member-head">
-        <div><div class="tag">La líder</div><h3>BLUEBELL</h3></div>
-        <span class="emoji">👻</span>
-      </div>
-      <dl>
-        <dt>Edad</dt><dd>16</dd>
-        <dt>Color</dt><dd><span class="color-dot" style="color:#fff;background:#fff"></span>Blanco 🤍</dd>
-        <dt>Posiciones</dt><dd>Líder, vocalista secundaria, visual principal</dd>
-        <dt>Ídolo</dt><dd>Rora</dd>
-      </dl>
-    </article>
-
-    <article class="member" data-num="04">
-      <div class="member-head">
-        <div><div class="tag">Center</div><h3>HARU</h3></div>
-        <span class="emoji">🦇</span>
-      </div>
-      <dl>
-        <dt>Edad</dt><dd>16</dd>
-        <dt>Color</dt><dd><span class="color-dot" style="color:#a75e3d;background:#a75e3d"></span>Marrón 🤎</dd>
-        <dt>Posiciones</dt><dd>Rapero líder, center</dd>
-        <dt>Ídolo</dt><dd>Ruka</dd>
-      </dl>
-    </article>
-
-    <article class="member" data-num="05">
-      <div class="member-head">
-        <div><div class="tag">Vocalista principal</div><h3>ANYE</h3></div>
-        <span class="emoji">🍕</span>
-      </div>
-      <dl>
-        <dt>Edad</dt><dd>14</dd>
-        <dt>Color</dt><dd><span class="color-dot" style="color:#ff8b22;background:#ff8b22"></span>Naranja 🧡</dd>
-        <dt>Posiciones</dt><dd>Vocalista principal, rapero secundario</dd>
-        <dt>Ídolo</dt><dd>Rami</dd>
-      </dl>
-    </article>
-
-    <article class="member" data-num="06">
-      <div class="member-head">
-        <div><div class="tag">Visual líder</div><h3>CHANNEL</h3></div>
-        <span class="emoji">🪷</span>
-      </div>
-      <dl>
-        <dt>Edad</dt><dd>13</dd>
-        <dt>Color</dt><dd><span class="color-dot" style="color:#28c94d;background:#28c94d"></span>Verde 💚</dd>
-        <dt>Posiciones</dt><dd>Rapero secundario, visual líder</dd>
-        <dt>Ídolo</dt><dd>Chiquita</dd>
-      </dl>
-    </article>
-
-    <article class="member" data-num="07">
-      <div class="member-head">
-        <div><div class="tag">La maknae</div><h3>YUNI</h3></div>
-        <span class="emoji">🌷</span>
-      </div>
-      <dl>
-        <dt>Edad</dt><dd>12</dd>
-        <dt>Color</dt><dd><span class="color-dot" style="color:#ff78b5;background:#ff78b5"></span>Rosa pastel 💗</dd>
-        <dt>Posiciones</dt><dd>Vocalista líder, maknae, all-rounder, colíder</dd>
-        <dt>Ídolo</dt><dd>Ahyeon</dd>
-      </dl>
+    <article class="panel reveal">
+      <div class="mini-label">Información del proyecto</div>
+      <div class="statline"><span>Grupo</span><span>HORROR GAME</span></div>
+      <div class="statline"><span>Integrantes</span><span>07</span></div>
+      <div class="statline"><span>Concepto</span><span>Dark · Emo · Aesthetic</span></div>
+      <div class="statline"><span>Proyecto de debut</span><span>MOON</span></div>
+      <div class="statline"><span>Símbolos del universo</span><span>☾ 🦇 ♱</span></div>
+      <div class="statline"><span>Historia</span><span>En constante evolución</span></div>
     </article>
   </div>
 </section>
 
+<section id="integrantes">
+  <div class="section-head reveal">
+    <div class="kicker">02 — Las siete sombras</div>
+    <h2>Conoce a las integrantes.</h2>
+    <div class="rule"></div>
+    <p>Siete energías distintas y siete identidades únicas. Descubre sus posiciones, colores, símbolos y frases personales.</p>
+  </div>
 
-<section class="about" id="concept">
-  <div class="about-inner">
-    <div class="eyebrow">Entra si te atreves</div>
-    <h2>ESTE ES NUESTRO JUEGO.</h2>
-    <p>
-      Siete integrantes. Siete identidades. Un universo inspirado
-      en el horror. Explora los perfiles, recuerda sus símbolos
-      y quédate hasta la pantalla final.
-    </p>
-    <p>
-      Nuestra identidad mezcla misterio, estética oscura y música.
-      Cada integrante tiene su propia personalidad y posición,
-      formando parte de una misma experiencia.
-    </p>
-    <p class="warning">
-      HORROR GAME es un proyecto fan-made. Los datos se muestran
-      según la información proporcionada por el grupo.
-    </p>
+  <div class="members-grid">
+
+    <article class="member-card jina reveal">
+      <div class="member-inner">
+        <div class="member-top"><span class="member-no">ARCHIVO 001 / J</span><span class="member-symbol">💎</span></div>
+        <div class="member-orbit"><span class="member-glyph">J.</span></div>
+        <div class="member-sub">The velvet vision · 💜</div>
+        <h3 class="member-name">JINA</h3>
+        <div class="member-quote">“I don't chase the spotlight. I become it.”</div>
+        <p class="member-desc">Elegant, magnetic and impossible to overlook. Jina brings visual impact and a graceful vocal color, balancing the group's darker atmosphere with a polished presence. Her energy feels like velvet under moonlight: delicate, refined and quietly unforgettable.</p>
+        <div class="member-tags"><span>VISUAL</span><span>VOCALIST</span><span>UNNIE</span></div>
+        <div class="member-meta">
+          <div class="meta-item"><small>Edad</small><strong>17</strong></div>
+          <div class="meta-item"><small>Inspiración</small><strong>Pharita</strong></div>
+          <div class="meta-item"><small>Energía</small><strong>Velvet elegance</strong></div>
+          <div class="meta-item"><small>Color</small><strong>💜 Purple</strong></div>
+        </div>
+        <div class="member-bottom"><span>THE VELVET FILE</span><span>001 — OPEN</span></div>
+      </div>
+    </article>
+
+    <article class="member-card vann reveal">
+      <div class="member-inner">
+        <div class="member-top"><span class="member-no">ARCHIVO 002 / V</span><span class="member-symbol">🐶</span></div>
+        <div class="member-orbit"><span class="member-glyph">V.</span></div>
+        <div class="member-sub">The blue warning · 💙</div>
+        <h3 class="member-name">VANN</h3>
+        <div class="member-quote">“Cute face. Dangerous flow. Remember that.”</div>
+        <p class="member-desc">Bold, sharp and full of attitude. Vann owns the rap line with confident energy, bringing rhythm, precision and a rebellious edge to the group's sound. Beneath the cool blue aura is a presence that knows exactly when to make an entrance.</p>
+        <div class="member-tags"><span>MAIN RAPPER</span><span>RAP LINE</span><span>ATTITUDE</span></div>
+        <div class="member-meta">
+          <div class="meta-item"><small>Edad</small><strong>16</strong></div>
+          <div class="meta-item"><small>Inspiración</small><strong>Asa</strong></div>
+          <div class="meta-item"><small>Energía</small><strong>Cold confidence</strong></div>
+          <div class="meta-item"><small>Color</small><strong>💙 Blue</strong></div>
+        </div>
+        <div class="member-bottom"><span>THE BLUE FILE</span><span>002 — OPEN</span></div>
+      </div>
+    </article>
+
+    <article class="member-card bluebell reveal">
+      <div class="member-inner">
+        <div class="member-top"><span class="member-no">ARCHIVO 003 / B</span><span class="member-symbol">👻</span></div>
+        <div class="member-orbit"><span class="member-glyph">B.</span></div>
+        <div class="member-sub">The pale phantom · 🤍</div>
+        <h3 class="member-name">BLUEBELL</h3>
+        <div class="member-quote">“Even silence has a face. Mine is unforgettable.”</div>
+        <p class="member-desc">A calm presence with a striking visual identity. As leader and main visual, Bluebell represents the group's unity while adding an ethereal, mysterious touch. Like a ghost in a silver hallway, her presence lingers long after the moment has passed.</p>
+        <div class="member-tags"><span>LEADER</span><span>SUB-VOCALIST</span><span>MAIN VISUAL</span></div>
+        <div class="member-meta">
+          <div class="meta-item"><small>Edad</small><strong>16</strong></div>
+          <div class="meta-item"><small>Inspiración</small><strong>Rora</strong></div>
+          <div class="meta-item"><small>Energía</small><strong>Ethereal mystery</strong></div>
+          <div class="meta-item"><small>Color</small><strong>🤍 White</strong></div>
+        </div>
+        <div class="member-bottom"><span>THE PHANTOM FILE</span><span>003 — OPEN</span></div>
+      </div>
+    </article>
+
+    <article class="member-card haru reveal">
+      <div class="member-inner">
+        <span class="vip-stamp">SPECIAL FILE · NIGHT CREATURE</span>
+        <div class="member-top"><span class="member-no">ARCHIVO 004 / H</span><span class="member-symbol">🦇</span></div>
+        <div class="member-orbit"><span class="member-glyph">H.</span></div>
+        <div class="member-sub">The midnight signature · 🤎</div>
+        <h3 class="member-name">HARU</h3>
+        <div class="member-quote">“I was never made to fit in. I was made to leave a mark.”</div>
+        <p class="member-desc">
+          Mysterious, confident and unapologetically distinctive. Haru brings a
+          sharp rap presence and a natural center energy. The bat symbol represents
+          the midnight aesthetic: quiet from a distance, unforgettable up close.
+          Haru's signature is a blend of controlled chaos, dark elegance and fearless individuality.
+          Every detail carries a little mystery, every silence feels intentional,
+          and every appearance leaves its own mark.
+        </p>
+        <div class="member-tags"><span>LEAD RAPPER</span><span>CENTER</span><span>RAP LINE</span><span>BAT ENERGY</span></div>
+        <div class="member-meta">
+          <div class="meta-item"><small>Edad</small><strong>16</strong></div>
+          <div class="meta-item"><small>Inspiración</small><strong>Ruka</strong></div>
+          <div class="meta-item"><small>Energía</small><strong>Midnight confidence</strong></div>
+          <div class="meta-item"><small>Color</small><strong>🤎 Dark brown</strong></div>
+          <div class="meta-item"><small>Símbolo</small><strong>🦇 The bat</strong></div>
+          <div class="meta-item"><small>Presencia</small><strong>Quietly untouchable</strong></div>
+        </div>
+        <div class="member-bottom"><span>THE MIDNIGHT FILE</span><span>004 — SPECIAL</span></div>
+      </div>
+    </article>
+
+    <article class="member-card anye reveal">
+      <div class="member-inner">
+        <div class="member-top"><span class="member-no">ARCHIVO 005 / A</span><span class="member-symbol">🍕</span></div>
+        <div class="member-orbit"><span class="member-glyph">A.</span></div>
+        <div class="member-sub">The burning echo · 🧡</div>
+        <h3 class="member-name">ANYE</h3>
+        <div class="member-quote">“My voice is the plot twist you never saw coming.”</div>
+        <p class="member-desc">Powerful and expressive, Anye brings a vocal presence that cuts through the darkness. Her additional rap role adds another shade to her performance identity. With a fiery orange signature, she feels like the unexpected spark that changes the entire atmosphere.</p>
+        <div class="member-tags"><span>MAIN VOCALIST</span><span>SUB-RAPPER</span><span>POWER</span></div>
+        <div class="member-meta">
+          <div class="meta-item"><small>Edad</small><strong>14</strong></div>
+          <div class="meta-item"><small>Inspiración</small><strong>Rami</strong></div>
+          <div class="meta-item"><small>Energía</small><strong>Vocal intensity</strong></div>
+          <div class="meta-item"><small>Color</small><strong>🧡 Orange</strong></div>
+        </div>
+        <div class="member-bottom"><span>THE ECHO FILE</span><span>005 — OPEN</span></div>
+      </div>
+    </article>
+
+    <article class="member-card channel reveal">
+      <div class="member-inner">
+        <div class="member-top"><span class="member-no">ARCHIVO 006 / C</span><span class="member-symbol">🪷</span></div>
+        <div class="member-orbit"><span class="member-glyph">C.</span></div>
+        <div class="member-sub">The hidden frequency · 💚</div>
+        <h3 class="member-name">CHANNEL</h3>
+        <div class="member-quote">“You can change the channel. You can't erase my signal.”</div>
+        <p class="member-desc">A fresh, distinctive presence with a visual edge and a place in the rap line. Channel's identity feels like a secret frequency hidden inside the group's darker universe. Her green signature represents an unexpected spark, quietly glowing beneath the static.</p>
+        <div class="member-tags"><span>SUB-RAPPER</span><span>LEAD VISUAL</span><span>FREQUENCY</span></div>
+        <div class="member-meta">
+          <div class="meta-item"><small>Edad</small><strong>13</strong></div>
+          <div class="meta-item"><small>Inspiración</small><strong>Chiquita</strong></div>
+          <div class="meta-item"><small>Energía</small><strong>Unexpected spark</strong></div>
+          <div class="meta-item"><small>Color</small><strong>💚 Green</strong></div>
+        </div>
+        <div class="member-bottom"><span>THE SIGNAL FILE</span><span>006 — OPEN</span></div>
+      </div>
+    </article>
+
+    <article class="member-card yuni reveal">
+      <div class="member-inner">
+        <div class="member-top"><span class="member-no">ARCHIVO 007 / Y</span><span class="member-symbol">🌷</span></div>
+        <div class="member-orbit"><span class="member-glyph">Y.</span></div>
+        <div class="member-sub">The final rose · 💗</div>
+        <h3 class="member-name">YUNI</h3>
+        <div class="member-quote">“Never mistake a soft voice for a weak one.”</div>
+        <p class="member-desc">A versatile all-rounder with a soft visual signature and a strong place in the group's vocal identity. Yuni brings a delicate contrast to the darker concept. Like a rose blooming after midnight, her pastel-pink aura holds a quiet strength that deserves to be remembered.</p>
+        <div class="member-tags"><span>LEAD VOCALIST</span><span>MAKNAE</span><span>ALL-ROUNDER</span><span>CO-LEADER</span></div>
+        <div class="member-meta">
+          <div class="meta-item"><small>Edad</small><strong>12</strong></div>
+          <div class="meta-item"><small>Inspiración</small><strong>Ahyeon</strong></div>
+          <div class="meta-item"><small>Energía</small><strong>Soft strength</strong></div>
+          <div class="meta-item"><small>Color</small><strong>💗 Pastel pink</strong></div>
+        </div>
+        <div class="member-bottom"><span>THE ROSE FILE</span><span>007 — OPEN</span></div>
+      </div>
+    </article>
+
   </div>
 </section>
 
+<section id="concepto">
+  <div class="section-head reveal">
+    <div class="kicker">03 — La atmósfera</div>
+    <h2>Más que un concepto.</h2>
+    <div class="rule"></div>
+    <p>La identidad de HORROR GAME vive entre lo hermoso y lo inquietante. Cada detalle tiene un propósito y cada era puede revelar una nueva parte de la historia.</p>
+  </div>
+  <div class="feature-grid">
+    <article class="feature reveal"><div class="icon">☾</div><h3>Elegancia oscura</h3><p>Sombras profundas, detalles metálicos, colores apagados y una atmósfera cinematográfica. Una oscuridad con identidad propia.</p></article>
+    <article class="feature reveal"><div class="icon">🦇</div><h3>Individualidad</h3><p>Cada integrante tiene su propio color, símbolo, posición y energía. El grupo está unido sin perder lo que hace especial a cada una.</p></article>
+    <article class="feature reveal"><div class="icon">♱</div><h3>Nuevos capítulos</h3><p>El universo puede evolucionar con cada proyecto. Nuevos lanzamientos pueden traer sonidos, símbolos, emociones y sorpresas.</p></article>
+  </div>
+</section>
 
 <section id="debut">
-  <div class="debut">
-    <div class="debut-content">
-      <div class="eyebrow">Our first era · 001</div>
-      <h2>MOON</h2>
-      <p class="debut-text">
-        Siete integrantes. Una nueva era. Una historia que comienza
-        bajo la luna. MOON marca el debut de HORROR GAME y el inicio
-        de nuestro camino como grupo.
+  <div class="section-head reveal">
+    <div class="kicker">04 — El primer capítulo</div>
+    <h2>El comienzo de MOON.</h2>
+    <div class="rule"></div>
+    <p>Todo universo comienza en algún lugar. Este es el primer capítulo de la historia de HORROR GAME.</p>
+  </div>
+  <div class="debut reveal">
+    <div class="debut-date">
+      <div class="mini-label">Fecha de debut</div>
+      <div class="day">08</div>
+      <div class="month">SEPTIEMBRE · 2026</div>
+    </div>
+    <div class="debut-copy">
+      <div class="mini-label">Proyecto de debut · Capítulo 001</div>
+      <h3>MOON</h3>
+      <p>
+        Bajo la misma luna, siete sombras diferentes comienzan su historia.
+        MOON representa el primer paso hacia el universo del grupo:
+        misterioso, emocional y lleno de posibilidades.
       </p>
-      <div class="debut-details">
-        <div class="detail-chip"><strong>DEBUT</strong>MOON 🌙</div>
-        <div class="detail-chip"><strong>FECHA DE DEBUT</strong>08 de septiembre de 2026</div>
-        <div class="detail-chip"><strong>INTEGRANTES</strong>7 jugadores</div>
-        <div class="detail-chip"><strong>CONCEPTO</strong>Horror · Misterio · Oscuridad</div>
-      </div>
+      <p><em>“When the lights disappear, our story begins.”</em></p>
+      <span class="track">PROYECTO: MOON · CAPÍTULO 001</span>
     </div>
   </div>
 </section>
 
-
-<section id="group-info">
-  <div class="section-top">
-    <div><div class="eyebrow">Group profile / 001</div><h2>DATOS DEL GRUPO</h2></div>
-    <div class="count">ARCHIVO OFICIAL</div>
+<section id="guia">
+  <div class="section-head reveal">
+    <div class="kicker">05 — Para nuevos visitantes</div>
+    <h2>Guía para fans.</h2>
+    <div class="rule"></div>
+    <p>¿Acabas de llegar? Esta pequeña guía te ayudará a conocer el proyecto y formar parte de la comunidad.</p>
   </div>
-
-  <div class="info-grid">
-    <article class="info-card">
-      <div class="info-icon">🎮</div>
-      <div class="small-label">Identidad</div>
-      <div class="big-value">HORROR GAME</div>
-      <p>Un grupo fan-made de K-pop con una identidad inspirada en el horror y los videojuegos.</p>
-    </article>
-
-    <article class="info-card">
-      <div class="info-icon">🌙</div>
-      <div class="small-label">Era debut</div>
-      <div class="big-value">MOON</div>
-      <p>Nuestra primera era, con fecha de debut el 8 de septiembre de 2026.</p>
-    </article>
-
-    <article class="info-card">
-      <div class="info-icon">🎤</div>
-      <div class="small-label">Estilo musical</div>
-      <div class="big-value">VOCAL + RAP</div>
-      <p>Posiciones vocales y de rap que aportan melodía, ritmo y diferentes personalidades.</p>
-    </article>
-
-    <article class="info-card">
-      <div class="info-icon">🦇</div>
-      <div class="small-label">Universo</div>
-      <div class="big-value">MISTERIO</div>
-      <p>Una estética oscura donde cada símbolo y cada integrante forman parte del concepto.</p>
-    </article>
-  </div>
-</section>
-
-
-<section class="guide" id="stan-guide">
-  <div class="section-top">
-    <div><div class="eyebrow">Nuevo jugador detectado</div><h2>GUÍA PARA STANEAR</h2></div>
-    <div class="count">TU JUEGO COMIENZA AQUÍ</div>
-  </div>
-
-  <p class="intro">
-    ¿Acabas de descubrir HORROR GAME? ¡Bienvenido!
-    Esta guía te ayudará a conocer nuestra identidad,
-    nuestro estilo musical y a los siete integrantes detrás
-    de esta pesadilla. Tu primera misión comienza ahora.
-  </p>
-
   <div class="guide-grid">
-    <article class="guide-card">
-      <div class="guide-number">01 / PRESENTACIÓN</div>
-      <h3>¿QUIÉNES SOMOS?</h3>
-      <p>HORROR GAME es un grupo fan-made de K-pop inspirado en el horror, el misterio y las estéticas oscuras. Con siete integrantes, identidades únicas y posiciones individuales, buscamos darle nuestro propio toque a la experiencia del K-pop.</p>
-    </article>
-
-    <article class="guide-card">
-      <div class="guide-number">02 / IDENTIDAD</div>
-      <h3>UN CONCEPTO DE HORROR</h3>
-      <p>Imagina atmósferas inquietantes, misterios sin resolver, visuales oscuros y una identidad inspirada en un videojuego. El horror es el corazón de nuestro concepto y nos permite explorar diferentes facetas en cada nueva era.</p>
-    </article>
-
-    <article class="guide-card">
-      <div class="guide-number">03 / VOCES</div>
-      <h3>EL PODER DE LAS VOCALES</h3>
-      <p>Las vocales son una parte importante de nuestra identidad musical. Contamos con posiciones vocales principales y secundarias que aportan melodía, emoción y personalidad a nuestras interpretaciones.</p>
-    </article>
-
-    <article class="guide-card">
-      <div class="guide-number">04 / RAP LINE</div>
-      <h3>ACTITUD Y FLOW</h3>
-      <p>Nuestra línea de rap aporta ritmo, confianza y una energía más intensa al grupo. VANN ocupa la posición de rapero principal, mientras HARU y otros integrantes complementan el estilo con su propia personalidad.</p>
-    </article>
-
-    <article class="guide-card">
-      <div class="guide-number">05 / INTEGRANTES</div>
-      <h3>CONOCE A LOS SIETE</h3>
-      <p>JINA, VANN, BLUEBELL, HARU, ANYE, CHANNEL y YUNI. Cada integrante tiene su propio color, símbolo y posición. Explora sus perfiles y descubre cuál podría convertirse en tu bias.</p>
-      <a class="guide-link" href="#members">Conocer integrantes ↗</a>
-    </article>
-
-    <article class="guide-card">
-      <div class="guide-number">06 / DEBUT</div>
-      <h3>NUESTRA PRIMERA ERA</h3>
-      <p>MOON es el debut de HORROR GAME. La fecha indicada es el 8 de septiembre de 2026. Esta era representa el comienzo de nuestro camino y de nuestra identidad como grupo.</p>
-      <a class="guide-link" href="#debut">Descubrir MOON ↗</a>
-    </article>
-
-    <article class="guide-card">
-      <div class="guide-number">07 / ÚNETE</div>
-      <h3>¿POR QUÉ STANEAR HORROR GAME?</h3>
-      <p>Por la combinación de vocales y rap, las personalidades de nuestros siete integrantes y una identidad inspirada en el horror. Nuestro concepto puede evolucionar con cada nueva era, así que siempre habrá algo nuevo por descubrir.</p>
-    </article>
-  </div>
-
-  <div class="guide-quote">
-    <div class="eyebrow">Instrucción final</div>
-    <h3>PULSA START PARA UNIRTE AL JUEGO.</h3>
-    <p>Aprende los nombres. Recuerda los símbolos. Elige a tu bias.<br>Y no lo olvides: aquí cada jugador tiene un lugar.</p>
-    <a class="guide-link" href="#home">Volver al inicio ↑</a>
+    <article class="guide-item reveal"><div class="guide-num">01</div><div><h3>Conoce a las siete</h3><p>Lee cada perfil, descubre sus posiciones, símbolos, colores y frases. Cada integrante tiene su propia identidad.</p></div></article>
+    <article class="guide-item reveal"><div class="guide-num">02</div><div><h3>Explora el concepto</h3><p>HORROR GAME combina una estética dark, emo y elegante con una identidad que puede evolucionar en cada nueva era.</p></div></article>
+    <article class="guide-item reveal"><div class="guide-num">03</div><div><h3>Descubre MOON</h3><p>Conoce el primer proyecto y su lugar dentro de la historia del grupo. Cada nuevo lanzamiento puede abrir un capítulo diferente.</p></div></article>
+    <article class="guide-item reveal"><div class="guide-num">04</div><div><h3>Cuida la comunidad</h3><p>Disfruta el proyecto, comparte tus ideas con respeto y recuerda que detrás de cada perfil hay una persona real.</p></div></article>
   </div>
 </section>
 
-
-<section id="archive">
-  <div class="section-top">
-    <div><div class="eyebrow">Información clasificada</div><h2>EL ARCHIVO DEL JUEGO</h2></div>
-    <div class="count">LEE ANTES DE JUGAR</div>
+<section id="archivo">
+  <div class="section-head reveal">
+    <div class="kicker">06 — Registro de recuerdos</div>
+    <h2>El archivo.</h2>
+    <div class="rule"></div>
+    <p>Un registro de capítulos, anuncios y momentos importantes. El archivo crecerá conforme avance el proyecto.</p>
   </div>
-
-  <p class="intro">
-    Todo lo que necesitas para superar el quiz está escrito en esta página.
-    Lee con atención: algunos detalles son fáciles de pasar por alto.
-  </p>
-
-  <div class="facts-list">
-    <div class="fact-row"><div class="fact-name">Nombre oficial</div><div class="fact-value">HORROR GAME.</div></div>
-    <div class="fact-row"><div class="fact-name">Integrantes</div><div class="fact-value">JINA, VANN, BLUEBELL, HARU, ANYE, CHANNEL y YUNI.</div></div>
-    <div class="fact-row"><div class="fact-name">Concepto</div><div class="fact-value">Horror, misterio, estéticas oscuras e identidad inspirada en videojuegos.</div></div>
-    <div class="fact-row"><div class="fact-name">Debut</div><div class="fact-value">MOON, el 8 de septiembre de 2026.</div></div>
-    <div class="fact-row"><div class="fact-name">Rapero principal</div><div class="fact-value">VANN. Su color representativo es el azul 💙 y su ídolo es Asa.</div></div>
-    <div class="fact-row"><div class="fact-name">Vocalista principal</div><div class="fact-value">ANYE. Su color representativo es el naranja 🧡 y su ídolo es Rami.</div></div>
-    <div class="fact-row"><div class="fact-name">Liderazgo</div><div class="fact-value">BLUEBELL es la líder. YUNI también ocupa la posición de colíder.</div></div>
-    <div class="fact-row"><div class="fact-name">Center</div><div class="fact-value">HARU ocupa la posición de center y rapero líder.</div></div>
-    <div class="fact-row"><div class="fact-name">Maknae</div><div class="fact-value">YUNI tiene 12 años dentro de los datos del perfil y es la maknae.</div></div>
-    <div class="fact-row"><div class="fact-name">Símbolo de YUNI</div><div class="fact-value">🌷. Su color representativo es el rosa pastel 💗.</div></div>
-    <div class="fact-row"><div class="fact-name">Símbolo de HARU</div><div class="fact-value">🦇. Su color representativo es el marrón 🤎.</div></div>
-    <div class="fact-row"><div class="fact-name">Primera misión</div><div class="fact-value">Conocer a los integrantes, recordar sus símbolos y explorar el universo de HORROR GAME.</div></div>
-  </div>
-</section>
-
-
-<!-- MENSAJE SECRETO -->
-
-<section id="secrets">
-  <div class="section-top">
-    <div><div class="eyebrow">Acceso restringido</div><h2>ARCHIVO OCULTO</h2></div>
-    <div class="count">¿TE ATREVES A ABRIRLO?</div>
-  </div>
-
-  <div class="secret-box">
-    <div class="small-label">SYSTEM MESSAGE / 001</div>
-    <h3 style="margin-top:12px">Hay algo más detrás del juego...</h3>
-    <p>
-      No todos los detalles están a simple vista. Pulsa el botón
-      para descubrir un mensaje escondido dentro del archivo.
-    </p>
-
-    <button class="action-btn" id="secret-button" type="button" aria-expanded="false">
-      Desbloquear mensaje ↗
-    </button>
-
-    <div class="secret-message" id="secret-message" aria-live="polite">
-      <strong>MENSAJE DESBLOQUEADO.</strong><br>
-      La primera pista siempre estuvo frente a ti: siete nombres,
-      siete símbolos y una sola historia. Recuerda que el comienzo
-      de HORROR GAME es MOON. La siguiente parte de la historia
-      todavía está por escribirse.
+  <div class="archive reveal">
+    <div class="archive-row">
+      <div class="archive-date">08.09.2026</div>
+      <div><h3>MOON</h3><p>El primer capítulo del universo HORROR GAME.</p></div>
+      <div class="archive-status">CAPÍTULO 001</div>
+    </div>
+    <div class="archive-row">
+      <div class="archive-date">13.10.2026</div>
+      <div><h3>La nueva era</h3><p>Una nueva presentación visual para el sitio y los perfiles.</p></div>
+      <div class="archive-status">ACTUALIZACIÓN</div>
+    </div>
+    <div class="archive-row">
+      <div class="archive-date">POR DEFINIR</div>
+      <div><h3>Próxima transmisión</h3><p>El siguiente registro aparecerá cuando haya una nueva actualización.</p></div>
+      <div class="archive-status">BLOQUEADO</div>
     </div>
   </div>
 </section>
 
-
-<!-- TRANSMISIÓN ALEATORIA -->
-
-<section id="transmission">
-  <div class="transmission">
-    <div class="eyebrow">Incoming transmission</div>
-    <h2 style="font-size:clamp(1.7rem,5vw,2.7rem)">MENSAJE DEL SISTEMA</h2>
-    <p class="transmission-text" id="transmission-text" aria-live="polite">
-      La conexión está establecida. Esperando una nueva transmisión...
-    </p>
-    <button class="action-btn secondary" id="transmission-button" type="button">
-      Recibir otro mensaje ↻
-    </button>
+<section id="secreto">
+  <div class="section-head reveal">
+    <div class="kicker">07 — Acceso restringido</div>
+    <h2>Un mensaje en la oscuridad.</h2>
+    <div class="rule"></div>
+    <p>Hay cosas que solo se revelan cuando te atreves a mirar más de cerca.</p>
+  </div>
+  <div class="secret-box reveal">
+    <div class="secret-icon">♱</div>
+    <h3>¿Puedes escucharnos?</h3>
+    <p>Abre el mensaje oculto para recibir una pequeña señal desde el otro lado.</p>
+    <button class="btn primary" id="secretToggle" type="button">Revelar mensaje</button>
+    <div id="secretMessage">“You were never too strange for this world. You were simply born to create your own.” ☾</div>
+  </div>
+  <div class="transmission reveal">
+    <div class="signal">TRANSMISIÓN ENTRANTE // 07</div>
+    <p id="transmissionText">“Some shadows are just stars waiting for the night.”</p>
+    <button class="btn" id="nextTransmission" type="button">Recibir otra señal ↻</button>
   </div>
 </section>
 
-
-<!-- QUIZ -->
-
-<section id="puzzle">
-  <div class="section-top">
-    <div><div class="eyebrow">Misión interactiva / 001</div><h2>THE HORROR QUIZ</h2></div>
-    <div class="count">12 PREGUNTAS · 1 DESAFÍO</div>
+<section id="quiz">
+  <div class="section-head reveal">
+    <div class="kicker">08 — Prueba de identidad</div>
+    <h2>¿Cuánto sabes del grupo?</h2>
+    <div class="rule"></div>
+    <p>Responde las preguntas para poner a prueba lo que sabes de HORROR GAME. Cada partida mezcla el orden de las preguntas y las respuestas.</p>
   </div>
-
-  <p class="intro">
-    ¿Crees que ya conoces todo sobre HORROR GAME? Este desafío
-    contiene preguntas sobre nuestros integrantes, sus posiciones,
-    los símbolos, el concepto y la era debut. Lee cada pregunta con
-    atención, utiliza las pistas si lo necesitas y consigue la
-    mayor puntuación posible.
-  </p>
-
-  <div class="puzzle">
-    <div id="quiz-game">
-      <div class="puzzle-top">
-        <div class="puzzle-label">Player knowledge test</div>
-        <div class="question-count" id="question-count">Preparando preguntas...</div>
-      </div>
-
-      <div class="progress-track" aria-label="Progreso del cuestionario">
-        <div class="progress-fill" id="progress-fill"></div>
-      </div>
-
-      <div id="question-area">
-        <div class="eyebrow" id="question-category"></div>
-        <h3 class="question" id="question-text"></h3>
-
-        <div class="hint">
-          <strong>PISTA:</strong>
-          <span id="hint-text">Puedes revelar una pista cuando quieras.</span>
-        </div>
-
-        <div class="answers" id="answers"></div>
-
-        <div class="feedback" id="feedback" aria-live="polite">
-          Elige una opción para comprobar tu respuesta.
-        </div>
-
-        <div class="puzzle-actions">
-          <button class="action-btn secondary" type="button" id="hint-button">
-            Revelar pista
-          </button>
-          <button class="action-btn" type="button" id="next-button" hidden>
-            Siguiente pregunta →
-          </button>
-        </div>
-      </div>
-
-      <div class="result" id="quiz-result" aria-live="polite">
-        <div class="eyebrow">Misión completada</div>
-        <div class="result-score" id="final-score">0/12</div>
-        <h3 id="result-title">FIN DEL JUEGO</h3>
-        <div class="result-rank" id="result-rank">NOVATO</div>
-        <p id="result-message"></p>
-        <button class="action-btn" type="button" id="restart-button">
-          Nueva partida ↻
-        </button>
-        <p class="quiz-note">
-          Tu resultado se muestra en este navegador. No se envía
-          ni se guarda en ningún servidor.
-        </p>
+  <div class="quiz-wrap reveal">
+    <div id="quizGame">
+      <div class="quiz-top"><span id="questionCount">PREGUNTA 01 / 12</span><span>ACCESO: FAN</span></div>
+      <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+      <h3 id="questionText"></h3>
+      <div class="answers" id="answerList"></div>
+      <div class="quiz-footer">
+        <div id="quizFeedback">Elige una respuesta para continuar.</div>
+        <button class="btn primary" id="nextQuestion" type="button" disabled>Siguiente pregunta →</button>
       </div>
     </div>
+    <div id="quizResult">
+      <div class="kicker">TRANSMISIÓN COMPLETADA</div>
+      <h3 id="resultTitle">Tu resultado</h3>
+      <p id="resultDescription"></p>
+      <button class="btn primary" id="restartQuiz" type="button">Jugar de nuevo ↻</button>
+    </div>
   </div>
-
-  <p class="quiz-note">
-    Las respuestas correctas están en el contenido de esta misma página.
-    Las preguntas y las opciones se mezclan en cada partida.
-  </p>
 </section>
-
-
-<!-- FAQ -->
 
 <section id="faq">
-  <div class="section-top">
-    <div><div class="eyebrow">¿Necesitas una pista?</div><h2>PREGUNTAS FRECUENTES</h2></div>
-    <div class="count">HELP MENU</div>
+  <div class="section-head reveal">
+    <div class="kicker">09 — Dudas frecuentes</div>
+    <h2>Preguntas desde las sombras.</h2>
+    <div class="rule"></div>
   </div>
-
-  <div class="faq-list">
-    <details>
-      <summary>¿Qué es HORROR GAME?</summary>
-      <p>Es un grupo fan-made de K-pop inspirado en el horror, el misterio y las estéticas oscuras.</p>
-    </details>
-
-    <details>
-      <summary>¿Cuántos integrantes tiene el grupo?</summary>
-      <p>Son siete integrantes: JINA, VANN, BLUEBELL, HARU, ANYE, CHANNEL y YUNI.</p>
-    </details>
-
-    <details>
-      <summary>¿Cuándo es el debut?</summary>
-      <p>La era debut se llama MOON y la fecha indicada es el 8 de septiembre de 2026.</p>
-    </details>
-
-    <details>
-      <summary>¿Quién es el rapero principal?</summary>
-      <p>VANN, cuyo color representativo es el azul y cuyo ídolo es Asa.</p>
-    </details>
-
-    <details>
-      <summary>¿Quién es la maknae?</summary>
-      <p>YUNI, que tiene 12 años según los datos de su perfil. Su símbolo es 🌷 y su color es el rosa pastel.</p>
-    </details>
-
-    <details>
-      <summary>¿Cómo funciona el quiz?</summary>
-      <p>Contesta las doce preguntas, consulta las pistas y revisa tu puntuación al final. Puedes iniciar otra partida para recibir un orden diferente de preguntas y respuestas.</p>
-    </details>
-
-    <details>
-      <summary>¿La página utiliza imágenes externas?</summary>
-      <p>No. El diseño se construye con texto, CSS, símbolos y elementos interactivos, sin depender de imágenes externas.</p>
-    </details>
-  </div>
-
-  <div class="guide-quote">
-    <div class="eyebrow">¿Preparado para volver?</div>
-    <h3>EL JUEGO NUNCA TERMINA.</h3>
-    <p>Gracias por descubrir el universo de HORROR GAME.</p>
-    <a class="guide-link" href="#home">Volver al inicio ↑</a>
+  <div class="faq reveal">
+    <details><summary>¿Qué es HORROR GAME?</summary><p>Es un proyecto ficticio de K-pop con una identidad dark, emo y aesthetic, perfiles de integrantes y una historia que puede evolucionar con nuevos proyectos.</p></details>
+    <details><summary>¿Cuántas integrantes hay?</summary><p>El grupo cuenta con siete integrantes: Jina, Vann, Bluebell, Haru, Anye, Channel y Yuni.</p></details>
+    <details><summary>¿Cuál es el proyecto de debut?</summary><p>El primer proyecto se llama MOON y su fecha indicada es el 8 de septiembre de 2026.</p></details>
+    <details><summary>¿La historia cambiará?</summary><p>Sí. La página está pensada para actualizarse conforme se creen nuevas eras, anuncios, proyectos y capítulos.</p></details>
+    <details><summary>¿Cómo puedo conocer a las integrantes?</summary><p>Visita la sección de integrantes para ver sus edades, posiciones, colores, símbolos, inspiraciones y frases personales.</p></details>
   </div>
 </section>
 
-
 <footer>
-  HORROR GAME · MOON · 08.09.2026
-  <br>
-  SEVEN MEMBERS · ONE NIGHTMARE
-  <br>
-  <a href="#home" style="color:#ff8991;text-decoration:none">
-    VOLVER AL MENÚ PRINCIPAL ↑
-  </a>
-  <span class="footer-credit">Made by Sion-Haru</span>
+  <div class="footer-logo">HORROR GAME</div>
+  <p>SIETE SOMBRAS. UN UNIVERSO. HISTORIAS INFINITAS.</p>
+  <p>© 2026 HORROR GAME · Proyecto ficticio de K-pop</p>
+  <div class="credit">Made by Sion-Haru</div>
+  <a href="#inicio" class="backtop">VOLVER A LA OSCURIDAD ↑</a>
 </footer>
 
-
 <script>
-(function(){
-  "use strict";
-
-  const questions = [
-    {
-      category:"01 / IDENTIDAD",
-      question:"HORROR GAME tiene una identidad inspirada en un concepto concreto. ¿Qué combinación describe mejor el universo del grupo?",
-      hint:"Consulta las secciones «Concepto» y «Guía para stanear».",
-      options:[
-        "Fantasía, comedia y aventuras escolares",
-        "Horror, misterio y estéticas oscuras",
-        "Deportes, viajes y naturaleza",
-        "Ciencia, espacio y vida cotidiana"
-      ],
-      answer:1,
-      explanation:"¡Correcto! El concepto combina horror, misterio y estéticas oscuras."
-    },
-    {
-      category:"02 / INTEGRANTES",
-      question:"Si un nuevo jugador quisiera conocer a todos los integrantes de HORROR GAME, ¿cuántos perfiles tendría que revisar en total?",
-      hint:"El lema de la página menciona «Seven members».",
-      options:["Cinco perfiles","Seis perfiles","Siete perfiles","Ocho perfiles"],
-      answer:2,
-      explanation:"El grupo tiene siete integrantes."
-    },
-    {
-      category:"03 / DEBUT",
-      question:"¿Qué nombre recibe la primera era de HORROR GAME, que representa el comienzo de su camino como grupo?",
-      hint:"Revisa la sección del debut: el nombre aparece en letras grandes.",
-      options:["SHADOW","MOON","DARKNESS","NIGHTMARE"],
-      answer:1,
-      explanation:"MOON es el nombre de la era debut."
-    },
-    {
-      category:"04 / FECHA DE DEBUT",
-      question:"Según la información publicada en el sitio, ¿qué fecha se ha indicado para el debut de HORROR GAME con la era MOON?",
-      hint:"La fecha aparece en la tarjeta de debut y en el archivo.",
-      options:[
-        "8 de septiembre de 2026",
-        "8 de octubre de 2026",
-        "9 de septiembre de 2025",
-        "1 de agosto de 2026"
-      ],
-      answer:0,
-      explanation:"La fecha indicada es el 8 de septiembre de 2026."
-    },
-    {
-      category:"05 / RAP LINE",
-      question:"En el perfil de los integrantes, ¿quién ocupa la posición de rapero principal y tiene el color azul como representación?",
-      hint:"Busca el perfil cuyo símbolo es 🐶.",
-      options:["HARU","VANN","JINA","CHANNEL"],
-      answer:1,
-      explanation:"VANN es el rapero principal y su color representativo es el azul."
-    },
-    {
-      category:"06 / VOCAL LINE",
-      question:"¿Qué integrante tiene la posición de vocalista principal y representa el color naranja dentro de los perfiles del grupo?",
-      hint:"Busca el perfil que tiene una pizza como símbolo.",
-      options:["YUNI","BLUEBELL","ANYE","JINA"],
-      answer:2,
-      explanation:"ANYE es la vocalista principal y su color es el naranja."
-    },
-    {
-      category:"07 / LIDERAZGO",
-      question:"Si alguien te pregunta quién ocupa la posición de líder del grupo, ¿qué integrante debes mencionar según los perfiles publicados?",
-      hint:"Su tarjeta utiliza un fantasma como símbolo.",
-      options:["HARU","BLUEBELL","VANN","CHANNEL"],
-      answer:1,
-      explanation:"BLUEBELL es la líder del grupo."
-    },
-    {
-      category:"08 / CENTER",
-      question:"¿Qué integrante combina las posiciones de rapero líder y center, y tiene un murciélago como símbolo representativo?",
-      hint:"Su nombre empieza con H y su color es el marrón.",
-      options:["HARU","ANYE","JINA","YUNI"],
-      answer:0,
-      explanation:"HARU ocupa las posiciones de rapero líder y center."
-    },
-    {
-      category:"09 / MAKNAE",
-      question:"Dentro de los perfiles de HORROR GAME, ¿quién es la maknae, tiene 12 años según los datos publicados y está representada por una flor?",
-      hint:"Su símbolo es 🌷 y su color es el rosa pastel.",
-      options:["CHANNEL","BLUEBELL","YUNI","JINA"],
-      answer:2,
-      explanation:"YUNI es la maknae y su símbolo es 🌷."
-    },
-    {
-      category:"10 / SÍMBOLOS",
-      question:"Imagina que estás repasando los símbolos antes de una misión. ¿Qué emoji aparece en el perfil de HARU?",
-      hint:"HARU tiene un concepto asociado con un animal nocturno.",
-      options:["👻","💎","🦇","🪷"],
-      answer:2,
-      explanation:"El símbolo de HARU es 🦇."
-    },
-    {
-      category:"11 / IDENTIDAD MUSICAL",
-      question:"Según la guía para stanear, ¿qué dos elementos forman una parte importante de la identidad musical de HORROR GAME?",
-      hint:"La tarjeta «Estilo musical» resume ambos elementos con dos palabras.",
-      options:[
-        "Piano y música clásica",
-        "Vocales y rap",
-        "Jazz y música instrumental",
-        "Solo baile y actuación"
-      ],
-      answer:1,
-      explanation:"La identidad musical combina vocales y rap."
-    },
-    {
-      category:"12 / PRIMERA MISIÓN",
-      question:"Al terminar de leer la guía para stanear, ¿qué tres cosas recomienda recordar para conocer mejor el universo de HORROR GAME?",
-      hint:"Busca el mensaje que empieza con «Aprende los nombres».",
-      options:[
-        "Los horarios, las contraseñas y las ubicaciones",
-        "Los álbumes, las ventas y los premios",
-        "Los nombres, los símbolos y tu bias",
-        "Las fechas, los países y los idiomas"
-      ],
-      answer:2,
-      explanation:"La guía recomienda aprender los nombres, recordar los símbolos y elegir a tu bias."
-    }
-  ];
-
-  let shuffledQuestions = [];
-  let previousOrder = "";
-  let current = 0;
-  let score = 0;
-  let answered = false;
-  let finished = false;
-
-  const $ = id => document.getElementById(id);
-
-  const countEl = $("question-count");
-  const progressEl = $("progress-fill");
-  const categoryEl = $("question-category");
-  const questionEl = $("question-text");
-  const hintEl = $("hint-text");
-  const answersEl = $("answers");
-  const feedbackEl = $("feedback");
-  const hintButton = $("hint-button");
-  const nextButton = $("next-button");
-  const questionArea = $("question-area");
-  const resultEl = $("quiz-result");
-
-  // Mezcla una lista sin repetir elementos.
-  function shuffle(array){
-    const arr = array.slice();
-
-    for(let i = arr.length - 1; i > 0; i--){
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i],arr[j]] = [arr[j],arr[i]];
-    }
-
-    return arr;
-  }
-
-  // Prepara un orden aleatorio para cada partida.
-  function createNewOrder(){
-    let shuffled = shuffle(questions);
-    let order = shuffled.map(q => questions.indexOf(q)).join(",");
-
-    let attempts = 0;
-
-    // Si se repite el orden anterior, se vuelve a mezclar.
-    while(
-      order === previousOrder &&
-      questions.length > 1 &&
-      attempts < 30
-    ){
-      shuffled = shuffle(questions);
-      order = shuffled.map(q => questions.indexOf(q)).join(",");
-      attempts++;
-    }
-
-    shuffledQuestions = shuffled;
-    previousOrder = order;
-  }
-
-  function renderQuestion(){
-    const q = shuffledQuestions[current];
-
-    answered = false;
-
-    countEl.textContent =
-      "Pregunta " + (current + 1) + " de " + shuffledQuestions.length;
-
-    progressEl.style.width =
-      (current / shuffledQuestions.length * 100) + "%";
-
-    categoryEl.textContent = q.category;
-    questionEl.textContent = q.question;
-    hintEl.textContent = "Pulsa «Revelar pista» si la necesitas.";
-
-    feedbackEl.textContent =
-      "Lee la pregunta con atención y selecciona una respuesta.";
-
-    feedbackEl.className = "feedback";
-
-    hintButton.hidden = false;
-    hintButton.disabled = false;
-    hintButton.textContent = "Revelar pista";
-
-    nextButton.hidden = true;
-    nextButton.textContent =
-      current === shuffledQuestions.length - 1
-        ? "Ver resultado →"
-        : "Siguiente pregunta →";
-
-    answersEl.replaceChildren();
-
-    // Las respuestas también cambian de posición.
-    const options = shuffle(
-      q.options.map((text,index) => ({text,index}))
-    );
-
-    options.forEach((option,index) => {
-      const button = document.createElement("button");
-
-      button.type = "button";
-      button.className = "answer-btn";
-      button.dataset.answer = option.index;
-
-      button.textContent =
-        String.fromCharCode(65 + index) + ". " + option.text;
-
-      button.addEventListener("click",() => {
-        selectAnswer(option.index);
-      });
-
-      answersEl.appendChild(button);
-    });
-  }
-
-  function selectAnswer(index){
-    if(answered || finished) return;
-
-    answered = true;
-
-    const q = shuffledQuestions[current];
-    const buttons = answersEl.querySelectorAll("button");
-
-    buttons.forEach(button => {
-      const optionIndex = Number(button.dataset.answer);
-      button.disabled = true;
-
-      if(optionIndex === q.answer){
-        button.classList.add("correct");
-      }
-
-      if(optionIndex === index && index !== q.answer){
-        button.classList.add("incorrect");
-      }
-    });
-
-    if(index === q.answer){
-      score++;
-      feedbackEl.textContent = "¡Respuesta correcta! " + q.explanation;
-      feedbackEl.className = "feedback good";
-    }else{
-      feedbackEl.textContent =
-        "Respuesta incorrecta. La opción correcta es: " +
-        q.options[q.answer] + ". " + q.explanation;
-
-      feedbackEl.className = "feedback bad";
-    }
-
-    hintButton.hidden = true;
-    nextButton.hidden = false;
-
-    progressEl.style.width =
-      ((current + 1) / shuffledQuestions.length * 100) + "%";
-  }
-
-  hintButton.addEventListener("click",() => {
-    if(answered || finished) return;
-
-    hintEl.textContent = shuffledQuestions[current].hint;
-    hintButton.textContent = "Pista revelada ✓";
-    hintButton.disabled = true;
-  });
-
-  nextButton.addEventListener("click",() => {
-    if(!answered || finished) return;
-
-    if(current < shuffledQuestions.length - 1){
-      current++;
-      renderQuestion();
-    }else{
-      showResult();
+/* Animaciones al aparecer en pantalla */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
     }
   });
+}, {threshold: 0.12});
 
-  function showResult(){
-    finished = true;
+document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
-    questionArea.style.display = "none";
-    resultEl.style.display = "block";
-    progressEl.style.width = "100%";
-    countEl.textContent = "Misión completada";
+/* Mensaje secreto */
+const secretToggle = document.getElementById("secretToggle");
+const secretMessage = document.getElementById("secretMessage");
 
-    $("final-score").textContent =
-      score + "/" + shuffledQuestions.length;
+secretToggle.addEventListener("click", () => {
+  const opened = secretMessage.classList.toggle("show");
+  secretToggle.textContent = opened ? "Ocultar mensaje" : "Revelar mensaje";
+});
 
-    let title;
-    let rank;
-    let message;
+/* Transmisiones aleatorias */
+const transmissions = [
+  "“Some shadows are just stars waiting for the night.”",
+  "“The world sees the surface. The moon sees everything.”",
+  "“Not every monster is a villain. Not every angel is innocent.”",
+  "“We don't fear the dark. We give it a name.”",
+  "“Seven voices. One echo that refuses to disappear.”",
+  "“If you found this message, perhaps the darkness found you first.”",
+  "“Every ending leaves a door unlocked somewhere.”",
+  "“Be the strange thing they remember.”",
+  "“The night is quiet, but our story isn't over.”",
+  "“You belong in every room where you can be yourself.”",
+  "“Behind every shadow, there is something worth discovering.”",
+  "“Somewhere between the nightmare and the dream, we exist.”"
+];
 
-    if(score === shuffledQuestions.length){
-      title = "¡DOMINASTE EL JUEGO!";
-      rank = "HORROR GAME EXPERT";
-      message =
-        "¡Puntuación perfecta! Conoces a los integrantes, sus posiciones, " +
-        "los símbolos y los detalles del debut. Has demostrado que " +
-        "prestaste atención a todo el archivo.";
-    }else if(score >= 9){
-      title = "¡CASI LO SABES TODO!";
-      rank = "PLAYER AVANZADO";
-      message =
-        "¡Excelente trabajo! Conoces muy bien el universo de HORROR GAME. " +
-        "Repasa las respuestas que fallaste y vuelve a intentarlo.";
-    }else if(score >= 6){
-      title = "VAS POR BUEN CAMINO";
-      rank = "PLAYER EN ENTRENAMIENTO";
-      message =
-        "Ya conoces bastantes detalles del grupo. Lee de nuevo el archivo " +
-        "y prueba otra combinación de preguntas.";
-    }else if(score >= 3){
-      title = "TU AVENTURA CONTINÚA";
-      rank = "PLAYER PRINCIPIANTE";
-      message =
-        "Ya descubriste algunos secretos. La guía y los perfiles contienen " +
-        "todas las respuestas que necesitas para mejorar.";
-    }else{
-      title = "TU HISTORIA APENAS COMIENZA";
-      rank = "NUEVO JUGADOR";
-      message =
-        "¡No te preocupes! Explora la página, conoce a los siete integrantes " +
-        "y vuelve a jugar para descubrir cuánto puedes aprender.";
-    }
+let lastTransmission = -1;
+document.getElementById("nextTransmission").addEventListener("click", () => {
+  let next;
+  do {
+    next = Math.floor(Math.random() * transmissions.length);
+  } while (next === lastTransmission && transmissions.length > 1);
+  lastTransmission = next;
 
-    $("result-title").textContent = title;
-    $("result-rank").textContent = rank;
-    $("result-message").textContent = message;
+  const text = document.getElementById("transmissionText");
+  text.style.opacity = 0;
+  setTimeout(() => {
+    text.textContent = transmissions[next];
+    text.style.opacity = 1;
+  }, 180);
+});
+
+/* Cuestionario: preguntas y opciones aleatorias en cada partida */
+const questionBank = [
+  {q:"¿Qué integrante es lead rapper y center?",a:["Haru","Jina","Yuni","Bluebell"],correct:"Haru"},
+  {q:"¿Qué integrante tiene un murciélago como símbolo personal?",a:["Vann","Haru","Anye","Channel"],correct:"Haru"},
+  {q:"¿Cómo se llama el proyecto de debut?",a:["MIDNIGHT","MOON","PHANTOM","ECHO"],correct:"MOON"},
+  {q:"¿Quién es main vocalist y también sub-rapper?",a:["Jina","Anye","Bluebell","Vann"],correct:"Anye"},
+  {q:"¿Qué integrante es líder y main visual?",a:["Bluebell","Yuni","Channel","Jina"],correct:"Bluebell"},
+  {q:"¿Qué integrante tiene el color azul?",a:["Haru","Vann","Anye","Yuni"],correct:"Vann"},
+  {q:"¿Quién es la maknae y all-rounder?",a:["Channel","Jina","Yuni","Bluebell"],correct:"Yuni"},
+  {q:"¿Cuál es el concepto visual principal de HORROR GAME?",a:["Pop veraniego","Dark, emo y aesthetic","Country retro","Fantasía pastel únicamente"],correct:"Dark, emo y aesthetic"},
+  {q:"¿En qué idol se inspira Vann?",a:["Asa","Rami","Ruka","Pharita"],correct:"Asa"},
+  {q:"¿Qué integrante tiene un fantasma como símbolo?",a:["Channel","Bluebell","Jina","Yuni"],correct:"Bluebell"},
+  {q:"¿Qué fecha aparece para el debut de MOON?",a:["8 de septiembre de 2026","13 de octubre de 2026","1 de enero de 2025","8 de agosto de 2026"],correct:"8 de septiembre de 2026"},
+  {q:"¿Quién tiene el color rosa pastel?",a:["Yuni","Anye","Vann","Haru"],correct:"Yuni"},
+  {q:"¿En qué idol se inspira Jina?",a:["Pharita","Bluebell","Channel","Anye"],correct:"Pharita"},
+  {q:"¿Qué integrante tiene una flor de loto como símbolo?",a:["Yuni","Channel","Vann","Haru"],correct:"Channel"},
+  {q:"¿Quién tiene la temática marrón y las posiciones lead rapper y center?",a:["Haru","Jina","Bluebell","Anye"],correct:"Haru"},
+  {q:"¿En qué idol se inspira Anye?",a:["Rami","Jina","Yuni","Channel"],correct:"Rami"},
+  {q:"¿En qué idol se inspira Bluebell?",a:["Rora","Vann","Haru","Yuni"],correct:"Rora"},
+  {q:"¿En qué idol se inspira Yuni?",a:["Ahyeon","Jina","Channel","Anye"],correct:"Ahyeon"},
+  {q:"¿En qué idol se inspira Haru?",a:["Ruka","Vann","Bluebell","Jina"],correct:"Ruka"},
+  {q:"¿Quién es sub-rapper y lead visual, inspirada en Chiquita?",a:["Channel","Anye","Jina","Yuni"],correct:"Channel"}
+];
+
+const TOTAL_QUESTIONS = 12;
+let quizQuestions = [];
+let questionIndex = 0;
+let score = 0;
+let answered = false;
+
+const questionCount = document.getElementById("questionCount");
+const questionText = document.getElementById("questionText");
+const answerList = document.getElementById("answerList");
+const nextQuestion = document.getElementById("nextQuestion");
+const quizFeedback = document.getElementById("quizFeedback");
+const progressBar = document.getElementById("progressBar");
+const quizGame = document.getElementById("quizGame");
+const quizResult = document.getElementById("quizResult");
+
+function shuffle(array) {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
   }
+  return result;
+}
 
-  $("restart-button").addEventListener("click",() => {
-    current = 0;
-    score = 0;
-    answered = false;
-    finished = false;
-
-    questionArea.style.display = "block";
-    resultEl.style.display = "none";
-
-    // Reiniciar crea otro orden de preguntas y respuestas.
-    createNewOrder();
-    renderQuestion();
-
-    $("puzzle").scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-  });
-
-  // Al abrir o actualizar la página, la partida empieza mezclada.
-  createNewOrder();
+function startQuiz() {
+  quizQuestions = shuffle(questionBank).slice(0, TOTAL_QUESTIONS).map(item => ({
+    ...item,
+    a: shuffle(item.a)
+  }));
+  questionIndex = 0;
+  score = 0;
+  answered = false;
+  quizGame.style.display = "block";
+  quizResult.style.display = "none";
   renderQuestion();
+}
 
+function renderQuestion() {
+  const item = quizQuestions[questionIndex];
+  answered = false;
 
-  // MENSAJE SECRETO
-  const secretButton = $("secret-button");
-  const secretMessage = $("secret-message");
+  questionCount.textContent =
+    `PREGUNTA ${String(questionIndex + 1).padStart(2,"0")} / ${TOTAL_QUESTIONS}`;
+  progressBar.style.width = `${(questionIndex / TOTAL_QUESTIONS) * 100}%`;
+  questionText.textContent = item.q;
+  answerList.innerHTML = "";
+  quizFeedback.textContent = "Elige una respuesta para continuar.";
+  nextQuestion.disabled = true;
+  nextQuestion.textContent = questionIndex === TOTAL_QUESTIONS - 1
+    ? "Ver resultado →"
+    : "Siguiente pregunta →";
 
-  secretButton.addEventListener("click",() => {
-    const isVisible = secretMessage.classList.toggle("visible");
+  item.a.forEach(answer => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "answer";
+    button.textContent = answer;
+    button.addEventListener("click", () => chooseAnswer(answer, button));
+    answerList.appendChild(button);
+  });
+}
 
-    secretButton.textContent = isVisible
-      ? "Ocultar mensaje ↗"
-      : "Desbloquear mensaje ↗";
+function chooseAnswer(answer, button) {
+  if (answered) return;
+  answered = true;
 
-    secretButton.setAttribute("aria-expanded",String(isVisible));
+  answerList.querySelectorAll(".answer").forEach(btn => {
+    btn.classList.remove("selected");
+    btn.disabled = true;
   });
 
+  button.classList.add("selected");
 
-  // TRANSMISIONES ALEATORIAS
-  const transmissions = [
-    "Siete integrantes. Una historia. ¿Ya encontraste a tu bias?",
-    "Archivo MOON: el comienzo de HORROR GAME está escrito bajo la luna.",
-    "Consejo del sistema: no ignores los pequeños detalles de cada perfil.",
-    "La próxima misión comienza cuando termines de explorar esta página.",
-    "VANN representa el azul. ¿Recuerdas quién representa el rosa pastel?",
-    "Hay doce preguntas esperándote. ¿Conseguirás el rango de experto?",
-    "No todos los secretos se encuentran en el mismo lugar. Sigue explorando.",
-    "Siete nombres, siete símbolos y un universo por descubrir."
-  ];
+  if (answer === quizQuestions[questionIndex].correct) {
+    score++;
+    quizFeedback.textContent = "Respuesta correcta. La señal es clara. ✦";
+  } else {
+    quizFeedback.textContent = "No exactamente. La oscuridad guarda sus secretos. ☾";
+  }
 
-  let previousTransmission = -1;
+  nextQuestion.disabled = false;
+}
 
-  $("transmission-button").addEventListener("click",() => {
-    let index;
+nextQuestion.addEventListener("click", () => {
+  if (!answered) return;
+  questionIndex++;
 
-    do{
-      index = Math.floor(Math.random() * transmissions.length);
-    }while(index === previousTransmission && transmissions.length > 1);
+  if (questionIndex < TOTAL_QUESTIONS) {
+    renderQuestion();
+  } else {
+    showResult();
+  }
+});
 
-    previousTransmission = index;
+function showResult() {
+  quizGame.style.display = "none";
+  quizResult.style.display = "block";
+  progressBar.style.width = "100%";
 
-    $("transmission-text").textContent = transmissions[index];
-  });
+  const title = document.getElementById("resultTitle");
+  const description = document.getElementById("resultDescription");
 
-})();
+  if (score >= 11) {
+    title.textContent = "Maestro de las sombras. 🦇";
+    description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Conoces este universo casi de memoria. La oscuridad ya conoce tu nombre.`;
+  } else if (score >= 8) {
+    title.textContent = "Una verdadera criatura nocturna. ☾";
+    description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Conoces muy bien a las integrantes. Sigue explorando el universo para descubrir más secretos.`;
+  } else if (score >= 5) {
+    title.textContent = "Perdido entre las sombras. ♱";
+    description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Vas encontrando el camino. Visita los perfiles y vuelve a intentarlo.`;
+  } else {
+    title.textContent = "La historia apenas comienza.";
+    description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Todo misterio necesita tiempo. Conoce a las integrantes y regresa para otra partida.`;
+  }
+}
+
+document.getElementById("restartQuiz").addEventListener("click", startQuiz);
+startQuiz();
 </script>
-
 </body>
-        </html>
+</html>
