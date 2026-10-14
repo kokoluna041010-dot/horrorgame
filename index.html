@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,145 +9,61 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-:root{
-  --bg:#080609;
-  --panel:#120d15;
-  --white:#f4eef5;
-  --muted:#a49aa9;
-  --red:#9f1835;
-  --line:rgba(255,255,255,.10);
-  --shadow:0 24px 70px rgba(0,0,0,.55);
-}
+:root{--bg:#080609;--panel:#120d15;--white:#f4eef5;--muted:#a49aa9;--red:#9f1835;--line:rgba(255,255,255,.10);--shadow:0 24px 70px rgba(0,0,0,.55)}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{
-  margin:0;color:var(--white);
-  background:
-    radial-gradient(ellipse at 12% 5%,rgba(95,22,57,.19),transparent 32%),
-    radial-gradient(ellipse at 90% 40%,rgba(69,34,80,.13),transparent 35%),
-    linear-gradient(150deg,#080609,#0c080e 50%,#070609);
-  font-family:Inter,Arial,sans-serif;overflow-x:hidden;
-}
-body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.12;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
-}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
-::selection{background:#9f1835;color:white}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;color:var(--white);background:radial-gradient(ellipse at 12% 5%,rgba(95,22,57,.19),transparent 32%),radial-gradient(ellipse at 90% 40%,rgba(69,34,80,.13),transparent 35%),linear-gradient(150deg,#080609,#0c080e 50%,#070609);font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}button{font:inherit}::selection{background:#9f1835;color:white}
 .topline{height:3px;background:linear-gradient(90deg,transparent,#6c102c,#e13a58,#6c102c,transparent)}
-nav{
-  position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;
-  align-items:center;gap:20px;padding:17px 6%;background:rgba(8,6,9,.88);
-  backdrop-filter:blur(20px);border-bottom:1px solid var(--line)
-}
+nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:17px 6%;background:rgba(8,6,9,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
 .logo{font-family:"Cormorant Garamond",serif;font-weight:700;letter-spacing:4px;font-size:22px;white-space:nowrap}
-.logo span{color:#d44261}
-.navlinks{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:18px}
+.logo span{color:#d44261}.navlinks{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:18px}
 .navlinks a{font:10px "DM Mono",monospace;text-transform:uppercase;letter-spacing:1.2px;color:#bcb2c0;transition:.25s}
 .navlinks a:hover{color:#fff;text-shadow:0 0 14px #d44261}
-
-.hero{
-  min-height:660px;padding:105px 7% 100px;display:flex;align-items:center;
-  justify-content:center;text-align:center;position:relative;overflow:hidden;
-  border-bottom:1px solid var(--line)
-}
-.hero:before{
-  content:"";position:absolute;width:480px;height:480px;top:10%;left:50%;
-  transform:translateX(-50%);background:radial-gradient(circle,rgba(112,17,51,.22),transparent 68%)
-}
-.hero:after{
-  content:"";position:absolute;width:70%;height:1px;bottom:0;
-  background:linear-gradient(90deg,transparent,#86223f,transparent)
-}
+.hero{min-height:660px;padding:105px 7% 100px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero:before{content:"";position:absolute;width:480px;height:480px;top:10%;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(112,17,51,.22),transparent 68%)}
+.hero:after{content:"";position:absolute;width:70%;height:1px;bottom:0;background:linear-gradient(90deg,transparent,#86223f,transparent)}
 .hero-inner{position:relative;z-index:1;max-width:900px}
-.eyebrow{font:10px "DM Mono",monospace;letter-spacing:4px;text-transform:uppercase;color:#c35a76}
-.hero h1{
-  margin:24px 0 5px;font-family:"Cormorant Garamond",serif;
-  font-size:clamp(65px,13vw,142px);line-height:.85;letter-spacing:-3px;font-weight:600;
-  text-shadow:0 5px 0 #230d19,0 12px 30px rgba(0,0,0,.8),0 0 65px rgba(151,27,65,.18)
-}
-.hero h1 span{
-  display:block;color:#b9aab9;font-size:.43em;
-  letter-spacing:clamp(7px,2vw,18px);margin-top:25px
-}
+.eyebrow,.kicker,.mini-label{font:10px "DM Mono",monospace;letter-spacing:3px;text-transform:uppercase;color:#c35a76}
+.hero h1{margin:24px 0 5px;font-family:"Cormorant Garamond",serif;font-size:clamp(65px,13vw,142px);line-height:.85;letter-spacing:-3px;font-weight:600;text-shadow:0 5px 0 #230d19,0 12px 30px #000,0 0 65px rgba(151,27,65,.18)}
+.hero h1 span{display:block;color:#b9aab9;font-size:.43em;letter-spacing:clamp(7px,2vw,18px);margin-top:25px}
 .hero p{max-width:550px;margin:30px auto;color:#b6aab9;line-height:1.9;font-size:13px}
 .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{
-  cursor:pointer;display:inline-flex;justify-content:center;align-items:center;
-  padding:14px 22px;border:1px solid rgba(255,255,255,.18);
-  background:linear-gradient(145deg,#21121e,#0d0a0f);color:#fff;
-  font:10px "DM Mono",monospace;text-transform:uppercase;letter-spacing:1.3px;
-  transition:.25s;box-shadow:0 8px 20px #000
-}
+.btn{cursor:pointer;display:inline-flex;justify-content:center;align-items:center;padding:14px 22px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(145deg,#21121e,#0d0a0f);color:#fff;font:10px "DM Mono",monospace;text-transform:uppercase;letter-spacing:1.3px;transition:.25s;box-shadow:0 8px 20px #000}
 .btn:hover{transform:translateY(-3px);border-color:#b53656;box-shadow:0 12px 30px #000,0 0 20px rgba(166,28,65,.2)}
 .btn.primary{background:linear-gradient(135deg,#871a38,#3b1022);border-color:#a92d4c}
 .hero-foot{margin-top:65px;font:9px "DM Mono",monospace;color:#766b7b;letter-spacing:2px}
-
 section{padding:90px 7%;position:relative}
 .section-head{max-width:760px;margin:0 auto 42px;text-align:center}
-.kicker{font:10px "DM Mono",monospace;letter-spacing:3px;color:#c05270;text-transform:uppercase}
 .section-head h2{font:500 clamp(36px,6vw,60px)/1.05 "Cormorant Garamond",serif;margin:15px 0}
 .section-head p{color:var(--muted);line-height:1.9;font-size:12px;max-width:600px;margin:0 auto}
 .rule{width:45px;height:1px;background:#ad3554;margin:22px auto;box-shadow:0 0 14px #a52245}
-
 .intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;max-width:1150px;margin:auto}
-.panel{
-  position:relative;background:linear-gradient(145deg,rgba(30,20,32,.93),rgba(12,9,14,.98));
-  border:1px solid var(--line);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.04);
-  padding:30px;overflow:hidden
-}
+.panel{position:relative;background:linear-gradient(145deg,rgba(30,20,32,.93),rgba(12,9,14,.98));border:1px solid var(--line);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.04);padding:30px;overflow:hidden}
 .panel:before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,rgba(203,69,105,.7),transparent)}
 .panel h3{font:500 30px "Cormorant Garamond",serif;margin:0 0 14px}
 .panel p,.panel li{color:#b7acbb;font-size:12px;line-height:1.9}
-.mini-label{font:9px "DM Mono",monospace;color:#c65a77;letter-spacing:2px;text-transform:uppercase}
+.mini-label{font-size:9px;letter-spacing:2px;color:#c65a77}
 .statline{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:11px}
 .statline span:last-child{color:#bda7bb;text-align:right}
-
 .members-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px;perspective:1400px}
-.member-card{
-  --accent:#9b3154;--accent-rgb:155,49,84;
-  position:relative;min-width:0;padding:1px;
-  background:linear-gradient(145deg,rgba(var(--accent-rgb),.8),rgba(255,255,255,.09) 25%,#17101a 60%,rgba(var(--accent-rgb),.55));
-  box-shadow:0 22px 48px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.08);
-  transform-style:preserve-3d;transition:transform .35s,box-shadow .35s
-}
-.member-card:hover{transform:translateY(-8px) rotateX(1deg);box-shadow:0 32px 60px rgba(0,0,0,.7),0 0 25px rgba(var(--accent-rgb),.12)}
+.member-card{--accent:#9b3154;--accent-rgb:155,49,84;position:relative;min-width:0;padding:1px;background:linear-gradient(145deg,rgba(var(--accent-rgb),.8),rgba(255,255,255,.09) 25%,#17101a 60%,rgba(var(--accent-rgb),.55));box-shadow:0 22px 48px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.08);transform-style:preserve-3d;transition:transform .35s,box-shadow .35s}
+.member-card:hover{transform:translateY(-8px) rotateX(1deg);box-shadow:0 32px 60px #000,0 0 25px rgba(var(--accent-rgb),.12)}
 .member-card:before{content:"";position:absolute;inset:1px;background:linear-gradient(135deg,rgba(255,255,255,.055),transparent 34%,rgba(var(--accent-rgb),.055));pointer-events:none}
-.member-inner{
-  position:relative;height:100%;padding:23px 22px 22px;overflow:hidden;
-  background:radial-gradient(ellipse at 80% 0%,rgba(var(--accent-rgb),.16),transparent 48%),linear-gradient(150deg,#171019,#0b090d 72%)
-}
-.member-inner:after{
-  content:"";position:absolute;right:-30px;top:48px;width:120px;height:120px;
-  border:1px solid rgba(var(--accent-rgb),.17);transform:rotate(45deg);
-  box-shadow:0 0 0 12px rgba(var(--accent-rgb),.025),0 0 0 25px rgba(var(--accent-rgb),.02);
-  pointer-events:none
-}
+.member-inner{position:relative;height:100%;padding:23px 22px 22px;overflow:hidden;background:radial-gradient(ellipse at 80% 0%,rgba(var(--accent-rgb),.16),transparent 48%),linear-gradient(150deg,#171019,#0b090d 72%)}
+.member-inner:after{content:"";position:absolute;right:-30px;top:48px;width:120px;height:120px;border:1px solid rgba(var(--accent-rgb),.17);transform:rotate(45deg);box-shadow:0 0 0 12px rgba(var(--accent-rgb),.025),0 0 0 25px rgba(var(--accent-rgb),.02);pointer-events:none}
 .member-top,.member-bottom,.member-meta,.member-tags{position:relative;z-index:1}
 .member-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .member-no{font:9px "DM Mono",monospace;color:#887b8d;letter-spacing:2px}
-.member-symbol{
-  width:42px;height:42px;display:grid;place-items:center;
-  border:1px solid rgba(var(--accent-rgb),.65);
-  background:linear-gradient(145deg,rgba(var(--accent-rgb),.2),rgba(0,0,0,.5));
-  font-size:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 5px 15px #000;
-  transform:translateZ(20px)
-}
+.member-symbol{width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(var(--accent-rgb),.65);background:linear-gradient(145deg,rgba(var(--accent-rgb),.2),#0008);font-size:20px;box-shadow:inset 0 1px 0 #ffffff17,0 5px 15px #000;transform:translateZ(20px)}
 .member-orbit{height:105px;display:flex;align-items:center;justify-content:center;position:relative;margin:12px 0 5px}
-.member-orbit:before{
-  content:"";width:85px;height:85px;border:1px solid rgba(var(--accent-rgb),.34);
-  border-radius:50%;box-shadow:0 0 25px rgba(var(--accent-rgb),.12),inset 0 0 22px rgba(var(--accent-rgb),.08);position:absolute
-}
+.member-orbit:before{content:"";width:85px;height:85px;border:1px solid rgba(var(--accent-rgb),.34);border-radius:50%;box-shadow:0 0 25px rgba(var(--accent-rgb),.12),inset 0 0 22px rgba(var(--accent-rgb),.08);position:absolute}
 .member-orbit:after{content:"";width:105px;height:40px;border:1px solid rgba(var(--accent-rgb),.22);border-radius:50%;transform:rotate(-28deg);position:absolute}
 .member-glyph{font:600 65px/.8 "Cormorant Garamond",serif;color:#e4d8e4;text-shadow:0 3px 0 rgba(var(--accent-rgb),.7),0 0 24px rgba(var(--accent-rgb),.28);transform:translateZ(28px)}
 .member-name{font:600 clamp(29px,3vw,39px)/1 "Cormorant Garamond",serif;letter-spacing:2px;margin:12px 0 8px;overflow-wrap:anywhere}
 .member-sub{font:9px "DM Mono",monospace;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase}
-.member-quote{
-  min-height:53px;margin:18px 0;padding:13px 14px;border-left:2px solid var(--accent);
-  background:linear-gradient(90deg,rgba(var(--accent-rgb),.10),transparent);
-  font:italic 15px/1.5 "Cormorant Garamond",serif;color:#e6dbe8
-}
+.member-quote{min-height:53px;margin:18px 0;padding:13px 14px;border-left:2px solid var(--accent);background:linear-gradient(90deg,rgba(var(--accent-rgb),.10),transparent);font:italic 15px/1.5 "Cormorant Garamond",serif;color:#e6dbe8}
 .member-desc{color:#b6a9bb;font-size:11px;line-height:1.85;min-height:90px}
 .member-tags{display:flex;flex-wrap:wrap;gap:6px;margin:17px 0}
 .member-tags span{padding:6px 8px;border:1px solid rgba(var(--accent-rgb),.25);background:rgba(var(--accent-rgb),.07);color:#c7bacb;font:8px "DM Mono",monospace;letter-spacing:.4px}
@@ -160,118 +75,125 @@ section{padding:90px 7%;position:relative}
 .member-card.jina{--accent:#b58be8;--accent-rgb:181,139,232}
 .member-card.vann{--accent:#62a8ed;--accent-rgb:98,168,237}
 .member-card.bluebell{--accent:#d8d8e6;--accent-rgb:216,216,230}
-.member-card.haru{--accent:#b68b69;--accent-rgb:182,139,105}
+.member-card.haru{--accent:#b68b69;--accent-rgb:182,139,105;background:linear-gradient(145deg,#d1a27a,#35221d 20%,#130d0c 55%,#956d4f);box-shadow:0 26px 65px #000a,0 0 32px #b68b6921}
+.member-card.haru .member-inner{background:radial-gradient(ellipse at 80% 0%,rgba(182,139,105,.23),transparent 52%),linear-gradient(145deg,#20140f,#0d0909 72%)}
+.member-card.haru .member-name{font-size:43px}.member-card.haru .member-quote{font-size:17px}
 .member-card.anye{--accent:#ec985e;--accent-rgb:236,152,94}
 .member-card.channel{--accent:#82bd92;--accent-rgb:130,189,146}
 .member-card.yuni{--accent:#e9a6c9;--accent-rgb:233,166,201}
-.member-card.haru{
-  background:linear-gradient(145deg,#d1a27a,#35221d 20%,#130d0c 55%,#956d4f);
-  box-shadow:0 26px 65px rgba(0,0,0,.65),0 0 32px rgba(182,139,105,.13)
-}
-.member-card.haru .member-inner{background:radial-gradient(ellipse at 80% 0%,rgba(182,139,105,.23),transparent 52%),linear-gradient(145deg,#20140f,#0d0909 72%)}
-.member-card.haru .member-name{font-size:43px}
-.member-card.haru .member-quote{font-size:17px}
 .vip-stamp{position:absolute;right:18px;top:72px;z-index:3;writing-mode:vertical-rl;font:8px "DM Mono",monospace;letter-spacing:3px;color:#d6b18d;opacity:.8}
-.member-card.haru .member-symbol{border-color:#b68b69;box-shadow:0 0 20px rgba(182,139,105,.15),inset 0 1px 0 rgba(255,255,255,.1)}
+.member-card.haru .member-symbol{border-color:#b68b69;box-shadow:0 0 20px #b68b6926,inset 0 1px 0 #ffffff1a}
+
+/* LITTL3-KILLA: subunidad killer */
+#littl3-killa{background:radial-gradient(ellipse at 50% 0%,rgba(135,0,27,.19),transparent 45%),linear-gradient(180deg,#080609,#100609 45%,#080609);overflow:hidden}
+.killa-hero{position:relative;max-width:1150px;margin:0 auto 38px;padding:48px 30px;text-align:center;overflow:hidden;border:1px solid #63202d;background:radial-gradient(ellipse at center,rgba(135,0,30,.28),transparent 65%),linear-gradient(145deg,#17080e,#080609 65%);box-shadow:0 30px 80px #000,inset 0 0 45px #9d00151c}
+.killa-hero:before,.killa-hero:after{content:"";position:absolute;pointer-events:none}
+.killa-hero:before{inset:9px;border:1px solid #a42a3b35}
+.killa-hero:after{width:240px;height:240px;border:1px solid #b92a432d;transform:rotate(45deg);left:calc(50% - 120px);top:40px;box-shadow:0 0 0 22px #b92a4308,0 0 0 44px #b92a4305}
+.killa-index{position:relative;z-index:1;font:9px "DM Mono",monospace;letter-spacing:5px;color:#b94b60}
+.killa-title{position:relative;z-index:1;font:600 clamp(43px,10vw,100px)/.95 "Cormorant Garamond",serif;letter-spacing:clamp(2px,1vw,9px);margin:22px 0;color:#f0e7eb;text-shadow:0 4px 0 #3b0914,0 10px 35px #000,0 0 38px #a9002b50}
+.killa-title span{color:#a92440}
+.killa-hero p{position:relative;z-index:1;max-width:640px;margin:20px auto;color:#bbaab2;font-size:12px;line-height:2}
+.killa-stats{position:relative;z-index:1;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:27px}
+.killa-stats span{padding:9px 12px;border:1px solid #6c2736;background:#13090d;color:#d6bbc4;font:9px "DM Mono",monospace;letter-spacing:1px}
+.killa-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;perspective:1500px}
+.killa-card{--ka:#a21c38;--kr:162,28,56;position:relative;min-width:0;padding:1px;background:linear-gradient(145deg,#f0d9df40,rgba(var(--kr),.9) 18%,#251016 46%,rgba(var(--kr),.75));box-shadow:0 25px 55px #000b,0 0 28px rgba(var(--kr),.12);transition:transform .4s,box-shadow .4s;transform-style:preserve-3d}
+.killa-card:hover{transform:translateY(-9px) rotateX(2deg) rotateY(-1deg);box-shadow:0 35px 75px #000,0 0 35px rgba(var(--kr),.25)}
+.killa-card:before{content:"";position:absolute;inset:1px;background:linear-gradient(130deg,#ffffff0b,transparent 40%,rgba(var(--kr),.09));pointer-events:none}
+.killa-inner{height:100%;position:relative;overflow:hidden;padding:22px;background:radial-gradient(ellipse at 50% 0%,rgba(var(--kr),.23),transparent 48%),linear-gradient(155deg,#1b0a11,#09070a 72%)}
+.killa-inner:before{content:"";position:absolute;inset:10px;border:1px solid rgba(var(--kr),.24);pointer-events:none}
+.killa-inner:after{content:"";position:absolute;top:75px;right:-42px;width:145px;height:145px;border:1px solid rgba(var(--kr),.3);transform:rotate(45deg);box-shadow:0 0 0 13px rgba(var(--kr),.035),0 0 0 27px rgba(var(--kr),.025);pointer-events:none}
+.killa-top,.killa-emblem,.killa-name,.killa-alias,.killa-quote,.killa-desc,.killa-tags,.killa-meta,.killa-foot{position:relative;z-index:1}
+.killa-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font:8px "DM Mono",monospace;color:#b7a0a9;letter-spacing:1.5px}
+.killa-status{color:var(--ka);border:1px solid rgba(var(--kr),.65);padding:6px 7px;background:#080609b8}
+.killa-emblem{height:125px;display:grid;place-items:center;position:relative;margin:10px 0}
+.killa-emblem:before{content:"";position:absolute;width:92px;height:92px;border:1px solid rgba(var(--kr),.6);transform:rotate(45deg);box-shadow:0 0 25px rgba(var(--kr),.13),inset 0 0 25px rgba(var(--kr),.09)}
+.killa-emblem:after{content:"";position:absolute;width:112px;height:112px;border:1px dashed rgba(var(--kr),.32);border-radius:50%}
+.killa-letter{font:600 65px/.8 "Cormorant Garamond",serif;color:#f0dfe4;text-shadow:0 3px 0 var(--ka),0 0 25px rgba(var(--kr),.65);transform:translateZ(25px)}
+.killa-name{font:600 clamp(29px,3vw,39px)/1 "Cormorant Garamond",serif;letter-spacing:2px;margin:13px 0 7px;color:#f1e5e9}
+.killa-alias{font:9px "DM Mono",monospace;letter-spacing:1.4px;color:var(--ka);text-transform:uppercase}
+.killa-quote{margin:18px 0;padding:14px 12px;border-left:2px solid var(--ka);background:linear-gradient(90deg,rgba(var(--kr),.13),transparent);font:italic 17px/1.5 "Cormorant Garamond",serif;color:#f0dce2}
+.killa-desc{font-size:11px;line-height:1.9;color:#b9aab1;min-height:105px}
+.killa-tags{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}
+.killa-tags span{font:8px "DM Mono",monospace;letter-spacing:.5px;padding:7px;border:1px solid rgba(var(--kr),.35);background:rgba(var(--kr),.08);color:#dbc7ce}
+.killa-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:14px;border-top:1px solid #ffffff16}
+.killa-meta small{display:block;font:8px "DM Mono",monospace;letter-spacing:1px;color:#8d7b83;margin-bottom:5px;text-transform:uppercase}
+.killa-meta strong{font-size:10px;font-weight:500;color:#e8d9df}
+.killa-foot{display:flex;justify-content:space-between;gap:7px;margin-top:20px;padding-top:12px;border-top:1px solid #ffffff12;font:8px "DM Mono",monospace;letter-spacing:1px;color:#8d7b83}
+.killa-foot span:last-child{color:var(--ka)}
+.killa-card.vann{--ka:#e34a65;--kr:227,74,101}
+.killa-card.bluebell{--ka:#d7d6e7;--kr:215,214,231}
+.killa-card.haru{--ka:#c5a1a9;--kr:197,161,169;background:linear-gradient(145deg,#f3dbe3,#9f1d3a 20%,#17080d 55%,#b9a4aa);box-shadow:0 28px 70px #000c,0 0 34px #a8294630}
+.killa-card.haru .killa-inner{background:radial-gradient(ellipse at 50% 0%,#a924404d,transparent 50%),linear-gradient(150deg,#220911,#090609 72%)}
+.killa-card.haru .killa-name{font-size:44px}
+.killa-card.haru .killa-letter{font-size:76px}
+.killa-card.haru .killa-quote{font-size:18px}
+.killa-feature{max-width:1150px;margin:30px auto 0;display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.killa-info{padding:26px;border:1px solid #63202d;background:linear-gradient(145deg,#18090f,#0b080b);box-shadow:0 18px 45px #0008}
+.killa-info h3{font:500 29px "Cormorant Garamond",serif;margin:0 0 12px;color:#f0dce2}
+.killa-info p{font-size:11px;line-height:1.95;color:#b9aab1}
+.killa-info .mini-label{color:#c75a72}
+.killa-track{display:inline-block;padding:9px 12px;margin-top:8px;border:1px solid #70283b;color:#e4c6d0;font:9px "DM Mono",monospace;letter-spacing:1.5px}
+.killa-timeline{max-width:900px;margin:35px auto 0;border-top:1px solid #ffffff17}
+.killa-timeline .archive-row:hover{background:#8e15300e}
 
 .feature-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .feature{padding:25px 22px;background:linear-gradient(145deg,#19111c,#0b090d);border:1px solid var(--line);box-shadow:0 15px 30px #000}
-.feature .icon{font-size:22px}
-.feature h3{font:500 24px "Cormorant Garamond",serif;margin:16px 0 9px}
-.feature p{color:#b6a9bb;font-size:11px;line-height:1.9;margin:0}
-
+.feature .icon{font-size:22px}.feature h3{font:500 24px "Cormorant Garamond",serif;margin:16px 0 9px}.feature p{color:#b6a9bb;font-size:11px;line-height:1.9;margin:0}
 .debut{max-width:1050px;margin:auto;display:grid;grid-template-columns:.85fr 1.15fr;border:1px solid rgba(177,49,80,.35);background:linear-gradient(120deg,#190d16,#0b090d 68%);box-shadow:var(--shadow)}
-.debut-date{padding:42px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 50% 50%,rgba(129,23,54,.2),transparent 70%);border-right:1px solid var(--line);text-align:center}
+.debut-date{padding:42px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle,rgba(129,23,54,.2),transparent 70%);border-right:1px solid var(--line);text-align:center}
 .debut-date .day{font:100px/.85 "Cormorant Garamond",serif;text-shadow:0 6px 0 #32121f,0 14px 30px #000}
 .debut-date .month{font:11px "DM Mono",monospace;letter-spacing:4px;color:#cf5876;margin-top:17px}
-.debut-copy{padding:42px}
-.debut-copy h3{font:500 46px "Cormorant Garamond",serif;margin:8px 0}
-.debut-copy p{font-size:12px;line-height:2;color:#b6a9bb}
+.debut-copy{padding:42px}.debut-copy h3{font:500 46px "Cormorant Garamond",serif;margin:8px 0}.debut-copy p{font-size:12px;line-height:2;color:#b6a9bb}
 .debut-copy .track{display:inline-block;margin-top:10px;padding:8px 11px;border:1px solid #512235;color:#d6bdcf;font:9px "DM Mono",monospace;letter-spacing:1px}
-
 .guide-grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .guide-item{display:flex;gap:18px;padding:22px;background:linear-gradient(135deg,#171019,#0d0a0e);border:1px solid var(--line)}
 .guide-num{font:32px "Cormorant Garamond",serif;color:#bd4969}
-.guide-item h3{margin:0 0 8px;font:500 22px "Cormorant Garamond",serif}
-.guide-item p{margin:0;color:#b6a9bb;font-size:11px;line-height:1.85}
-
+.guide-item h3{margin:0 0 8px;font:500 22px "Cormorant Garamond",serif}.guide-item p{margin:0;color:#b6a9bb;font-size:11px;line-height:1.85}
 .archive{max-width:850px;margin:auto;border-top:1px solid var(--line)}
 .archive-row{display:grid;grid-template-columns:100px 1fr auto;gap:20px;align-items:center;padding:23px 15px;border-bottom:1px solid var(--line);transition:.25s}
-.archive-row:hover{background:rgba(120,25,55,.08)}
-.archive-date{font:10px "DM Mono",monospace;color:#c05270}
-.archive-row h3{font:500 23px "Cormorant Garamond",serif;margin:0 0 5px}
-.archive-row p{margin:0;color:#b6a9bb;font-size:10px;line-height:1.7}
+.archive-row:hover{background:#78193714}.archive-date{font:10px "DM Mono",monospace;color:#c05270}
+.archive-row h3{font:500 23px "Cormorant Garamond",serif;margin:0 0 5px}.archive-row p{margin:0;color:#b6a9bb;font-size:10px;line-height:1.7}
 .archive-status{font:8px "DM Mono",monospace;letter-spacing:1px;color:#bca6ba}
-
 .secret-box{max-width:760px;margin:auto;text-align:center;padding:40px 25px;border:1px solid rgba(155,49,84,.3);background:radial-gradient(ellipse at 50% 0%,rgba(122,22,55,.16),transparent 70%),#100b12;box-shadow:var(--shadow)}
-.secret-icon{font-size:33px}
-.secret-box h3{font:500 34px "Cormorant Garamond",serif;margin:16px 0 8px}
-.secret-box p{color:#b6a9bb;font-size:11px;line-height:1.9}
+.secret-icon{font-size:33px}.secret-box h3{font:500 34px "Cormorant Garamond",serif;margin:16px 0 8px}.secret-box p{color:#b6a9bb;font-size:11px;line-height:1.9}
 #secretMessage{display:none;max-width:540px;margin:25px auto 0;padding:22px;border:1px solid #5b2338;background:#0a080c;color:#e7c4d2;font:italic 21px/1.7 "Cormorant Garamond",serif}
 #secretMessage.show{display:block;animation:fade .5s ease}
 .transmission{max-width:760px;margin:22px auto 0;padding:25px;text-align:center;background:linear-gradient(145deg,#19111c,#0b090d);border:1px solid var(--line)}
 .transmission .signal{font:9px "DM Mono",monospace;letter-spacing:3px;color:#c05270}
 .transmission p{font:italic 24px "Cormorant Garamond",serif;color:#e1d4e3;transition:opacity .2s}
-
 .quiz-wrap{max-width:780px;margin:auto;padding:32px;border:1px solid var(--line);background:linear-gradient(145deg,#18101a,#0b090d);box-shadow:var(--shadow)}
 .quiz-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
 .quiz-top span{font:9px "DM Mono",monospace;color:#b94a68;letter-spacing:2px}
-.progress{height:3px;background:#2c202e;margin:20px 0 30px}
-.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#74152f,#e14c6d);transition:width .3s}
+.progress{height:3px;background:#2c202e;margin:20px 0 30px}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#74152f,#e14c6d);transition:width .3s}
 #questionText{font:500 clamp(25px,4vw,36px)/1.2 "Cormorant Garamond",serif;margin:0 0 24px}
-.answers{display:grid;gap:10px}
-.answer{cursor:pointer;text-align:left;padding:15px 16px;color:#d9cedd;background:#100c13;border:1px solid #302432;font-size:11px;line-height:1.6;transition:.2s}
-.answer:hover:not(:disabled){border-color:#a22e4f;background:#21101b}
-.answer.selected{border-color:#d14667;background:#31121f}
-.answer:disabled{cursor:default}
+.answers{display:grid;gap:10px}.answer{cursor:pointer;text-align:left;padding:15px 16px;color:#d9cedd;background:#100c13;border:1px solid #302432;font-size:11px;line-height:1.6;transition:.2s}
+.answer:hover:not(:disabled){border-color:#a22e4f;background:#21101b}.answer.selected{border-color:#d14667;background:#31121f}.answer:disabled{cursor:default}
 .quiz-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:25px}
-#quizFeedback{font-size:11px;color:#b6a9bb;line-height:1.7}
-#quizResult{display:none;text-align:center;padding:25px 0}
-#quizResult h3{font:500 44px "Cormorant Garamond",serif;margin:10px 0}
-#quizResult p{font-size:12px;line-height:1.9;color:#b6a9bb}
-.faq{max-width:800px;margin:auto}
-details{border-bottom:1px solid var(--line);padding:20px 4px}
-summary{cursor:pointer;list-style:none;font:500 23px "Cormorant Garamond",serif}
-summary:after{content:"+";float:right;color:#c05270}
-details[open] summary:after{content:"−"}
+#quizFeedback{font-size:11px;color:#b6a9bb;line-height:1.7}#quizResult{display:none;text-align:center;padding:25px 0}
+#quizResult h3{font:500 44px "Cormorant Garamond",serif;margin:10px 0}#quizResult p{font-size:12px;line-height:1.9;color:#b6a9bb}
+.faq{max-width:800px;margin:auto}details{border-bottom:1px solid var(--line);padding:20px 4px}
+summary{cursor:pointer;list-style:none;font:500 23px "Cormorant Garamond",serif}summary:after{content:"+";float:right;color:#c05270}details[open] summary:after{content:"−"}
 details p{font-size:11px;line-height:1.9;color:#b6a9bb;max-width:680px}
 footer{padding:48px 7% 35px;text-align:center;border-top:1px solid var(--line);background:#080609}
 .footer-logo{font:600 34px "Cormorant Garamond",serif;letter-spacing:5px}
-footer p{font-size:10px;color:#a49aa9;line-height:1.9}
-footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;color:#bca9bc}
+footer p{font-size:10px;color:#a49aa9;line-height:1.9}footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;color:#bca9bc}
 .backtop{display:inline-block;margin-top:15px;color:#b64a68;font:9px "DM Mono",monospace;letter-spacing:2px}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-@media(max-width:900px){
-  .members-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .intro-grid{grid-template-columns:1fr}
-  .feature-grid{grid-template-columns:repeat(2,1fr)}
-}
+@media(max-width:900px){.members-grid,.killa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.intro-grid,.killa-feature{grid-template-columns:1fr}.feature-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){
-  nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}
-  .navlinks{justify-content:flex-start;gap:12px}
-  .navlinks a{font-size:9px}
-  .hero{min-height:560px;padding:80px 6%}
-  .hero h1{letter-spacing:-1px}
-  section{padding:70px 5%}
-  .members-grid{grid-template-columns:1fr}
-  .member-card.haru .member-name{font-size:39px}
-  .feature-grid,.guide-grid{grid-template-columns:1fr}
-  .debut{grid-template-columns:1fr}
-  .debut-date{border-right:0;border-bottom:1px solid var(--line);padding:35px}
-  .debut-date .day{font-size:80px}
-  .debut-copy{padding:28px}
-  .archive-row{grid-template-columns:68px 1fr;gap:12px;padding:20px 4px}
-  .archive-status{grid-column:2}
-  .quiz-wrap{padding:22px 17px}
-  .quiz-footer{align-items:flex-start;flex-direction:column}
-  .panel{padding:24px}
+nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navlinks{justify-content:flex-start;gap:12px}.navlinks a{font-size:9px}
+.hero{min-height:560px;padding:80px 6%}.hero h1{letter-spacing:-1px}section{padding:70px 5%}
+.members-grid,.killa-grid{grid-template-columns:1fr}.member-card.haru .member-name{font-size:39px}
+.killa-hero{padding:38px 18px}.killa-inner{padding:20px}.killa-card.haru .killa-name{font-size:40px}
+.feature-grid,.guide-grid{grid-template-columns:1fr}.debut{grid-template-columns:1fr}
+.debut-date{border-right:0;border-bottom:1px solid var(--line);padding:35px}.debut-date .day{font-size:80px}
+.debut-copy{padding:28px}.archive-row{grid-template-columns:68px 1fr;gap:12px;padding:20px 4px}
+.archive-status{grid-column:2}.quiz-wrap{padding:22px 17px}.quiz-footer{align-items:flex-start;flex-direction:column}.panel{padding:24px}
 }
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
-}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 
@@ -283,6 +205,7 @@ footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;c
   <div class="navlinks">
     <a href="#nosotros">Sobre nosotros</a>
     <a href="#integrantes">Integrantes</a>
+    <a href="#littl3-killa">LITTL3-KILLA</a>
     <a href="#debut">Debut</a>
     <a href="#guia">Guía para fans</a>
     <a href="#archivo">Archivo</a>
@@ -294,14 +217,10 @@ footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;c
   <div class="hero-inner">
     <div class="eyebrow">Bienvenido al otro lado · Desde 2026</div>
     <h1>HORROR<span>GAME</span></h1>
-    <p>
-      Siete voces. Siete sombras. Un universo.
-      Bienvenido a un mundo donde la belleza se encuentra con la oscuridad
-      y cada secreto tiene su propio latido.
-    </p>
+    <p>Siete voces. Siete sombras. Un universo. Bienvenido a un mundo donde la belleza se encuentra con la oscuridad y cada secreto tiene su propio latido.</p>
     <div class="actions">
       <a class="btn primary" href="#integrantes">Conoce a las integrantes ↗</a>
-      <a class="btn" href="#nosotros">Entra en nuestro mundo</a>
+      <a class="btn" href="#littl3-killa">Descubre LITTL3-KILLA</a>
     </div>
     <div class="hero-foot">SIN REGLAS EN LA OSCURIDAD · SOLO NUESTRA HISTORIA</div>
   </div>
@@ -310,23 +229,15 @@ footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;c
 <section id="nosotros">
   <div class="section-head reveal">
     <div class="kicker">01 — El comienzo</div>
-    <h2>Bienvenido a nuestra oscuridad.</h2>
-    <div class="rule"></div>
+    <h2>Bienvenido a nuestra oscuridad.</h2><div class="rule"></div>
     <p>HORROR GAME es un proyecto ficticio de K-pop inspirado en la individualidad, las actuaciones, el misterio y la libertad de ser uno mismo.</p>
   </div>
   <div class="intro-grid">
     <article class="panel reveal">
       <div class="mini-label">Nuestra identidad</div>
       <h3>La oscuridad también puede ser hermosa.</h3>
-      <p>
-        Combinamos una estética oscura con actuaciones llenas de confianza,
-        personalidades únicas y un poco de caos. Cada integrante aporta una
-        energía diferente al sonido y la identidad del grupo.
-      </p>
-      <p>
-        Nuestro universo está hecho de contrastes: elegancia y rebeldía,
-        delicadeza y fuerza, silencio y ruido.
-      </p>
+      <p>Combinamos una estética oscura con actuaciones llenas de confianza, personalidades únicas y un poco de caos. Cada integrante aporta una energía diferente al sonido y la identidad del grupo.</p>
+      <p>Nuestro universo está hecho de contrastes: elegancia y rebeldía, delicadeza y fuerza, silencio y ruido.</p>
       <p><em>“The night doesn't hide us. It reveals us.”</em></p>
     </article>
     <article class="panel reveal">
@@ -335,8 +246,8 @@ footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;c
       <div class="statline"><span>Integrantes</span><span>07</span></div>
       <div class="statline"><span>Concepto</span><span>Dark · Emo · Aesthetic</span></div>
       <div class="statline"><span>Proyecto de debut</span><span>MOON</span></div>
-      <div class="statline"><span>Símbolos del universo</span><span>☾ 🦇 ♱</span></div>
-      <div class="statline"><span>Historia</span><span>En constante evolución</span></div>
+      <div class="statline"><span>Subunidad</span><span>LITTL3-KILLA</span></div>
+      <div class="statline"><span>Símbolos</span><span>☾ 🦇 ♱</span></div>
     </article>
   </div>
 </section>
@@ -344,164 +255,204 @@ footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;c
 <section id="integrantes">
   <div class="section-head reveal">
     <div class="kicker">02 — Las siete sombras</div>
-    <h2>Conoce a las integrantes.</h2>
-    <div class="rule"></div>
+    <h2>Conoce a las integrantes.</h2><div class="rule"></div>
     <p>Siete energías distintas y siete identidades únicas. Descubre sus posiciones, colores, símbolos y frases personales.</p>
   </div>
-
   <div class="members-grid">
 
-    <article class="member-card jina reveal">
-      <div class="member-inner">
-        <div class="member-top"><span class="member-no">ARCHIVO 001 / J</span><span class="member-symbol">💎</span></div>
-        <div class="member-orbit"><span class="member-glyph">J.</span></div>
-        <div class="member-sub">The velvet vision · 💜</div>
-        <h3 class="member-name">JINA</h3>
-        <div class="member-quote">“I don't chase the spotlight. I become it.”</div>
-        <p class="member-desc">Elegant, magnetic and impossible to overlook. Jina brings visual impact and a graceful vocal color, balancing the group's darker atmosphere with a polished presence. Her energy feels like velvet under moonlight: delicate, refined and quietly unforgettable.</p>
-        <div class="member-tags"><span>VISUAL</span><span>VOCALIST</span><span>UNNIE</span></div>
-        <div class="member-meta">
-          <div class="meta-item"><small>Edad</small><strong>17</strong></div>
-          <div class="meta-item"><small>Inspiración</small><strong>Pharita</strong></div>
-          <div class="meta-item"><small>Energía</small><strong>Velvet elegance</strong></div>
-          <div class="meta-item"><small>Color</small><strong>💜 Purple</strong></div>
+    <article class="member-card jina reveal"><div class="member-inner">
+      <div class="member-top"><span class="member-no">ARCHIVO 001 / J</span><span class="member-symbol">💎</span></div>
+      <div class="member-orbit"><span class="member-glyph">J.</span></div>
+      <div class="member-sub">The velvet vision · 💜</div><h3 class="member-name">JINA</h3>
+      <div class="member-quote">“I don't chase the spotlight. I become it.”</div>
+      <p class="member-desc">Elegant, magnetic and impossible to overlook. Jina brings visual impact and a graceful vocal color, balancing the group's darker atmosphere with a polished presence. Her energy feels like velvet under moonlight: delicate, refined and quietly unforgettable.</p>
+      <div class="member-tags"><span>VISUAL</span><span>VOCALIST</span><span>UNNIE</span></div>
+      <div class="member-meta"><div class="meta-item"><small>Edad</small><strong>17</strong></div><div class="meta-item"><small>Inspiración</small><strong>Pharita</strong></div><div class="meta-item"><small>Energía</small><strong>Velvet elegance</strong></div><div class="meta-item"><small>Color</small><strong>💜 Purple</strong></div></div>
+      <div class="member-bottom"><span>THE VELVET FILE</span><span>001 — OPEN</span></div>
+    </div></article>
+
+    <article class="member-card vann reveal"><div class="member-inner">
+      <div class="member-top"><span class="member-no">ARCHIVO 002 / V</span><span class="member-symbol">🐶</span></div>
+      <div class="member-orbit"><span class="member-glyph">V.</span></div>
+      <div class="member-sub">The blue warning · 💙</div><h3 class="member-name">VANN</h3>
+      <div class="member-quote">“Cute face. Dangerous flow. Remember that.”</div>
+      <p class="member-desc">Bold, sharp and full of attitude. Vann owns the rap line with confident energy, bringing rhythm, precision and a rebellious edge to the group's sound. Beneath the cool blue aura is a presence that knows exactly when to make an entrance.</p>
+      <div class="member-tags"><span>MAIN RAPPER</span><span>RAP LINE</span><span>ATTITUDE</span></div>
+      <div class="member-meta"><div class="meta-item"><small>Edad</small><strong>16</strong></div><div class="meta-item"><small>Inspiración</small><strong>Asa</strong></div><div class="meta-item"><small>Energía</small><strong>Cold confidence</strong></div><div class="meta-item"><small>Color</small><strong>💙 Blue</strong></div></div>
+      <div class="member-bottom"><span>THE BLUE FILE</span><span>002 — OPEN</span></div>
+    </div></article>
+
+    <article class="member-card bluebell reveal"><div class="member-inner">
+      <div class="member-top"><span class="member-no">ARCHIVO 003 / B</span><span class="member-symbol">👻</span></div>
+      <div class="member-orbit"><span class="member-glyph">B.</span></div>
+      <div class="member-sub">The pale phantom · 🤍</div><h3 class="member-name">BLUEBELL</h3>
+      <div class="member-quote">“Even silence has a face. Mine is unforgettable.”</div>
+      <p class="member-desc">A calm presence with a striking visual identity. As leader and main visual, Bluebell represents the group's unity while adding an ethereal, mysterious touch. Like a ghost in a silver hallway, her presence lingers long after the moment has passed.</p>
+      <div class="member-tags"><span>LEADER</span><span>SUB-VOCALIST</span><span>MAIN VISUAL</span></div>
+      <div class="member-meta"><div class="meta-item"><small>Edad</small><strong>16</strong></div><div class="meta-item"><small>Inspiración</small><strong>Rora</strong></div><div class="meta-item"><small>Energía</small><strong>Ethereal mystery</strong></div><div class="meta-item"><small>Color</small><strong>🤍 White</strong></div></div>
+      <div class="member-bottom"><span>THE PHANTOM FILE</span><span>003 — OPEN</span></div>
+    </div></article>
+
+    <article class="member-card haru reveal"><div class="member-inner">
+      <span class="vip-stamp">SPECIAL FILE · NIGHT CREATURE</span>
+      <div class="member-top"><span class="member-no">ARCHIVO 004 / H</span><span class="member-symbol">🦇</span></div>
+      <div class="member-orbit"><span class="member-glyph">H.</span></div>
+      <div class="member-sub">The midnight signature · 🤎</div><h3 class="member-name">HARU</h3>
+      <div class="member-quote">“I was never made to fit in. I was made to leave a mark.”</div>
+      <p class="member-desc">Mysterious, confident and unapologetically distinctive. Haru brings a sharp rap presence and a natural center energy. The bat symbol represents the midnight aesthetic: quiet from a distance, unforgettable up close. Haru's signature is a blend of controlled chaos, dark elegance and fearless individuality.</p>
+      <div class="member-tags"><span>LEAD RAPPER</span><span>CENTER</span><span>RAP LINE</span><span>BAT ENERGY</span></div>
+      <div class="member-meta"><div class="meta-item"><small>Edad</small><strong>16</strong></div><div class="meta-item"><small>Inspiración</small><strong>Ruka</strong></div><div class="meta-item"><small>Energía</small><strong>Midnight confidence</strong></div><div class="meta-item"><small>Color</small><strong>🤎 Dark brown</strong></div><div class="meta-item"><small>Símbolo</small><strong>🦇 The bat</strong></div><div class="meta-item"><small>Presencia</small><strong>Quietly untouchable</strong></div></div>
+      <div class="member-bottom"><span>THE MIDNIGHT FILE</span><span>004 — SPECIAL</span></div>
+    </div></article>
+
+    <article class="member-card anye reveal"><div class="member-inner">
+      <div class="member-top"><span class="member-no">ARCHIVO 005 / A</span><span class="member-symbol">🍕</span></div>
+      <div class="member-orbit"><span class="member-glyph">A.</span></div>
+      <div class="member-sub">The burning echo · 🧡</div><h3 class="member-name">ANYE</h3>
+      <div class="member-quote">“My voice is the plot twist you never saw coming.”</div>
+      <p class="member-desc">Powerful and expressive, Anye brings a vocal presence that cuts through the darkness. Her additional rap role adds another shade to her performance identity. With a fiery orange signature, she feels like the unexpected spark that changes the entire atmosphere.</p>
+      <div class="member-tags"><span>MAIN VOCALIST</span><span>SUB-RAPPER</span><span>POWER</span></div>
+      <div class="member-meta"><div class="meta-item"><small>Edad</small><strong>14</strong></div><div class="meta-item"><small>Inspiración</small><strong>Rami</strong></div><div class="meta-item"><small>Energía</small><strong>Vocal intensity</strong></div><div class="meta-item"><small>Color</small><strong>🧡 Orange</strong></div></div>
+      <div class="member-bottom"><span>THE ECHO FILE</span><span>005 — OPEN</span></div>
+    </div></article>
+
+    <article class="member-card channel reveal"><div class="member-inner">
+      <div class="member-top"><span class="member-no">ARCHIVO 006 / C</span><span class="member-symbol">🪷</span></div>
+      <div class="member-orbit"><span class="member-glyph">C.</span></div>
+      <div class="member-sub">The hidden frequency · 💚</div><h3 class="member-name">CHANNEL</h3>
+      <div class="member-quote">“You can change the channel. You can't erase my signal.”</div>
+      <p class="member-desc">A fresh, distinctive presence with a visual edge and a place in the rap line. Channel's identity feels like a secret frequency hidden inside the group's darker universe. Her green signature represents an unexpected spark, quietly glowing beneath the static.</p>
+      <div class="member-tags"><span>SUB-RAPPER</span><span>LEAD VISUAL</span><span>FREQUENCY</span></div>
+      <div class="member-meta"><div class="meta-item"><small>Edad</small><strong>13</strong></div><div class="meta-item"><small>Inspiración</small><strong>Chiquita</strong></div><div class="meta-item"><small>Energía</small><strong>Unexpected spark</strong></div><div class="meta-item"><small>Color</small><strong>💚 Green</strong></div></div>
+      <div class="member-bottom"><span>THE SIGNAL FILE</span><span>006 — OPEN</span></div>
+    </div></article>
+
+    <article class="member-card yuni reveal"><div class="member-inner">
+      <div class="member-top"><span class="member-no">ARCHIVO 007 / Y</span><span class="member-symbol">🌷</span></div>
+      <div class="member-orbit"><span class="member-glyph">Y.</span></div>
+      <div class="member-sub">The final rose · 💗</div><h3 class="member-name">YUNI</h3>
+      <div class="member-quote">“Never mistake a soft voice for a weak one.”</div>
+      <p class="member-desc">A versatile all-rounder with a soft visual signature and a strong place in the group's vocal identity. Yuni brings a delicate contrast to the darker concept. Like a rose blooming after midnight, her pastel-pink aura holds a quiet strength that deserves to be remembered.</p>
+      <div class="member-tags"><span>LEAD VOCALIST</span><span>MAKNAE</span><span>ALL-ROUNDER</span><span>CO-LEADER</span></div>
+      <div class="member-meta"><div class="meta-item"><small>Edad</small><strong>12</strong></div><div class="meta-item"><small>Inspiración</small><strong>Ahyeon</strong></div><div class="meta-item"><small>Energía</small><strong>Soft strength</strong></div><div class="meta-item"><small>Color</small><strong>💗 Pastel pink</strong></div></div>
+      <div class="member-bottom"><span>THE ROSE FILE</span><span>007 — OPEN</span></div>
+    </div></article>
+
+  </div>
+</section>
+
+<!-- NUEVA SECCIÓN: LITTL3-KILLA -->
+<section id="littl3-killa">
+  <div class="section-head reveal">
+    <div class="kicker">03 — Archivo de subunidades</div>
+    <h2>Una nueva amenaza.</h2><div class="rule"></div>
+    <p>Una unidad especial de HORROR GAME. Tres identidades, una sola presencia y un concepto que convierte la elegancia en peligro escénico.</p>
+  </div>
+
+  <div class="killa-hero reveal">
+    <div class="killa-index">HORROR GAME SUBUNIT · FILE 001</div>
+    <h2 class="killa-title">LITTL3-<span>KILLA</span></h2>
+    <p>They don't follow the rules. They rewrite the nightmare. Una subunidad inspirada en el poder del rap, la confianza de una reina y una estética killer de tonos oscuros, rojos y metálicos.</p>
+    <div class="killa-stats">
+      <span>03 INTEGRANTES</span>
+      <span>DARK KILLER CONCEPT</span>
+      <span>DEBUT · 20.09.2026</span>
+      <span>DEBUT TRACK · PINK VENOM</span>
+    </div>
+  </div>
+
+  <div class="killa-grid">
+
+    <article class="killa-card vann reveal">
+      <div class="killa-inner">
+        <div class="killa-top"><span>SUBUNIT FILE · LK-01</span><span class="killa-status">ACTIVE</span></div>
+        <div class="killa-emblem"><span class="killa-letter">V.</span></div>
+        <div class="killa-alias">The venomous blade · Red signal</div>
+        <h3 class="killa-name">VANN</h3>
+        <div class="killa-quote">“One look is enough. One verse is fatal.”</div>
+        <p class="killa-desc">Cold, fearless and impossible to ignore. Vann brings a sharp, commanding presence to LITTL3-KILLA, with a fierce rap aura and the confidence to own every second of the stage. Her red signature represents danger, precision and a warning that arrives too late.</p>
+        <div class="killa-tags"><span>LALISA</span><span>RAP ATTITUDE</span><span>STAGE POWER</span><span>VENOM LINE</span></div>
+        <div class="killa-meta">
+          <div><small>Inspiración</small><strong>Lalisa</strong></div>
+          <div><small>Identidad</small><strong>The Blade</strong></div>
+          <div><small>Color</small><strong>Blood red</strong></div>
+          <div><small>Energía</small><strong>Fearless</strong></div>
         </div>
-        <div class="member-bottom"><span>THE VELVET FILE</span><span>001 — OPEN</span></div>
+        <div class="killa-foot"><span>LITTL3-KILLA</span><span>LK-01 · RED</span></div>
       </div>
     </article>
 
-    <article class="member-card vann reveal">
-      <div class="member-inner">
-        <div class="member-top"><span class="member-no">ARCHIVO 002 / V</span><span class="member-symbol">🐶</span></div>
-        <div class="member-orbit"><span class="member-glyph">V.</span></div>
-        <div class="member-sub">The blue warning · 💙</div>
-        <h3 class="member-name">VANN</h3>
-        <div class="member-quote">“Cute face. Dangerous flow. Remember that.”</div>
-        <p class="member-desc">Bold, sharp and full of attitude. Vann owns the rap line with confident energy, bringing rhythm, precision and a rebellious edge to the group's sound. Beneath the cool blue aura is a presence that knows exactly when to make an entrance.</p>
-        <div class="member-tags"><span>MAIN RAPPER</span><span>RAP LINE</span><span>ATTITUDE</span></div>
-        <div class="member-meta">
-          <div class="meta-item"><small>Edad</small><strong>16</strong></div>
-          <div class="meta-item"><small>Inspiración</small><strong>Asa</strong></div>
-          <div class="meta-item"><small>Energía</small><strong>Cold confidence</strong></div>
-          <div class="meta-item"><small>Color</small><strong>💙 Blue</strong></div>
+    <article class="killa-card bluebell reveal">
+      <div class="killa-inner">
+        <div class="killa-top"><span>SUBUNIT FILE · LK-02</span><span class="killa-status">ACTIVE</span></div>
+        <div class="killa-emblem"><span class="killa-letter">B.</span></div>
+        <div class="killa-alias">The silent queen · Silver ghost</div>
+        <h3 class="killa-name">BLUEBELL</h3>
+        <div class="killa-quote">“I don't need to make noise to control the room.”</div>
+        <p class="killa-desc">Elegant, mysterious and dangerously composed. Bluebell gives the unit a chilling visual presence, balancing the intensity of the concept with a quiet, royal energy. Her silver-white aesthetic feels like a beautiful apparition: distant, untouchable and impossible to forget.</p>
+        <div class="killa-tags"><span>KIM JISOO</span><span>ROYAL PRESENCE</span><span>SILVER GLOW</span><span>ICE COLD</span></div>
+        <div class="killa-meta">
+          <div><small>Inspiración</small><strong>Kim Jisoo</strong></div>
+          <div><small>Identidad</small><strong>The Phantom</strong></div>
+          <div><small>Color</small><strong>Silver white</strong></div>
+          <div><small>Energía</small><strong>Cold elegance</strong></div>
         </div>
-        <div class="member-bottom"><span>THE BLUE FILE</span><span>002 — OPEN</span></div>
+        <div class="killa-foot"><span>LITTL3-KILLA</span><span>LK-02 · SILVER</span></div>
       </div>
     </article>
 
-    <article class="member-card bluebell reveal">
-      <div class="member-inner">
-        <div class="member-top"><span class="member-no">ARCHIVO 003 / B</span><span class="member-symbol">👻</span></div>
-        <div class="member-orbit"><span class="member-glyph">B.</span></div>
-        <div class="member-sub">The pale phantom · 🤍</div>
-        <h3 class="member-name">BLUEBELL</h3>
-        <div class="member-quote">“Even silence has a face. Mine is unforgettable.”</div>
-        <p class="member-desc">A calm presence with a striking visual identity. As leader and main visual, Bluebell represents the group's unity while adding an ethereal, mysterious touch. Like a ghost in a silver hallway, her presence lingers long after the moment has passed.</p>
-        <div class="member-tags"><span>LEADER</span><span>SUB-VOCALIST</span><span>MAIN VISUAL</span></div>
-        <div class="member-meta">
-          <div class="meta-item"><small>Edad</small><strong>16</strong></div>
-          <div class="meta-item"><small>Inspiración</small><strong>Rora</strong></div>
-          <div class="meta-item"><small>Energía</small><strong>Ethereal mystery</strong></div>
-          <div class="meta-item"><small>Color</small><strong>🤍 White</strong></div>
+    <article class="killa-card haru reveal">
+      <div class="killa-inner">
+        <div class="killa-top"><span>SUBUNIT FILE · LK-03</span><span class="killa-status">SPECIAL</span></div>
+        <div class="killa-emblem"><span class="killa-letter">H.</span></div>
+        <div class="killa-alias">The deadly icon · Midnight rose</div>
+        <h3 class="killa-name">HARU</h3>
+        <div class="killa-quote">“I'm not your next obsession. I'm your last warning.”</div>
+        <p class="killa-desc">The midnight signature of LITTL3-KILLA. Haru combines dark elegance, sharp confidence and a magnetic stage identity. Inspired by Kim Jennie's iconic charisma, this card represents a luxurious, mysterious and unapologetically bold presence. Every detail is deliberate; every entrance feels like a final scene.</p>
+        <div class="killa-tags"><span>KIM JENNIE</span><span>ICON ENERGY</span><span>DARK LUXURY</span><span>MIDNIGHT</span></div>
+        <div class="killa-meta">
+          <div><small>Inspiración</small><strong>Kim Jennie</strong></div>
+          <div><small>Identidad</small><strong>The Icon</strong></div>
+          <div><small>Color</small><strong>Black cherry</strong></div>
+          <div><small>Energía</small><strong>Dark luxury</strong></div>
         </div>
-        <div class="member-bottom"><span>THE PHANTOM FILE</span><span>003 — OPEN</span></div>
+        <div class="killa-foot"><span>LITTL3-KILLA</span><span>LK-03 · MIDNIGHT</span></div>
       </div>
     </article>
 
-    <article class="member-card haru reveal">
-      <div class="member-inner">
-        <span class="vip-stamp">SPECIAL FILE · NIGHT CREATURE</span>
-        <div class="member-top"><span class="member-no">ARCHIVO 004 / H</span><span class="member-symbol">🦇</span></div>
-        <div class="member-orbit"><span class="member-glyph">H.</span></div>
-        <div class="member-sub">The midnight signature · 🤎</div>
-        <h3 class="member-name">HARU</h3>
-        <div class="member-quote">“I was never made to fit in. I was made to leave a mark.”</div>
-        <p class="member-desc">
-          Mysterious, confident and unapologetically distinctive. Haru brings a
-          sharp rap presence and a natural center energy. The bat symbol represents
-          the midnight aesthetic: quiet from a distance, unforgettable up close.
-          Haru's signature is a blend of controlled chaos, dark elegance and fearless individuality.
-          Every detail carries a little mystery, every silence feels intentional,
-          and every appearance leaves its own mark.
-        </p>
-        <div class="member-tags"><span>LEAD RAPPER</span><span>CENTER</span><span>RAP LINE</span><span>BAT ENERGY</span></div>
-        <div class="member-meta">
-          <div class="meta-item"><small>Edad</small><strong>16</strong></div>
-          <div class="meta-item"><small>Inspiración</small><strong>Ruka</strong></div>
-          <div class="meta-item"><small>Energía</small><strong>Midnight confidence</strong></div>
-          <div class="meta-item"><small>Color</small><strong>🤎 Dark brown</strong></div>
-          <div class="meta-item"><small>Símbolo</small><strong>🦇 The bat</strong></div>
-          <div class="meta-item"><small>Presencia</small><strong>Quietly untouchable</strong></div>
-        </div>
-        <div class="member-bottom"><span>THE MIDNIGHT FILE</span><span>004 — SPECIAL</span></div>
-      </div>
-    </article>
+  </div>
 
-    <article class="member-card anye reveal">
-      <div class="member-inner">
-        <div class="member-top"><span class="member-no">ARCHIVO 005 / A</span><span class="member-symbol">🍕</span></div>
-        <div class="member-orbit"><span class="member-glyph">A.</span></div>
-        <div class="member-sub">The burning echo · 🧡</div>
-        <h3 class="member-name">ANYE</h3>
-        <div class="member-quote">“My voice is the plot twist you never saw coming.”</div>
-        <p class="member-desc">Powerful and expressive, Anye brings a vocal presence that cuts through the darkness. Her additional rap role adds another shade to her performance identity. With a fiery orange signature, she feels like the unexpected spark that changes the entire atmosphere.</p>
-        <div class="member-tags"><span>MAIN VOCALIST</span><span>SUB-RAPPER</span><span>POWER</span></div>
-        <div class="member-meta">
-          <div class="meta-item"><small>Edad</small><strong>14</strong></div>
-          <div class="meta-item"><small>Inspiración</small><strong>Rami</strong></div>
-          <div class="meta-item"><small>Energía</small><strong>Vocal intensity</strong></div>
-          <div class="meta-item"><small>Color</small><strong>🧡 Orange</strong></div>
-        </div>
-        <div class="member-bottom"><span>THE ECHO FILE</span><span>005 — OPEN</span></div>
-      </div>
+  <div class="killa-feature">
+    <article class="killa-info reveal">
+      <div class="mini-label">El expediente de la unidad</div>
+      <h3>El veneno tiene nombre.</h3>
+      <p>LITTL3-KILLA es una subunidad de HORROR GAME formada por Vann, Bluebell y Haru. Su identidad se construye alrededor de un concepto oscuro, killer y elegante: una mezcla de presencia dominante, actitud desafiante, lujo nocturno y misterio.</p>
+      <p>Su estética combina negro profundo, rojo intenso, plata fría y detalles metálicos. La idea no es solo parecer peligrosa, sino transmitir seguridad, carácter y una energía escénica que se quede en la memoria.</p>
+      <p><em>“Three shadows. One deadly signature.”</em></p>
     </article>
-
-    <article class="member-card channel reveal">
-      <div class="member-inner">
-        <div class="member-top"><span class="member-no">ARCHIVO 006 / C</span><span class="member-symbol">🪷</span></div>
-        <div class="member-orbit"><span class="member-glyph">C.</span></div>
-        <div class="member-sub">The hidden frequency · 💚</div>
-        <h3 class="member-name">CHANNEL</h3>
-        <div class="member-quote">“You can change the channel. You can't erase my signal.”</div>
-        <p class="member-desc">A fresh, distinctive presence with a visual edge and a place in the rap line. Channel's identity feels like a secret frequency hidden inside the group's darker universe. Her green signature represents an unexpected spark, quietly glowing beneath the static.</p>
-        <div class="member-tags"><span>SUB-RAPPER</span><span>LEAD VISUAL</span><span>FREQUENCY</span></div>
-        <div class="member-meta">
-          <div class="meta-item"><small>Edad</small><strong>13</strong></div>
-          <div class="meta-item"><small>Inspiración</small><strong>Chiquita</strong></div>
-          <div class="meta-item"><small>Energía</small><strong>Unexpected spark</strong></div>
-          <div class="meta-item"><small>Color</small><strong>💚 Green</strong></div>
-        </div>
-        <div class="member-bottom"><span>THE SIGNAL FILE</span><span>006 — OPEN</span></div>
-      </div>
+    <article class="killa-info reveal">
+      <div class="mini-label">Debut oficial</div>
+      <h3>PINK VENOM</h3>
+      <p>El 20 de septiembre de 2026, LITTL3-KILLA presenta su primer lanzamiento: <strong>PINK VENOM</strong>. El título representa el contraste entre una apariencia llamativa y una actitud intensa, combinando glamour, oscuridad y confianza.</p>
+      <span class="killa-track">DEBUT SINGLE · PINK VENOM</span>
+      <span class="killa-track">20 SEPTIEMBRE 2026</span>
+      <span class="killa-track">UNIT ERA · 001</span>
     </article>
+  </div>
 
-    <article class="member-card yuni reveal">
-      <div class="member-inner">
-        <div class="member-top"><span class="member-no">ARCHIVO 007 / Y</span><span class="member-symbol">🌷</span></div>
-        <div class="member-orbit"><span class="member-glyph">Y.</span></div>
-        <div class="member-sub">The final rose · 💗</div>
-        <h3 class="member-name">YUNI</h3>
-        <div class="member-quote">“Never mistake a soft voice for a weak one.”</div>
-        <p class="member-desc">A versatile all-rounder with a soft visual signature and a strong place in the group's vocal identity. Yuni brings a delicate contrast to the darker concept. Like a rose blooming after midnight, her pastel-pink aura holds a quiet strength that deserves to be remembered.</p>
-        <div class="member-tags"><span>LEAD VOCALIST</span><span>MAKNAE</span><span>ALL-ROUNDER</span><span>CO-LEADER</span></div>
-        <div class="member-meta">
-          <div class="meta-item"><small>Edad</small><strong>12</strong></div>
-          <div class="meta-item"><small>Inspiración</small><strong>Ahyeon</strong></div>
-          <div class="meta-item"><small>Energía</small><strong>Soft strength</strong></div>
-          <div class="meta-item"><small>Color</small><strong>💗 Pastel pink</strong></div>
-        </div>
-        <div class="member-bottom"><span>THE ROSE FILE</span><span>007 — OPEN</span></div>
-      </div>
-    </article>
-
+  <div class="killa-timeline reveal">
+    <div class="archive-row">
+      <div class="archive-date">20.09.2026</div>
+      <div><h3>LITTL3-KILLA — PINK VENOM</h3><p>Debut oficial de la subunidad formada por Vann, Bluebell y Haru.</p></div>
+      <div class="archive-status">UNIT DEBUT</div>
+    </div>
   </div>
 </section>
 
 <section id="concepto">
   <div class="section-head reveal">
-    <div class="kicker">03 — La atmósfera</div>
-    <h2>Más que un concepto.</h2>
-    <div class="rule"></div>
+    <div class="kicker">04 — La atmósfera</div>
+    <h2>Más que un concepto.</h2><div class="rule"></div>
     <p>La identidad de HORROR GAME vive entre lo hermoso y lo inquietante. Cada detalle tiene un propósito y cada era puede revelar una nueva parte de la historia.</p>
   </div>
   <div class="feature-grid">
@@ -513,25 +464,15 @@ footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;c
 
 <section id="debut">
   <div class="section-head reveal">
-    <div class="kicker">04 — El primer capítulo</div>
-    <h2>El comienzo de MOON.</h2>
-    <div class="rule"></div>
+    <div class="kicker">05 — El primer capítulo</div>
+    <h2>El comienzo de MOON.</h2><div class="rule"></div>
     <p>Todo universo comienza en algún lugar. Este es el primer capítulo de la historia de HORROR GAME.</p>
   </div>
   <div class="debut reveal">
-    <div class="debut-date">
-      <div class="mini-label">Fecha de debut</div>
-      <div class="day">08</div>
-      <div class="month">SEPTIEMBRE · 2026</div>
-    </div>
+    <div class="debut-date"><div class="mini-label">Fecha de debut</div><div class="day">08</div><div class="month">SEPTIEMBRE · 2026</div></div>
     <div class="debut-copy">
-      <div class="mini-label">Proyecto de debut · Capítulo 001</div>
-      <h3>MOON</h3>
-      <p>
-        Bajo la misma luna, siete sombras diferentes comienzan su historia.
-        MOON representa el primer paso hacia el universo del grupo:
-        misterioso, emocional y lleno de posibilidades.
-      </p>
+      <div class="mini-label">Proyecto de debut · Capítulo 001</div><h3>MOON</h3>
+      <p>Bajo la misma luna, siete sombras diferentes comienzan su historia. MOON representa el primer paso hacia el universo del grupo: misterioso, emocional y lleno de posibilidades.</p>
       <p><em>“When the lights disappear, our story begins.”</em></p>
       <span class="track">PROYECTO: MOON · CAPÍTULO 001</span>
     </div>
@@ -540,55 +481,38 @@ footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;c
 
 <section id="guia">
   <div class="section-head reveal">
-    <div class="kicker">05 — Para nuevos visitantes</div>
-    <h2>Guía para fans.</h2>
-    <div class="rule"></div>
+    <div class="kicker">06 — Para nuevos visitantes</div><h2>Guía para fans.</h2><div class="rule"></div>
     <p>¿Acabas de llegar? Esta pequeña guía te ayudará a conocer el proyecto y formar parte de la comunidad.</p>
   </div>
   <div class="guide-grid">
     <article class="guide-item reveal"><div class="guide-num">01</div><div><h3>Conoce a las siete</h3><p>Lee cada perfil, descubre sus posiciones, símbolos, colores y frases. Cada integrante tiene su propia identidad.</p></div></article>
     <article class="guide-item reveal"><div class="guide-num">02</div><div><h3>Explora el concepto</h3><p>HORROR GAME combina una estética dark, emo y elegante con una identidad que puede evolucionar en cada nueva era.</p></div></article>
     <article class="guide-item reveal"><div class="guide-num">03</div><div><h3>Descubre MOON</h3><p>Conoce el primer proyecto y su lugar dentro de la historia del grupo. Cada nuevo lanzamiento puede abrir un capítulo diferente.</p></div></article>
-    <article class="guide-item reveal"><div class="guide-num">04</div><div><h3>Cuida la comunidad</h3><p>Disfruta el proyecto, comparte tus ideas con respeto y recuerda que detrás de cada perfil hay una persona real.</p></div></article>
+    <article class="guide-item reveal"><div class="guide-num">04</div><div><h3>Conoce LITTL3-KILLA</h3><p>Descubre la subunidad formada por Vann, Bluebell y Haru, su concepto killer y su debut con PINK VENOM.</p></div></article>
+    <article class="guide-item reveal"><div class="guide-num">05</div><div><h3>Cuida la comunidad</h3><p>Disfruta el proyecto, comparte tus ideas con respeto y recuerda que detrás de cada perfil hay una persona real.</p></div></article>
   </div>
 </section>
 
 <section id="archivo">
   <div class="section-head reveal">
-    <div class="kicker">06 — Registro de recuerdos</div>
-    <h2>El archivo.</h2>
-    <div class="rule"></div>
+    <div class="kicker">07 — Registro de recuerdos</div><h2>El archivo.</h2><div class="rule"></div>
     <p>Un registro de capítulos, anuncios y momentos importantes. El archivo crecerá conforme avance el proyecto.</p>
   </div>
   <div class="archive reveal">
-    <div class="archive-row">
-      <div class="archive-date">08.09.2026</div>
-      <div><h3>MOON</h3><p>El primer capítulo del universo HORROR GAME.</p></div>
-      <div class="archive-status">CAPÍTULO 001</div>
-    </div>
-    <div class="archive-row">
-      <div class="archive-date">13.10.2026</div>
-      <div><h3>La nueva era</h3><p>Una nueva presentación visual para el sitio y los perfiles.</p></div>
-      <div class="archive-status">ACTUALIZACIÓN</div>
-    </div>
-    <div class="archive-row">
-      <div class="archive-date">POR DEFINIR</div>
-      <div><h3>Próxima transmisión</h3><p>El siguiente registro aparecerá cuando haya una nueva actualización.</p></div>
-      <div class="archive-status">BLOQUEADO</div>
-    </div>
+    <div class="archive-row"><div class="archive-date">08.09.2026</div><div><h3>MOON</h3><p>El primer capítulo del universo HORROR GAME.</p></div><div class="archive-status">CAPÍTULO 001</div></div>
+    <div class="archive-row"><div class="archive-date">20.09.2026</div><div><h3>LITTL3-KILLA — PINK VENOM</h3><p>Debut de la subunidad con Vann, Bluebell y Haru.</p></div><div class="archive-status">UNIT DEBUT</div></div>
+    <div class="archive-row"><div class="archive-date">13.10.2026</div><div><h3>La nueva era</h3><p>Una nueva presentación visual para el sitio y los perfiles.</p></div><div class="archive-status">ACTUALIZACIÓN</div></div>
+    <div class="archive-row"><div class="archive-date">POR DEFINIR</div><div><h3>Próxima transmisión</h3><p>El siguiente registro aparecerá cuando haya una nueva actualización.</p></div><div class="archive-status">BLOQUEADO</div></div>
   </div>
 </section>
 
 <section id="secreto">
   <div class="section-head reveal">
-    <div class="kicker">07 — Acceso restringido</div>
-    <h2>Un mensaje en la oscuridad.</h2>
-    <div class="rule"></div>
+    <div class="kicker">08 — Acceso restringido</div><h2>Un mensaje en la oscuridad.</h2><div class="rule"></div>
     <p>Hay cosas que solo se revelan cuando te atreves a mirar más de cerca.</p>
   </div>
   <div class="secret-box reveal">
-    <div class="secret-icon">♱</div>
-    <h3>¿Puedes escucharnos?</h3>
+    <div class="secret-icon">♱</div><h3>¿Puedes escucharnos?</h3>
     <p>Abre el mensaje oculto para recibir una pequeña señal desde el otro lado.</p>
     <button class="btn primary" id="secretToggle" type="button">Revelar mensaje</button>
     <div id="secretMessage">“You were never too strange for this world. You were simply born to create your own.” ☾</div>
@@ -602,41 +526,28 @@ footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;c
 
 <section id="quiz">
   <div class="section-head reveal">
-    <div class="kicker">08 — Prueba de identidad</div>
-    <h2>¿Cuánto sabes del grupo?</h2>
-    <div class="rule"></div>
+    <div class="kicker">09 — Prueba de identidad</div><h2>¿Cuánto sabes del grupo?</h2><div class="rule"></div>
     <p>Responde las preguntas para poner a prueba lo que sabes de HORROR GAME. Cada partida mezcla el orden de las preguntas y las respuestas.</p>
   </div>
   <div class="quiz-wrap reveal">
     <div id="quizGame">
       <div class="quiz-top"><span id="questionCount">PREGUNTA 01 / 12</span><span>ACCESO: FAN</span></div>
       <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
-      <h3 id="questionText"></h3>
-      <div class="answers" id="answerList"></div>
-      <div class="quiz-footer">
-        <div id="quizFeedback">Elige una respuesta para continuar.</div>
-        <button class="btn primary" id="nextQuestion" type="button" disabled>Siguiente pregunta →</button>
-      </div>
+      <h3 id="questionText"></h3><div class="answers" id="answerList"></div>
+      <div class="quiz-footer"><div id="quizFeedback">Elige una respuesta para continuar.</div><button class="btn primary" id="nextQuestion" type="button" disabled>Siguiente pregunta →</button></div>
     </div>
-    <div id="quizResult">
-      <div class="kicker">TRANSMISIÓN COMPLETADA</div>
-      <h3 id="resultTitle">Tu resultado</h3>
-      <p id="resultDescription"></p>
-      <button class="btn primary" id="restartQuiz" type="button">Jugar de nuevo ↻</button>
-    </div>
+    <div id="quizResult"><div class="kicker">TRANSMISIÓN COMPLETADA</div><h3 id="resultTitle">Tu resultado</h3><p id="resultDescription"></p><button class="btn primary" id="restartQuiz" type="button">Jugar de nuevo ↻</button></div>
   </div>
 </section>
 
 <section id="faq">
-  <div class="section-head reveal">
-    <div class="kicker">09 — Dudas frecuentes</div>
-    <h2>Preguntas desde las sombras.</h2>
-    <div class="rule"></div>
-  </div>
+  <div class="section-head reveal"><div class="kicker">10 — Dudas frecuentes</div><h2>Preguntas desde las sombras.</h2><div class="rule"></div></div>
   <div class="faq reveal">
     <details><summary>¿Qué es HORROR GAME?</summary><p>Es un proyecto ficticio de K-pop con una identidad dark, emo y aesthetic, perfiles de integrantes y una historia que puede evolucionar con nuevos proyectos.</p></details>
     <details><summary>¿Cuántas integrantes hay?</summary><p>El grupo cuenta con siete integrantes: Jina, Vann, Bluebell, Haru, Anye, Channel y Yuni.</p></details>
-    <details><summary>¿Cuál es el proyecto de debut?</summary><p>El primer proyecto se llama MOON y su fecha indicada es el 8 de septiembre de 2026.</p></details>
+    <details><summary>¿Qué es LITTL3-KILLA?</summary><p>Es una subunidad de HORROR GAME formada por Vann, Bluebell y Haru, con un concepto oscuro, killer y elegante.</p></details>
+    <details><summary>¿Cuándo debutó LITTL3-KILLA?</summary><p>Su debut fue el 20 de septiembre de 2026 con PINK VENOM.</p></details>
+    <details><summary>¿Cuál es el proyecto de debut del grupo?</summary><p>El primer proyecto se llama MOON y su fecha indicada es el 8 de septiembre de 2026.</p></details>
     <details><summary>¿La historia cambiará?</summary><p>Sí. La página está pensada para actualizarse conforme se creen nuevas eras, anuncios, proyectos y capítulos.</p></details>
     <details><summary>¿Cómo puedo conocer a las integrantes?</summary><p>Visita la sección de integrantes para ver sus edades, posiciones, colores, símbolos, inspiraciones y frases personales.</p></details>
   </div>
@@ -651,7 +562,7 @@ footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;c
 </footer>
 
 <script>
-/* Animaciones al aparecer en pantalla */
+/* Animaciones al aparecer */
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -659,14 +570,12 @@ const revealObserver = new IntersectionObserver(entries => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, {threshold: 0.12});
-
+}, {threshold:0.12});
 document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
 /* Mensaje secreto */
 const secretToggle = document.getElementById("secretToggle");
 const secretMessage = document.getElementById("secretMessage");
-
 secretToggle.addEventListener("click", () => {
   const opened = secretMessage.classList.toggle("show");
   secretToggle.textContent = opened ? "Ocultar mensaje" : "Revelar mensaje";
@@ -685,55 +594,55 @@ const transmissions = [
   "“The night is quiet, but our story isn't over.”",
   "“You belong in every room where you can be yourself.”",
   "“Behind every shadow, there is something worth discovering.”",
-  "“Somewhere between the nightmare and the dream, we exist.”"
+  "“Somewhere between the nightmare and the dream, we exist.”",
+  "“Three shadows. One deadly signature.”",
+  "“Pink on the surface. Venom underneath.”",
+  "“LITTL3-KILLA doesn't follow the rules. It rewrites the nightmare.”"
 ];
-
 let lastTransmission = -1;
 document.getElementById("nextTransmission").addEventListener("click", () => {
   let next;
-  do {
-    next = Math.floor(Math.random() * transmissions.length);
-  } while (next === lastTransmission && transmissions.length > 1);
+  do { next = Math.floor(Math.random() * transmissions.length); }
+  while (next === lastTransmission && transmissions.length > 1);
   lastTransmission = next;
-
   const text = document.getElementById("transmissionText");
   text.style.opacity = 0;
-  setTimeout(() => {
-    text.textContent = transmissions[next];
-    text.style.opacity = 1;
-  }, 180);
+  setTimeout(() => {text.textContent = transmissions[next];text.style.opacity = 1;},180);
 });
 
-/* Cuestionario: preguntas y opciones aleatorias en cada partida */
+/* Cuestionario aleatorio */
 const questionBank = [
   {q:"¿Qué integrante es lead rapper y center?",a:["Haru","Jina","Yuni","Bluebell"],correct:"Haru"},
   {q:"¿Qué integrante tiene un murciélago como símbolo personal?",a:["Vann","Haru","Anye","Channel"],correct:"Haru"},
-  {q:"¿Cómo se llama el proyecto de debut?",a:["MIDNIGHT","MOON","PHANTOM","ECHO"],correct:"MOON"},
+  {q:"¿Cómo se llama el proyecto de debut del grupo?",a:["MIDNIGHT","MOON","PHANTOM","ECHO"],correct:"MOON"},
   {q:"¿Quién es main vocalist y también sub-rapper?",a:["Jina","Anye","Bluebell","Vann"],correct:"Anye"},
   {q:"¿Qué integrante es líder y main visual?",a:["Bluebell","Yuni","Channel","Jina"],correct:"Bluebell"},
   {q:"¿Qué integrante tiene el color azul?",a:["Haru","Vann","Anye","Yuni"],correct:"Vann"},
   {q:"¿Quién es la maknae y all-rounder?",a:["Channel","Jina","Yuni","Bluebell"],correct:"Yuni"},
   {q:"¿Cuál es el concepto visual principal de HORROR GAME?",a:["Pop veraniego","Dark, emo y aesthetic","Country retro","Fantasía pastel únicamente"],correct:"Dark, emo y aesthetic"},
-  {q:"¿En qué idol se inspira Vann?",a:["Asa","Rami","Ruka","Pharita"],correct:"Asa"},
+  {q:"¿En qué idol se inspira Vann en su perfil individual?",a:["Asa","Rami","Ruka","Pharita"],correct:"Asa"},
   {q:"¿Qué integrante tiene un fantasma como símbolo?",a:["Channel","Bluebell","Jina","Yuni"],correct:"Bluebell"},
-  {q:"¿Qué fecha aparece para el debut de MOON?",a:["8 de septiembre de 2026","13 de octubre de 2026","1 de enero de 2025","8 de agosto de 2026"],correct:"8 de septiembre de 2026"},
+  {q:"¿En qué fecha debutó MOON?",a:["8 de septiembre de 2026","13 de octubre de 2026","1 de enero de 2025","8 de agosto de 2026"],correct:"8 de septiembre de 2026"},
   {q:"¿Quién tiene el color rosa pastel?",a:["Yuni","Anye","Vann","Haru"],correct:"Yuni"},
   {q:"¿En qué idol se inspira Jina?",a:["Pharita","Bluebell","Channel","Anye"],correct:"Pharita"},
   {q:"¿Qué integrante tiene una flor de loto como símbolo?",a:["Yuni","Channel","Vann","Haru"],correct:"Channel"},
   {q:"¿Quién tiene la temática marrón y las posiciones lead rapper y center?",a:["Haru","Jina","Bluebell","Anye"],correct:"Haru"},
   {q:"¿En qué idol se inspira Anye?",a:["Rami","Jina","Yuni","Channel"],correct:"Rami"},
-  {q:"¿En qué idol se inspira Bluebell?",a:["Rora","Vann","Haru","Yuni"],correct:"Rora"},
+  {q:"¿En qué idol se inspira Bluebell en su perfil individual?",a:["Rora","Vann","Haru","Yuni"],correct:"Rora"},
   {q:"¿En qué idol se inspira Yuni?",a:["Ahyeon","Jina","Channel","Anye"],correct:"Ahyeon"},
-  {q:"¿En qué idol se inspira Haru?",a:["Ruka","Vann","Bluebell","Jina"],correct:"Ruka"},
-  {q:"¿Quién es sub-rapper y lead visual, inspirada en Chiquita?",a:["Channel","Anye","Jina","Yuni"],correct:"Channel"}
+  {q:"¿En qué idol se inspira Haru en su perfil individual?",a:["Ruka","Vann","Bluebell","Jina"],correct:"Ruka"},
+  {q:"¿Quién es sub-rapper y lead visual, inspirada en Chiquita?",a:["Channel","Anye","Jina","Yuni"],correct:"Channel"},
+  {q:"¿Cómo se llama la subunidad de HORROR GAME?",a:["LITTL3-KILLA","MOONLIGHT","DARK ROSE","PHANTOM"],correct:"LITTL3-KILLA"},
+  {q:"¿Qué integrantes forman LITTL3-KILLA?",a:["Vann, Bluebell y Haru","Jina, Anye y Yuni","Channel, Jina y Vann","Haru, Yuni y Anye"],correct:"Vann, Bluebell y Haru"},
+  {q:"¿Cuál es el tema de debut de LITTL3-KILLA?",a:["PINK VENOM","MOON","DRIP","MIDNIGHT"],correct:"PINK VENOM"},
+  {q:"¿En qué fecha debutó LITTL3-KILLA?",a:["20 de septiembre de 2026","8 de septiembre de 2026","13 de octubre de 2026","20 de octubre de 2025"],correct:"20 de septiembre de 2026"},
+  {q:"¿En qué idol está inspirada Vann dentro de LITTL3-KILLA?",a:["Lalisa","Kim Jisoo","Kim Jennie","Ruka"],correct:"Lalisa"},
+  {q:"¿En qué idol está inspirada Bluebell dentro de LITTL3-KILLA?",a:["Kim Jisoo","Kim Jennie","Lalisa","Pharita"],correct:"Kim Jisoo"},
+  {q:"¿En qué idol está inspirado Haru dentro de LITTL3-KILLA?",a:["Kim Jennie","Kim Jisoo","Lalisa","Asa"],correct:"Kim Jennie"}
 ];
 
 const TOTAL_QUESTIONS = 12;
-let quizQuestions = [];
-let questionIndex = 0;
-let score = 0;
-let answered = false;
-
+let quizQuestions = [], questionIndex = 0, score = 0, answered = false;
 const questionCount = document.getElementById("questionCount");
 const questionText = document.getElementById("questionText");
 const answerList = document.getElementById("answerList");
@@ -751,85 +660,48 @@ function shuffle(array) {
   }
   return result;
 }
-
 function startQuiz() {
-  quizQuestions = shuffle(questionBank).slice(0, TOTAL_QUESTIONS).map(item => ({
-    ...item,
-    a: shuffle(item.a)
-  }));
-  questionIndex = 0;
-  score = 0;
-  answered = false;
-  quizGame.style.display = "block";
-  quizResult.style.display = "none";
-  renderQuestion();
+  quizQuestions = shuffle(questionBank).slice(0,TOTAL_QUESTIONS).map(item => ({...item,a:shuffle(item.a)}));
+  questionIndex = 0;score = 0;answered = false;
+  quizGame.style.display = "block";quizResult.style.display = "none";renderQuestion();
 }
-
 function renderQuestion() {
-  const item = quizQuestions[questionIndex];
-  answered = false;
-
-  questionCount.textContent =
-    `PREGUNTA ${String(questionIndex + 1).padStart(2,"0")} / ${TOTAL_QUESTIONS}`;
-  progressBar.style.width = `${(questionIndex / TOTAL_QUESTIONS) * 100}%`;
-  questionText.textContent = item.q;
-  answerList.innerHTML = "";
+  const item = quizQuestions[questionIndex];answered = false;
+  questionCount.textContent = `PREGUNTA ${String(questionIndex+1).padStart(2,"0")} / ${TOTAL_QUESTIONS}`;
+  progressBar.style.width = `${(questionIndex/TOTAL_QUESTIONS)*100}%`;
+  questionText.textContent = item.q;answerList.innerHTML = "";
   quizFeedback.textContent = "Elige una respuesta para continuar.";
   nextQuestion.disabled = true;
-  nextQuestion.textContent = questionIndex === TOTAL_QUESTIONS - 1
-    ? "Ver resultado →"
-    : "Siguiente pregunta →";
-
+  nextQuestion.textContent = questionIndex === TOTAL_QUESTIONS-1 ? "Ver resultado →" : "Siguiente pregunta →";
   item.a.forEach(answer => {
     const button = document.createElement("button");
-    button.type = "button";
-    button.className = "answer";
-    button.textContent = answer;
-    button.addEventListener("click", () => chooseAnswer(answer, button));
+    button.type = "button";button.className = "answer";button.textContent = answer;
+    button.addEventListener("click",() => chooseAnswer(answer,button));
     answerList.appendChild(button);
   });
 }
-
-function chooseAnswer(answer, button) {
+function chooseAnswer(answer,button) {
   if (answered) return;
   answered = true;
-
-  answerList.querySelectorAll(".answer").forEach(btn => {
-    btn.classList.remove("selected");
-    btn.disabled = true;
-  });
-
+  answerList.querySelectorAll(".answer").forEach(btn => {btn.classList.remove("selected");btn.disabled = true;});
   button.classList.add("selected");
-
   if (answer === quizQuestions[questionIndex].correct) {
-    score++;
-    quizFeedback.textContent = "Respuesta correcta. La señal es clara. ✦";
+    score++;quizFeedback.textContent = "Respuesta correcta. La señal es clara. ✦";
   } else {
     quizFeedback.textContent = "No exactamente. La oscuridad guarda sus secretos. ☾";
   }
-
   nextQuestion.disabled = false;
 }
-
-nextQuestion.addEventListener("click", () => {
+nextQuestion.addEventListener("click",() => {
   if (!answered) return;
   questionIndex++;
-
-  if (questionIndex < TOTAL_QUESTIONS) {
-    renderQuestion();
-  } else {
-    showResult();
-  }
+  if (questionIndex < TOTAL_QUESTIONS) renderQuestion();
+  else showResult();
 });
-
 function showResult() {
-  quizGame.style.display = "none";
-  quizResult.style.display = "block";
-  progressBar.style.width = "100%";
-
+  quizGame.style.display = "none";quizResult.style.display = "block";progressBar.style.width = "100%";
   const title = document.getElementById("resultTitle");
   const description = document.getElementById("resultDescription");
-
   if (score >= 11) {
     title.textContent = "Maestro de las sombras. 🦇";
     description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Conoces este universo casi de memoria. La oscuridad ya conoce tu nombre.`;
@@ -844,8 +716,7 @@ function showResult() {
     description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Todo misterio necesita tiempo. Conoce a las integrantes y regresa para otra partida.`;
   }
 }
-
-document.getElementById("restartQuiz").addEventListener("click", startQuiz);
+document.getElementById("restartQuiz").addEventListener("click",startQuiz);
 startQuiz();
 </script>
 </body>
