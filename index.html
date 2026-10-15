@@ -137,6 +137,60 @@ section{padding:90px 7%;position:relative}
 .killa-timeline{max-width:900px;margin:35px auto 0;border-top:1px solid #ffffff17}
 .killa-timeline .archive-row:hover{background:#8e15300e}
 
+
+
+/* THE HOLLOW FOUR — estilos aislados para no modificar las tarjetas originales */
+#the-hollow-four .hollow-intro{max-width:1100px;margin:0 auto 26px;padding:0 20px}
+#the-hollow-four .hollow-eyebrow{display:inline-flex;align-items:center;gap:8px;color:#e8c7ff;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+#the-hollow-four .hollow-title{font-size:clamp(32px,6vw,62px);line-height:.98;letter-spacing:-2px;margin:0 0 14px;text-transform:uppercase}
+#the-hollow-four .hollow-title span{color:#d5a0ff;text-shadow:0 0 24px #d5a0ff55}
+#the-hollow-four .hollow-description{max-width:650px;color:#c5bacb;line-height:1.8;font-size:13px}
+#the-hollow-four .hollow-label{display:inline-block;margin-top:13px;border:1px solid #d5a0ff55;border-radius:999px;padding:7px 12px;color:#e9d7ff;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+#the-hollow-four .hollow-grid{max-width:1100px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+#the-hollow-four .hollow-card{--pastel:#d5a0ff;--pastel-rgb:213,160,255;position:relative;overflow:hidden;min-width:0;padding:24px;border:1px solid rgba(var(--pastel-rgb),.4);border-radius:18px;background:linear-gradient(145deg,rgba(var(--pastel-rgb),.12),#100d14 56%,#09080c);box-shadow:0 12px 36px rgba(0,0,0,.2);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+#the-hollow-four .hollow-card:hover{transform:translateY(-4px);border-color:var(--pastel);box-shadow:0 14px 38px rgba(var(--pastel-rgb),.12)}
+#the-hollow-four .hollow-card:before{content:"";position:absolute;width:160px;height:160px;right:-65px;top:-65px;border-radius:50%;background:rgba(var(--pastel-rgb),.12);filter:blur(2px);pointer-events:none}
+#the-hollow-four .hollow-card.yuni{--pastel:#8CC9FF;--pastel-rgb:140,201,255}
+#the-hollow-four .hollow-card.jina{--pastel:#F4F0FF;--pastel-rgb:244,240,255}
+#the-hollow-four .hollow-card.channel{--pastel:#D5A0FF;--pastel-rgb:213,160,255}
+#the-hollow-four .hollow-card.anye{--pastel:#FF8EAA;--pastel-rgb:255,142,170}
+#the-hollow-four .hollow-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;position:relative}
+#the-hollow-four .hollow-symbol{display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(var(--pastel-rgb),.55);border-radius:14px;background:rgba(var(--pastel-rgb),.12);font-size:21px}
+#the-hollow-four .hollow-number{font-size:9px;letter-spacing:2px;color:var(--pastel);text-align:right}
+#the-hollow-four .hollow-name{font-size:clamp(25px,4vw,38px);letter-spacing:-1px;line-height:1;margin:22px 0 6px;text-transform:uppercase}
+#the-hollow-four .hollow-alias{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--pastel)}
+#the-hollow-four .hollow-quote{margin:17px 0;color:#e8e0eb;font-size:12px;line-height:1.7;font-style:italic}
+#the-hollow-four .hollow-tags{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0}
+#the-hollow-four .hollow-tag{padding:6px 9px;border:1px solid rgba(var(--pastel-rgb),.28);border-radius:999px;color:#e8e0eb;font-size:9px;letter-spacing:.5px;background:rgba(var(--pastel-rgb),.06)}
+#the-hollow-four .hollow-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:17px;padding-top:14px;border-top:1px solid rgba(var(--pastel-rgb),.2);font-size:10px;color:#bcb2c2}
+#the-hollow-four .hollow-meta strong{color:var(--pastel);font-weight:600}
+#the-hollow-four .hollow-card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:20px;color:var(--pastel);font-size:9px;letter-spacing:1.6px;text-transform:uppercase}
+#the-hollow-four .hollow-status{border:1px solid rgba(var(--pastel-rgb),.4);border-radius:999px;padding:6px 8px}
+@media(max-width:650px){#the-hollow-four .hollow-grid{grid-template-columns:1fr;padding:0 14px}#the-hollow-four .hollow-intro{padding:0 14px}#the-hollow-four .hollow-card{padding:20px}#the-hollow-four .hollow-title{letter-spacing:-1px}}
+
+/* THE HOLLOW FOUR — cute pre-debut details; scoped to this section only */
+#the-hollow-four{position:relative;overflow:hidden}
+#the-hollow-four .section-head h2{color:#f7e9ff;text-shadow:0 0 24px #d5a0ff30}
+#the-hollow-four .hollow-intro{position:relative;padding:25px 24px 27px;border:1px solid #d5a0ff35;border-radius:24px;background:radial-gradient(ellipse at 100% 0%,#d5a0ff18,transparent 48%),linear-gradient(135deg,#17101d,#0d0a12);box-shadow:0 16px 40px #0004}
+#the-hollow-four .hollow-intro:after{content:"୨୧";position:absolute;right:22px;bottom:12px;color:#d5a0ff55;font-size:36px;pointer-events:none}
+#the-hollow-four .hollow-eyebrow{padding:8px 12px;border:1px solid #d5a0ff35;border-radius:999px;background:#d5a0ff0b;letter-spacing:2px}
+#the-hollow-four .hollow-title{font-family:"Cormorant Garamond",serif;font-weight:500;letter-spacing:-1px}
+#the-hollow-four .hollow-description{max-width:760px}
+#the-hollow-four .hollow-label{background:#d5a0ff0b}
+#the-hollow-four .hollow-info-grid{max-width:1100px;margin:0 auto 22px;padding:0 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+#the-hollow-four .hollow-info-box{padding:20px;border:1px solid #d5a0ff30;border-radius:18px;background:linear-gradient(145deg,#1a1220,#0e0a12)}
+#the-hollow-four .hollow-info-box h4{margin:0 0 10px;color:#efdfff;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+#the-hollow-four .hollow-info-box p{margin:0;color:#c9bdce;font-size:11px;line-height:1.9}
+#the-hollow-four .hollow-pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+#the-hollow-four .hollow-pill{padding:7px 10px;border:1px solid #d5a0ff35;border-radius:999px;color:#ead8ff;background:#d5a0ff0b;font-size:9px}
+#the-hollow-four .hollow-card{border-radius:23px;box-shadow:0 12px 36px #0003, inset 0 1px #ffffff08}
+#the-hollow-four .hollow-symbol{border-radius:17px;box-shadow:0 0 22px rgba(var(--pastel-rgb),.10)}
+#the-hollow-four .hollow-card-footer{letter-spacing:1px}
+#the-hollow-four .hollow-status{background:rgba(var(--pastel-rgb),.07)}
+#the-hollow-four .hollow-detail{position:relative;margin-top:12px;padding:12px 13px;border-radius:13px;background:rgba(var(--pastel-rgb),.07);border:1px dashed rgba(var(--pastel-rgb),.28);color:#d8cedc;font-size:10px;line-height:1.8}
+@media(max-width:650px){#the-hollow-four .hollow-info-grid{grid-template-columns:1fr;padding:0 14px}#the-hollow-four .hollow-intro{padding:21px 18px 25px}}
+
+
 .feature-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .feature{padding:25px 22px;background:linear-gradient(145deg,#19111c,#0b090d);border:1px solid var(--line);box-shadow:0 15px 30px #000}
 .feature .icon{font-size:22px}.feature h3{font:500 24px "Cormorant Garamond",serif;margin:16px 0 9px}.feature p{color:#b6a9bb;font-size:11px;line-height:1.9;margin:0}
@@ -206,6 +260,7 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
     <a href="#nosotros">Sobre nosotros</a>
     <a href="#integrantes">Integrantes</a>
     <a href="#littl3-killa">LITTL3-KILLA</a>
+    <a href="#the-hollow-four">THE HOLLOW FOUR</a>
     <a href="#debut">Debut</a>
     <a href="#guia">Guía para fans</a>
     <a href="#archivo">Archivo</a>
@@ -246,7 +301,7 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
       <div class="statline"><span>Integrantes</span><span>07</span></div>
       <div class="statline"><span>Concepto</span><span>Dark · Emo · Aesthetic</span></div>
       <div class="statline"><span>Proyecto de debut</span><span>MOON</span></div>
-      <div class="statline"><span>Subunidad</span><span>LITTL3-KILLA</span></div>
+      <div class="statline"><span>Subunidades</span><span>LITTL3-KILLA · THE HOLLOW FOUR</span></div>
       <div class="statline"><span>Símbolos</span><span>☾ 🦇 ♱</span></div>
     </article>
   </div>
@@ -449,6 +504,72 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
   </div>
 </section>
 
+
+
+<!-- THE HOLLOW FOUR — nueva subunidad; no altera las tarjetas existentes -->
+<section id="the-hollow-four">
+  <div class="section-head reveal">
+    <div class="kicker">04 — Archivo de subunidades</div>
+    <h2>THE HOLLOW FOUR</h2><div class="rule"></div>
+  </div>
+  <div class="hollow-intro reveal">
+    <div class="hollow-eyebrow">✦ DIGITAL DREAM UNIT ✦</div>
+    <h3 class="hollow-title">Cute face.<br><span>Hollow heart.</span></h3>
+    <p class="hollow-description">Cuatro chicas, un mundo de fantasía digital y una belleza imposible de ignorar. Inspiradas en el brillo futurista, el kawaii y el gyaru, THE HOLLOW FOUR mezcla dulzura, actitud y elegancia en una realidad propia.</p>
+    <span class="hollow-label">♡ 4 members · 1 unreal world ♡</span>
+  </div>
+  <div class="hollow-info-grid reveal">
+    <article class="hollow-info-box">
+      <h4>୨୧ About the unit</h4>
+      <p>THE HOLLOW FOUR es una subunidad femenina de HORROR GAME con una identidad propia: fantasía digital, estética kawaii, detalles gyaru y un toque futurista. Su universo combina colores pastel, brillo, personalidad y una imagen de ensueño con actitud.</p>
+      <div class="hollow-pill-row"><span class="hollow-pill">♡ Kawaii glam</span><span class="hollow-pill">✧ Gyaru touch</span><span class="hollow-pill">☁ Digital fantasy</span><span class="hollow-pill">୨୧ Pastel universe</span></div>
+    </article>
+    <article class="hollow-info-box">
+      <h4>♡ Pre-debut diary</h4>
+      <p>Las cuatro integrantes están en la etapa de pre-debut. Su debut está cada vez más cerca, pero la fecha oficial todavía no ha sido anunciada. Por ahora, este espacio reúne su identidad, sus colores y las pistas de su concepto.</p>
+      <div class="hollow-pill-row"><span class="hollow-pill">STATUS · PRE-DEBUT</span><span class="hollow-pill">COMING SOON ♡</span></div>
+    </article>
+  </div>
+  <div class="hollow-grid">
+    <article class="hollow-card yuni reveal">
+      <div class="hollow-card-top"><div class="hollow-symbol">🦋</div><div class="hollow-number">THF — 001<br>BLUE DREAM</div></div>
+      <h3 class="hollow-name">Yuni</h3><div class="hollow-alias">Karina · Digital Angel</div>
+      <p class="hollow-quote">“Un sueño azul que parece perfecto… hasta que te mira directamente.”</p>
+      <div class="hollow-tags"><span class="hollow-tag">Leader energy</span><span class="hollow-tag">Futuristic</span><span class="hollow-tag">Kawaii chic</span></div>
+      <div class="hollow-meta"><span><strong>COLOR</strong> · Pastel blue</span><span><strong>VIBE</strong> · Dreamy & bold</span></div>
+      <div class="hollow-detail">☁ Su sello visual: destellos azules, energía futurista y una presencia de ensueño. Inspiración de perfil: Karina.</div>
+      <div class="hollow-card-footer"><span>THE HOLLOW FOUR</span><span class="hollow-status">♡ BLUE MEMBER</span></div>
+    </article>
+    <article class="hollow-card jina reveal">
+      <div class="hollow-card-top"><div class="hollow-symbol">❄️</div><div class="hollow-number">THF — 002<br>SILVER VEIL</div></div>
+      <h3 class="hollow-name">Jina</h3><div class="hollow-alias">Winter · Silver Angel</div>
+      <p class="hollow-quote">“Tan delicada como la nieve, tan inolvidable como una luz en la oscuridad.”</p>
+      <div class="hollow-tags"><span class="hollow-tag">Ice princess</span><span class="hollow-tag">Elegant</span><span class="hollow-tag">Soft glam</span></div>
+      <div class="hollow-meta"><span><strong>COLOR</strong> · Silver white</span><span><strong>VIBE</strong> · Pure & icy</span></div>
+      <div class="hollow-detail">❄ Su sello visual: brillo plateado, elegancia fría y una dulzura delicada. Inspiración de perfil: Winter.</div>
+      <div class="hollow-card-footer"><span>THE HOLLOW FOUR</span><span class="hollow-status">♡ SILVER MEMBER</span></div>
+    </article>
+    <article class="hollow-card channel reveal">
+      <div class="hollow-card-top"><div class="hollow-symbol">🪩</div><div class="hollow-number">THF — 003<br>GLITCH DOLL</div></div>
+      <h3 class="hollow-name">Channel</h3><div class="hollow-alias">Giselle · Purple Signal</div>
+      <p class="hollow-quote">“Una muñeca gyaru con actitud propia y una señal que nadie puede apagar.”</p>
+      <div class="hollow-tags"><span class="hollow-tag">Gyaru mood</span><span class="hollow-tag">Cool girl</span><span class="hollow-tag">Digital glitch</span></div>
+      <div class="hollow-meta"><span><strong>COLOR</strong> · Pastel purple</span><span><strong>VIBE</strong> · Playful & fierce</span></div>
+      <div class="hollow-detail">🪩 Su sello visual: accesorios gyaru, actitud cool y pequeños efectos de glitch. Inspiración de perfil: Giselle.</div>
+      <div class="hollow-card-footer"><span>THE HOLLOW FOUR</span><span class="hollow-status">♡ PURPLE MEMBER</span></div>
+    </article>
+    <article class="hollow-card anye reveal">
+      <div class="hollow-card-top"><div class="hollow-symbol">🎀</div><div class="hollow-number">THF — 004<br>PINK FANTASY</div></div>
+      <h3 class="hollow-name">Anye</h3><div class="hollow-alias">Ningning · Kawaii Star</div>
+      <p class="hollow-quote">“Un corazón de fantasía envuelto en rosa, brillo y un poquito de caos.”</p>
+      <div class="hollow-tags"><span class="hollow-tag">Pink princess</span><span class="hollow-tag">Sweet glam</span><span class="hollow-tag">Star power</span></div>
+      <div class="hollow-meta"><span><strong>COLOR</strong> · Pastel pink</span><span><strong>VIBE</strong> · Cute & iconic</span></div>
+      <div class="hollow-detail">🎀 Su sello visual: lazos rosas, fantasía kawaii y una energía brillante con carácter. Inspiración de perfil: Ningning.</div>
+      <div class="hollow-card-footer"><span>THE HOLLOW FOUR</span><span class="hollow-status">♡ PINK MEMBER</span></div>
+    </article>
+  </div>
+</section>
+
 <section id="concepto">
   <div class="section-head reveal">
     <div class="kicker">04 — La atmósfera</div>
@@ -489,7 +610,8 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
     <article class="guide-item reveal"><div class="guide-num">02</div><div><h3>Explora el concepto</h3><p>HORROR GAME combina una estética dark, emo y elegante con una identidad que puede evolucionar en cada nueva era.</p></div></article>
     <article class="guide-item reveal"><div class="guide-num">03</div><div><h3>Descubre MOON</h3><p>Conoce el primer proyecto y su lugar dentro de la historia del grupo. Cada nuevo lanzamiento puede abrir un capítulo diferente.</p></div></article>
     <article class="guide-item reveal"><div class="guide-num">04</div><div><h3>Conoce LITTL3-KILLA</h3><p>Descubre la subunidad formada por Vann, Bluebell y Haru, su concepto killer y su debut con PINK VENOM.</p></div></article>
-    <article class="guide-item reveal"><div class="guide-num">05</div><div><h3>Cuida la comunidad</h3><p>Disfruta el proyecto, comparte tus ideas con respeto y recuerda que detrás de cada perfil hay una persona real.</p></div></article>
+    <article class="guide-item reveal"><div class="guide-num">05</div><div><h3>Conoce a THE HOLLOW FOUR</h3><p>Explora su universo kawaii, gyaru y digital; conoce a Yuni, Jina, Channel y Anye mientras se preparan para su debut.</p></div></article>
+    <article class="guide-item reveal"><div class="guide-num">06</div><div><h3>Cuida la comunidad</h3><p>Disfruta el proyecto, comparte tus ideas con respeto y recuerda que detrás de cada perfil hay una persona real.</p></div></article>
   </div>
 </section>
 
@@ -502,6 +624,7 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
     <div class="archive-row"><div class="archive-date">08.09.2026</div><div><h3>MOON</h3><p>El primer capítulo del universo HORROR GAME.</p></div><div class="archive-status">CAPÍTULO 001</div></div>
     <div class="archive-row"><div class="archive-date">20.09.2026</div><div><h3>LITTL3-KILLA — PINK VENOM</h3><p>Debut de la subunidad con Vann, Bluebell y Haru.</p></div><div class="archive-status">UNIT DEBUT</div></div>
     <div class="archive-row"><div class="archive-date">13.10.2026</div><div><h3>La nueva era</h3><p>Una nueva presentación visual para el sitio y los perfiles.</p></div><div class="archive-status">ACTUALIZACIÓN</div></div>
+    <div class="archive-row"><div class="archive-date">COMING SOON</div><div><h3>THE HOLLOW FOUR DEBUT IS COMING...</h3><p>Yuni, Jina, Channel y Anye se preparan para abrir una nueva era pastel dentro de HORROR GAME. Su debut está cerca; la fecha oficial todavía no se ha revelado.</p></div><div class="archive-status">PRE-DEBUT ♡</div></div>
     <div class="archive-row"><div class="archive-date">POR DEFINIR</div><div><h3>Próxima transmisión</h3><p>El siguiente registro aparecerá cuando haya una nueva actualización.</p></div><div class="archive-status">BLOQUEADO</div></div>
   </div>
 </section>
@@ -543,13 +666,22 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
 <section id="faq">
   <div class="section-head reveal"><div class="kicker">10 — Dudas frecuentes</div><h2>Preguntas desde las sombras.</h2><div class="rule"></div></div>
   <div class="faq reveal">
-    <details><summary>¿Qué es HORROR GAME?</summary><p>Es un proyecto ficticio de K-pop con una identidad dark, emo y aesthetic, perfiles de integrantes y una historia que puede evolucionar con nuevos proyectos.</p></details>
-    <details><summary>¿Cuántas integrantes hay?</summary><p>El grupo cuenta con siete integrantes: Jina, Vann, Bluebell, Haru, Anye, Channel y Yuni.</p></details>
-    <details><summary>¿Qué es LITTL3-KILLA?</summary><p>Es una subunidad de HORROR GAME formada por Vann, Bluebell y Haru, con un concepto oscuro, killer y elegante.</p></details>
-    <details><summary>¿Cuándo debutó LITTL3-KILLA?</summary><p>Su debut fue el 20 de septiembre de 2026 con PINK VENOM.</p></details>
-    <details><summary>¿Cuál es el proyecto de debut del grupo?</summary><p>El primer proyecto se llama MOON y su fecha indicada es el 8 de septiembre de 2026.</p></details>
-    <details><summary>¿La historia cambiará?</summary><p>Sí. La página está pensada para actualizarse conforme se creen nuevas eras, anuncios, proyectos y capítulos.</p></details>
-    <details><summary>¿Cómo puedo conocer a las integrantes?</summary><p>Visita la sección de integrantes para ver sus edades, posiciones, colores, símbolos, inspiraciones y frases personales.</p></details>
+    **Summary:**
+¿Qué es HORROR GAME?<p>Es un proyecto ficticio de K-pop con una identidad dark, emo y aesthetic, perfiles de integrantes y una historia que puede evolucionar con nuevos proyectos.</p>
+    **Summary:**
+¿Cuántas integrantes hay?<p>El grupo cuenta con siete integrantes: Jina, Vann, Bluebell, Haru, Anye, Channel y Yuni.</p>
+    **Summary:**
+¿Qué es LITTL3-KILLA?<p>Es una subunidad de HORROR GAME formada por Vann, Bluebell y Haru, con un concepto oscuro, killer y elegante.</p>
+    **Summary:**
+¿Qué es THE HOLLOW FOUR?<p>Es una subunidad de HORROR GAME formada por Yuni, Jina, Channel y Anye. Su concepto combina kawaii, gyaru, fantasía digital y colores pastel. Actualmente está en pre-debut y su debut está cercano, pero aún no tiene fecha oficial anunciada.</p>
+    **Summary:**
+¿Cuándo debutó LITTL3-KILLA?<p>Su debut fue el 20 de septiembre de 2026 con PINK VENOM.</p>
+    **Summary:**
+¿Cuál es el proyecto de debut del grupo?<p>El primer proyecto se llama MOON y su fecha indicada es el 8 de septiembre de 2026.</p>
+    **Summary:**
+¿La historia cambiará?<p>Sí. La página está pensada para actualizarse conforme se creen nuevas eras, anuncios, proyectos y capítulos.</p>
+    **Summary:**
+¿Cómo puedo conocer a las integrantes?<p>Visita la sección de integrantes para ver sus edades, posiciones, colores, símbolos, inspiraciones y frases personales.</p>
   </div>
 </section>
 
@@ -638,7 +770,16 @@ const questionBank = [
   {q:"¿En qué fecha debutó LITTL3-KILLA?",a:["20 de septiembre de 2026","8 de septiembre de 2026","13 de octubre de 2026","20 de octubre de 2025"],correct:"20 de septiembre de 2026"},
   {q:"¿En qué idol está inspirada Vann dentro de LITTL3-KILLA?",a:["Lalisa","Kim Jisoo","Kim Jennie","Ruka"],correct:"Lalisa"},
   {q:"¿En qué idol está inspirada Bluebell dentro de LITTL3-KILLA?",a:["Kim Jisoo","Kim Jennie","Lalisa","Pharita"],correct:"Kim Jisoo"},
-  {q:"¿En qué idol está inspirado Haru dentro de LITTL3-KILLA?",a:["Kim Jennie","Kim Jisoo","Lalisa","Asa"],correct:"Kim Jennie"}
+  {q:"¿En qué idol está inspirado Haru dentro de LITTL3-KILLA?",a:["Kim Jennie","Kim Jisoo","Lalisa","Asa"],correct:"Kim Jennie"},
+  {q:"¿Cómo se llama la nueva subunidad femenina de HORROR GAME?",a:["THE HOLLOW FOUR","LITTL3-KILLA","MOON","ECHO PROJECT"],correct:"THE HOLLOW FOUR"},
+  {q:"¿Qué cuatro integrantes forman THE HOLLOW FOUR?",a:["Yuni, Jina, Channel y Anye","Vann, Haru, Bluebell y Jina","Yuni, Vann, Haru y Anye","Jina, Bluebell, Channel y Vann"],correct:"Yuni, Jina, Channel y Anye"},
+  {q:"¿En qué etapa está THE HOLLOW FOUR actualmente?",a:["Pre-debut","Ya terminó sus promociones","En su tercer comeback","En pausa indefinida"],correct:"Pre-debut"},
+  {q:"¿Qué color pastel representa a Yuni en THE HOLLOW FOUR?",a:["Azul pastel","Rosa pastel","Morado pastel","Rojo oscuro"],correct:"Azul pastel"},
+  {q:"¿Qué color identifica a Jina en THE HOLLOW FOUR?",a:["Blanco plateado","Verde neón","Azul marino","Naranja"],correct:"Blanco plateado"},
+  {q:"¿Qué color pastel corresponde a Channel?",a:["Morado pastel","Rosa pastel","Azul pastel","Amarillo"],correct:"Morado pastel"},
+  {q:"¿Qué color pastel representa a Anye?",a:["Rosa pastel","Blanco plateado","Morado pastel","Azul pastel"],correct:"Rosa pastel"},
+  {q:"¿Qué mezcla de conceptos define a THE HOLLOW FOUR?",a:["Kawaii, gyaru y fantasía digital","Country y western","Solo concepto deportivo","Retro rock y punk clásico"],correct:"Kawaii, gyaru y fantasía digital"},
+  {q:"¿Ya se anunció la fecha oficial del debut de THE HOLLOW FOUR?",a:["No, todavía no se ha anunciado","Sí, el 8 de septiembre de 2026","Sí, el 20 de septiembre de 2026","Sí, mañana"],correct:"No, todavía no se ha anunciado"}
 ];
 
 const TOTAL_QUESTIONS = 12;
@@ -704,20 +845,20 @@ function showResult() {
   const description = document.getElementById("resultDescription");
   if (score >= 11) {
     title.textContent = "Maestro de las sombras. 🦇";
-    description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Conoces este universo casi de memoria. La oscuridad ya conoce tu nombre.`;
+    description.textContent = `Obtuviste \( {score}/ \){TOTAL_QUESTIONS}. Conoces este universo casi de memoria. La oscuridad ya conoce tu nombre.`;
   } else if (score >= 8) {
     title.textContent = "Una verdadera criatura nocturna. ☾";
-    description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Conoces muy bien a las integrantes. Sigue explorando el universo para descubrir más secretos.`;
+    description.textContent = `Obtuviste \( {score}/ \){TOTAL_QUESTIONS}. Conoces muy bien a las integrantes. Sigue explorando el universo para descubrir más secretos.`;
   } else if (score >= 5) {
     title.textContent = "Perdido entre las sombras. ♱";
-    description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Vas encontrando el camino. Visita los perfiles y vuelve a intentarlo.`;
+    description.textContent = `Obtuviste \( {score}/ \){TOTAL_QUESTIONS}. Vas encontrando el camino. Visita los perfiles y vuelve a intentarlo.`;
   } else {
     title.textContent = "La historia apenas comienza.";
-    description.textContent = `Obtuviste ${score}/${TOTAL_QUESTIONS}. Todo misterio necesita tiempo. Conoce a las integrantes y regresa para otra partida.`;
+    description.textContent = `Obtuviste \( {score}/ \){TOTAL_QUESTIONS}. Todo misterio necesita tiempo. Conoce a las integrantes y regresa para otra partida.`;
   }
 }
 document.getElementById("restartQuiz").addEventListener("click",startQuiz);
 startQuiz();
 </script>
 </body>
-</html>
+                 </html>
