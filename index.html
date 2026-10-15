@@ -84,7 +84,7 @@ section{padding:90px 7%;position:relative}
 .vip-stamp{position:absolute;right:18px;top:72px;z-index:3;writing-mode:vertical-rl;font:8px "DM Mono",monospace;letter-spacing:3px;color:#d6b18d;opacity:.8}
 .member-card.haru .member-symbol{border-color:#b68b69;box-shadow:0 0 20px #b68b6926,inset 0 1px 0 #ffffff1a}
 
-/* LITTL3-KILLA: subunidad killer */
+/* LITTL3-KILLA */
 #littl3-killa{background:radial-gradient(ellipse at 50% 0%,rgba(135,0,27,.19),transparent 45%),linear-gradient(180deg,#080609,#100609 45%,#080609);overflow:hidden}
 .killa-hero{position:relative;max-width:1150px;margin:0 auto 38px;padding:48px 30px;text-align:center;overflow:hidden;border:1px solid #63202d;background:radial-gradient(ellipse at center,rgba(135,0,30,.28),transparent 65%),linear-gradient(145deg,#17080e,#080609 65%);box-shadow:0 30px 80px #000,inset 0 0 45px #9d00151c}
 .killa-hero:before,.killa-hero:after{content:"";position:absolute;pointer-events:none}
@@ -137,9 +137,7 @@ section{padding:90px 7%;position:relative}
 .killa-timeline{max-width:900px;margin:35px auto 0;border-top:1px solid #ffffff17}
 .killa-timeline .archive-row:hover{background:#8e15300e}
 
-
-
-/* THE HOLLOW FOUR — estilos aislados para no modificar las tarjetas originales */
+/* THE HOLLOW FOUR */
 #the-hollow-four .hollow-intro{max-width:1100px;margin:0 auto 26px;padding:0 20px}
 #the-hollow-four .hollow-eyebrow{display:inline-flex;align-items:center;gap:8px;color:#e8c7ff;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
 #the-hollow-four .hollow-title{font-size:clamp(32px,6vw,62px);line-height:.98;letter-spacing:-2px;margin:0 0 14px;text-transform:uppercase}
@@ -168,7 +166,6 @@ section{padding:90px 7%;position:relative}
 #the-hollow-four .hollow-status{border:1px solid rgba(var(--pastel-rgb),.4);border-radius:999px;padding:6px 8px}
 @media(max-width:650px){#the-hollow-four .hollow-grid{grid-template-columns:1fr;padding:0 14px}#the-hollow-four .hollow-intro{padding:0 14px}#the-hollow-four .hollow-card{padding:20px}#the-hollow-four .hollow-title{letter-spacing:-1px}}
 
-/* THE HOLLOW FOUR — cute pre-debut details; scoped to this section only */
 #the-hollow-four{position:relative;overflow:hidden}
 #the-hollow-four .section-head h2{color:#f7e9ff;text-shadow:0 0 24px #d5a0ff30}
 #the-hollow-four .hollow-intro{position:relative;padding:25px 24px 27px;border:1px solid #d5a0ff35;border-radius:24px;background:radial-gradient(ellipse at 100% 0%,#d5a0ff18,transparent 48%),linear-gradient(135deg,#17101d,#0d0a12);box-shadow:0 16px 40px #0004}
@@ -189,7 +186,6 @@ section{padding:90px 7%;position:relative}
 #the-hollow-four .hollow-status{background:rgba(var(--pastel-rgb),.07)}
 #the-hollow-four .hollow-detail{position:relative;margin-top:12px;padding:12px 13px;border-radius:13px;background:rgba(var(--pastel-rgb),.07);border:1px dashed rgba(var(--pastel-rgb),.28);color:#d8cedc;font-size:10px;line-height:1.8}
 @media(max-width:650px){#the-hollow-four .hollow-info-grid{grid-template-columns:1fr;padding:0 14px}#the-hollow-four .hollow-intro{padding:21px 18px 25px}}
-
 
 .feature-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .feature{padding:25px 22px;background:linear-gradient(145deg,#19111c,#0b090d);border:1px solid var(--line);box-shadow:0 15px 30px #000}
@@ -226,9 +222,44 @@ section{padding:90px 7%;position:relative}
 .quiz-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:25px}
 #quizFeedback{font-size:11px;color:#b6a9bb;line-height:1.7}#quizResult{display:none;text-align:center;padding:25px 0}
 #quizResult h3{font:500 44px "Cormorant Garamond",serif;margin:10px 0}#quizResult p{font-size:12px;line-height:1.9;color:#b6a9bb}
-.faq{max-width:800px;margin:auto}details{border-bottom:1px solid var(--line);padding:20px 4px}
-summary{cursor:pointer;list-style:none;font:500 23px "Cormorant Garamond",serif}summary:after{content:"+";float:right;color:#c05270}details[open] summary:after{content:"−"}
-details p{font-size:11px;line-height:1.9;color:#b6a9bb;max-width:680px}
+
+/* ========== FAQ PERSONALIZADO (sin summary) ========== */
+.faq{max-width:800px;margin:auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-question{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 4px;
+  background:none;
+  border:none;
+  color:var(--white);
+  font:500 23px "Cormorant Garamond",serif;
+  text-align:left;
+  cursor:pointer;
+  transition:color .25s;
+}
+.faq-question:hover{color:#e13a58}
+.faq-icon{font-size:22px;color:#c05270;transition:transform .3s}
+.faq-item.active .faq-icon{transform:rotate(45deg)}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease,padding .35s ease;
+}
+.faq-item.active .faq-answer{
+  max-height:220px;
+  padding-bottom:18px;
+}
+.faq-answer p{
+  margin:0;
+  font-size:11px;
+  line-height:1.9;
+  color:#b6a9bb;
+  max-width:680px;
+}
+
 footer{padding:48px 7% 35px;text-align:center;border-top:1px solid var(--line);background:#080609}
 .footer-logo{font:600 34px "Cormorant Garamond",serif;letter-spacing:5px}
 footer p{font-size:10px;color:#a49aa9;line-height:1.9}footer .credit{margin-top:23px;font:9px "DM Mono",monospace;letter-spacing:2px;color:#bca9bc}
@@ -396,7 +427,6 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
   </div>
 </section>
 
-<!-- NUEVA SECCIÓN: LITTL3-KILLA -->
 <section id="littl3-killa">
   <div class="section-head reveal">
     <div class="kicker">03 — Archivo de subunidades</div>
@@ -417,7 +447,6 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
   </div>
 
   <div class="killa-grid">
-
     <article class="killa-card vann reveal">
       <div class="killa-inner">
         <div class="killa-top"><span>SUBUNIT FILE · LK-01</span><span class="killa-status">ACTIVE</span></div>
@@ -474,7 +503,6 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
         <div class="killa-foot"><span>LITTL3-KILLA</span><span>LK-03 · MIDNIGHT</span></div>
       </div>
     </article>
-
   </div>
 
   <div class="killa-feature">
@@ -504,9 +532,6 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
   </div>
 </section>
 
-
-
-<!-- THE HOLLOW FOUR — nueva subunidad; no altera las tarjetas existentes -->
 <section id="the-hollow-four">
   <div class="section-head reveal">
     <div class="kicker">04 — Archivo de subunidades</div>
@@ -663,25 +688,96 @@ nav{align-items:flex-start;flex-direction:column;padding:14px 5%;gap:13px}.navli
   </div>
 </section>
 
+<!-- ========== FAQ PERSONALIZADO (sin summary) ========== -->
 <section id="faq">
-  <div class="section-head reveal"><div class="kicker">10 — Dudas frecuentes</div><h2>Preguntas desde las sombras.</h2><div class="rule"></div></div>
+  <div class="section-head reveal">
+    <div class="kicker">10 — Dudas frecuentes</div>
+    <h2>Preguntas desde las sombras.</h2>
+    <div class="rule"></div>
+  </div>
+
   <div class="faq reveal">
-    **Summary:**
-¿Qué es HORROR GAME?<p>Es un proyecto ficticio de K-pop con una identidad dark, emo y aesthetic, perfiles de integrantes y una historia que puede evolucionar con nuevos proyectos.</p>
-    **Summary:**
-¿Cuántas integrantes hay?<p>El grupo cuenta con siete integrantes: Jina, Vann, Bluebell, Haru, Anye, Channel y Yuni.</p>
-    **Summary:**
-¿Qué es LITTL3-KILLA?<p>Es una subunidad de HORROR GAME formada por Vann, Bluebell y Haru, con un concepto oscuro, killer y elegante.</p>
-    **Summary:**
-¿Qué es THE HOLLOW FOUR?<p>Es una subunidad de HORROR GAME formada por Yuni, Jina, Channel y Anye. Su concepto combina kawaii, gyaru, fantasía digital y colores pastel. Actualmente está en pre-debut y su debut está cercano, pero aún no tiene fecha oficial anunciada.</p>
-    **Summary:**
-¿Cuándo debutó LITTL3-KILLA?<p>Su debut fue el 20 de septiembre de 2026 con PINK VENOM.</p>
-    **Summary:**
-¿Cuál es el proyecto de debut del grupo?<p>El primer proyecto se llama MOON y su fecha indicada es el 8 de septiembre de 2026.</p>
-    **Summary:**
-¿La historia cambiará?<p>Sí. La página está pensada para actualizarse conforme se creen nuevas eras, anuncios, proyectos y capítulos.</p>
-    **Summary:**
-¿Cómo puedo conocer a las integrantes?<p>Visita la sección de integrantes para ver sus edades, posiciones, colores, símbolos, inspiraciones y frases personales.</p>
+    
+    <div class="faq-item">
+      <button class="faq-question" type="button">
+        ¿Qué es HORROR GAME?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Es un proyecto ficticio de K-pop con una identidad dark, emo y aesthetic, perfiles de integrantes y una historia que puede evolucionar con nuevos proyectos.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button">
+        ¿Cuántas integrantes hay?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>El grupo cuenta con siete integrantes: Jina, Vann, Bluebell, Haru, Anye, Channel y Yuni.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button">
+        ¿Qué es LITTL3-KILLA?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Es una subunidad de HORROR GAME formada por Vann, Bluebell y Haru, con un concepto oscuro, killer y elegante.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button">
+        ¿Qué es THE HOLLOW FOUR?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Es una subunidad de HORROR GAME formada por Yuni, Jina, Channel y Anye. Su concepto combina kawaii, gyaru, fantasía digital y colores pastel. Actualmente está en pre-debut y su debut está cercano, pero aún no tiene fecha oficial anunciada.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button">
+        ¿Cuándo debutó LITTL3-KILLA?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Su debut fue el 20 de septiembre de 2026 con PINK VENOM.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button">
+        ¿Cuál es el proyecto de debut del grupo?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>El primer proyecto se llama MOON y su fecha indicada es el 8 de septiembre de 2026.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button">
+        ¿La historia cambiará?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Sí. La página está pensada para actualizarse conforme se creen nuevas eras, anuncios, proyectos y capítulos.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" type="button">
+        ¿Cómo puedo conocer a las integrantes?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Visita la sección de integrantes para ver sus edades, posiciones, colores, símbolos, inspiraciones y frases personales.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -742,7 +838,7 @@ document.getElementById("nextTransmission").addEventListener("click", () => {
   setTimeout(() => {text.textContent = transmissions[next];text.style.opacity = 1;},180);
 });
 
-/* Cuestionario aleatorio */
+/* Cuestionario */
 const questionBank = [
   {q:"¿Qué integrante es lead rapper y center?",a:["Haru","Jina","Yuni","Bluebell"],correct:"Haru"},
   {q:"¿Qué integrante tiene un murciélago como símbolo personal?",a:["Vann","Haru","Anye","Channel"],correct:"Haru"},
@@ -859,6 +955,24 @@ function showResult() {
 }
 document.getElementById("restartQuiz").addEventListener("click",startQuiz);
 startQuiz();
+
+/* ========== FAQ PERSONALIZADO ========== */
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    const isActive = item.classList.contains('active');
+
+    // Cerrar todos
+    document.querySelectorAll('.faq-item').forEach(el => {
+      el.classList.remove('active');
+    });
+
+    // Abrir el clickeado si no estaba abierto
+    if (!isActive) {
+      item.classList.add('active');
+    }
+  });
+});
 </script>
 </body>
   </html>
